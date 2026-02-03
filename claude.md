@@ -111,8 +111,9 @@ CREATE TABLE rewards (
 
 ## 📊 Analytics & Tracking
 
-### Website Analytics (RECOMMENDED)
-- Add privacy-friendly analytics (Plausible, Fathom, or Simple Analytics)
+### Website Analytics (COMPLETED)
+- ✅ Google Analytics (GA4) added — Measurement ID: `G-T8ZBVMT9JE`
+- Dashboard: https://analytics.google.com
 - Track:
   - Page views
   - Button clicks (especially CTA buttons)
@@ -142,14 +143,8 @@ CREATE TABLE rewards (
 - Edit saved memories
 - Download data export
 
-### FAQ Section (SHORT-TERM - EASY WIN)
-Add FAQ section to index.html with common questions:
-- "What happens after my trial ends?"
-- "Can I change my phone number?"
-- "What if I lose my phone?"
-- "How do I export my data?"
-- "Do you support international numbers?"
-- "Can multiple people share an account?"
+### FAQ Section (COMPLETED)
+- ✅ FAQ section added to index.html
 
 ### A/B Testing
 - Test different CTA copy
@@ -258,8 +253,9 @@ Add FAQ section to index.html with common questions:
 
 **Month 1 (Immediate):**
 - ✅ Share buttons (COMPLETED)
-- Add FAQ section
-- Add analytics
+- ✅ FAQ section (COMPLETED)
+- ✅ Analytics - Google Analytics GA4 (COMPLETED)
+- ✅ Desktop contact forms for Get in Touch section (COMPLETED)
 - Optimize logo file size
 
 **Month 2:**
@@ -281,10 +277,8 @@ Add FAQ section to index.html with common questions:
 
 ## 🐛 Known Issues / Technical Debt
 
-### Update Hardcoded Values
-- "87 spots remaining" (lines 1015, 1329 in index.html)
-  - Make dynamic or remove when offer expires
-  - Consider JavaScript countdown or API call
+### ~~Update Hardcoded Values~~ (FIXED)
+- ✅ Hardcoded "87 spots remaining" has been addressed
 
 ### QR Code Dependency
 - External API: `https://api.qrserver.com/v1/create-qr-code/`
@@ -308,10 +302,9 @@ Add FAQ section to index.html with common questions:
 - A2P 10DLC registration (for US carriers)
 - International SMS regulations (if expanding)
 
-### Analytics Tools
-- Plausible: https://plausible.io
-- Fathom: https://usefathom.com
-- Simple Analytics: https://simpleanalytics.com
+### Analytics
+- ✅ Using Google Analytics (GA4) — Measurement ID: `G-T8ZBVMT9JE`
+- Dashboard: https://analytics.google.com
 
 ### Payment Processing
 - Stripe documentation: https://stripe.com/docs
@@ -319,5 +312,5 @@ Add FAQ section to index.html with common questions:
 
 ---
 
-**Last Updated:** 2026-01-30
+**Last Updated:** 2026-02-03
 **Maintained By:** Development Team
