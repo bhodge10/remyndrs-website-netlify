@@ -188,6 +188,49 @@
             box-shadow: 0 4px 12px rgba(74, 144, 164, 0.3);
         }
 
+        /* Mobile/Desktop visibility utilities */
+        .mobile-only {
+            /* visible by default */
+        }
+        .desktop-only-block,
+        .desktop-only-inline,
+        .desktop-only-inline-block,
+        .desktop-only-inline-flex,
+        .desktop-only-flex {
+            display: none !important;
+        }
+
+        @media (min-width: 769px) {
+            .mobile-only {
+                display: none !important;
+            }
+            .desktop-only-block {
+                display: block !important;
+            }
+            .desktop-only-inline {
+                display: inline !important;
+            }
+            .desktop-only-inline-block {
+                display: inline-block !important;
+            }
+            .desktop-only-inline-flex {
+                display: inline-flex !important;
+            }
+            .desktop-only-flex {
+                display: flex !important;
+            }
+        }
+
+        /* Reset button styles for share copy buttons */
+        .share-copy-btn {
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -240,7 +283,7 @@
         <div class="container">
             <h1>Frequently Asked Questions</h1>
             <p>
-                Everything you need to know about Remyndrs. Can't find your answer? <a href="sms:+18555521950&body=QUESTION">Text us your question</a>.
+                Everything you need to know about Remyndrs. Can't find your answer? <span class="mobile-only"><a href="sms:+18555521950&body=QUESTION">Text us your question</a>.</span><span class="desktop-only-inline"><a href="mailto:support@remyndrs.com">Email us your question</a>.</span>
             </p>
         </div>
     </section>
@@ -383,7 +426,10 @@
             <!-- CTA at bottom of FAQ -->
             <div style="text-align: center; margin-top: 60px;">
                 <p style="font-size: 18px; color: #666; margin-bottom: 20px;">Still have questions?</p>
-                <a href="sms:+18555521950&body=QUESTION" class="cta-button">
+                <a href="sms:+18555521950&body=QUESTION" class="cta-button mobile-only">
+                    Ask Us Anything
+                </a>
+                <a href="mailto:support@remyndrs.com" class="cta-button desktop-only-inline-block">
                     Ask Us Anything
                 </a>
             </div>
@@ -397,21 +443,33 @@
 
             <!-- Quick Contact Buttons in Footer -->
             <div class="footer-contact-buttons">
-                <a href="sms:+18555521950&body=SUPPORT" class="footer-contact-btn">
+                <a href="sms:+18555521950&body=SUPPORT" class="footer-contact-btn mobile-only">
                     📞 Support
                 </a>
-                <a href="sms:+18555521950&body=FEEDBACK" class="footer-contact-btn">
+                <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
+                    📞 Support
+                </a>
+                <a href="sms:+18555521950&body=FEEDBACK" class="footer-contact-btn mobile-only">
                     💬 Feedback
                 </a>
-                <a href="sms:+18555521950&body=QUESTION" class="footer-contact-btn">
+                <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
+                    💬 Feedback
+                </a>
+                <a href="sms:+18555521950&body=QUESTION" class="footer-contact-btn mobile-only">
+                    ❓ Question
+                </a>
+                <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
                     ❓ Question
                 </a>
                 <a href="mailto:support@remyndrs.com" class="footer-contact-btn">
                     ✉️ Email
                 </a>
-                <a href="sms:?&body=I'm loving Remyndrs! 📱 Never forget anything again. Text START to +1 (855) 552-1950 for a free trial" class="footer-contact-btn" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);">
+                <a href="sms:?&body=I'm loving Remyndrs! 📱 Never forget anything again. Text START to +1 (855) 552-1950 for a free trial" class="footer-contact-btn mobile-only" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);">
                     📤 Share
                 </a>
+                <button class="footer-contact-btn desktop-only-inline-flex share-copy-btn" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green); color: white;">
+                    📤 Share
+                </button>
             </div>
 
             <p>&copy; 2026 Remyndrs. All rights reserved.</p>
@@ -427,6 +485,39 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Desktop: Clipboard copy handler for share buttons
+            document.querySelectorAll('.share-copy-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var shareMessage = "I'm loving Remyndrs! Never forget anything again. Text START to +1 (855) 552-1950 for a free trial";
+                    var button = this;
+
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(shareMessage).then(function() {
+                            showCopiedFeedback(button);
+                        });
+                    } else {
+                        var textarea = document.createElement('textarea');
+                        textarea.value = shareMessage;
+                        textarea.style.position = 'fixed';
+                        textarea.style.opacity = '0';
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                        showCopiedFeedback(button);
+                    }
+                });
+            });
+
+            function showCopiedFeedback(button) {
+                var originalText = button.innerHTML;
+                button.textContent = 'Copied!';
+                setTimeout(function() {
+                    button.innerHTML = originalText;
+                }, 2000);
+            }
+
             // FAQ Accordion
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {

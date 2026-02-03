@@ -297,6 +297,49 @@
             transform: translateY(-2px);
         }
 
+        /* Mobile/Desktop visibility utilities */
+        .mobile-only {
+            /* visible by default */
+        }
+        .desktop-only-block,
+        .desktop-only-inline,
+        .desktop-only-inline-block,
+        .desktop-only-inline-flex,
+        .desktop-only-flex {
+            display: none !important;
+        }
+
+        @media (min-width: 769px) {
+            .mobile-only {
+                display: none !important;
+            }
+            .desktop-only-block {
+                display: block !important;
+            }
+            .desktop-only-inline {
+                display: inline !important;
+            }
+            .desktop-only-inline-block {
+                display: inline-block !important;
+            }
+            .desktop-only-inline-flex {
+                display: inline-flex !important;
+            }
+            .desktop-only-flex {
+                display: flex !important;
+            }
+        }
+
+        /* Reset button styles for share copy buttons */
+        .share-copy-btn {
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .page-hero h1 {
@@ -537,8 +580,10 @@
         <div class="container">
             <h2>Ready to Try It?</h2>
             <p>Text us and see how easy it is</p>
-            <a href="sms:+18555521950&body=START" class="cta-button cta-sms-button" aria-label="Start free trial" data-mobile-text="Click to Start Free Trial" data-desktop-text="Text START to +1 (855) 552-1950">Text START to +1 (855) 552-1950</a>
-            <p style="font-size: 12px; color: rgba(255,255,255,0.9); margin-top: 15px; line-height: 1.6;">By texting START, you agree to receive automated SMS messages from Remyndrs. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe or HELP for help. <a href="privacy.html" style="color: white; text-decoration: underline;">Privacy Policy</a> | <a href="terms.html" style="color: white; text-decoration: underline;">Terms</a></p>
+            <a href="sms:+18555521950&body=START" class="cta-button cta-sms-button mobile-only" aria-label="Start free trial" data-mobile-text="Click to Start Free Trial" data-desktop-text="Text START to +1 (855) 552-1950">Text START to +1 (855) 552-1950</a>
+            <a href="index.html#hero" class="cta-button desktop-only-inline-block" style="background: white; color: var(--primary-blue);">Get Started Now</a>
+            <p class="mobile-only" style="font-size: 12px; color: rgba(255,255,255,0.9); margin-top: 15px; line-height: 1.6;">By texting START, you agree to receive automated SMS messages from Remyndrs. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe or HELP for help. <a href="privacy.html" style="color: white; text-decoration: underline;">Privacy Policy</a> | <a href="terms.html" style="color: white; text-decoration: underline;">Terms</a></p>
+            <p class="desktop-only-block" style="font-size: 12px; color: rgba(255,255,255,0.9); margin-top: 15px; line-height: 1.6;">Sign up on our home page to start your free 14-day trial. No credit card required. <a href="privacy.html" style="color: white; text-decoration: underline;">Privacy Policy</a> | <a href="terms.html" style="color: white; text-decoration: underline;">Terms</a></p>
         </div>
     </section>
 
@@ -547,21 +592,33 @@
         <div class="container">
             <!-- Quick Contact Buttons in Footer -->
             <div class="footer-contact-buttons">
-                <a href="sms:+18555521950&body=SUPPORT" class="footer-contact-btn">
+                <a href="sms:+18555521950&body=SUPPORT" class="footer-contact-btn mobile-only">
                     📞 Support
                 </a>
-                <a href="sms:+18555521950&body=FEEDBACK" class="footer-contact-btn">
+                <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
+                    📞 Support
+                </a>
+                <a href="sms:+18555521950&body=FEEDBACK" class="footer-contact-btn mobile-only">
                     💬 Feedback
                 </a>
-                <a href="sms:+18555521950&body=QUESTION" class="footer-contact-btn">
+                <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
+                    💬 Feedback
+                </a>
+                <a href="sms:+18555521950&body=QUESTION" class="footer-contact-btn mobile-only">
+                    ❓ Question
+                </a>
+                <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
                     ❓ Question
                 </a>
                 <a href="mailto:support@remyndrs.com" class="footer-contact-btn">
                     ✉️ Email
                 </a>
-                <a href="sms:?&body=I'm loving Remyndrs! 📱 Never forget anything again. Text START to +1 (855) 552-1950 for a free trial" class="footer-contact-btn" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);">
+                <a href="sms:?&body=I'm loving Remyndrs! 📱 Never forget anything again. Text START to +1 (855) 552-1950 for a free trial" class="footer-contact-btn mobile-only" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);">
                     📤 Share
                 </a>
+                <button class="footer-contact-btn desktop-only-inline-flex share-copy-btn" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green); color: white;">
+                    📤 Share
+                </button>
             </div>
 
             <p>&copy; 2026 Remyndrs. All rights reserved.</p>
@@ -571,6 +628,39 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Desktop: Clipboard copy handler for share buttons
+            document.querySelectorAll('.share-copy-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var shareMessage = "I'm loving Remyndrs! Never forget anything again. Text START to +1 (855) 552-1950 for a free trial";
+                    var button = this;
+
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(shareMessage).then(function() {
+                            showCopiedFeedback(button);
+                        });
+                    } else {
+                        var textarea = document.createElement('textarea');
+                        textarea.value = shareMessage;
+                        textarea.style.position = 'fixed';
+                        textarea.style.opacity = '0';
+                        document.body.appendChild(textarea);
+                        textarea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textarea);
+                        showCopiedFeedback(button);
+                    }
+                });
+            });
+
+            function showCopiedFeedback(button) {
+                var originalText = button.innerHTML;
+                button.textContent = 'Copied!';
+                setTimeout(function() {
+                    button.innerHTML = originalText;
+                }, 2000);
+            }
+
             // Detect if user is on mobile device
             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
