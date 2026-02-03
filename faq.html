@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - Remyndrs | SMS Reminder Service</title>
+    <meta name="description" content="Find answers to common questions about Remyndrs. Learn about pricing, privacy, carriers, cancellation, and more.">
+    <link rel="icon" type="image/png" href="remyndrs-logo.png">
+    <link rel="alternate icon" type="image/svg+xml" href="remyndrs-logo.svg">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://remyndrs.com/faq.html">
+    <meta property="og:title" content="Frequently Asked Questions - Remyndrs">
+    <meta property="og:description" content="Find answers to common questions about Remyndrs. Learn about pricing, privacy, carriers, cancellation, and more.">
+    <meta property="og:image" content="https://remyndrs.com/remyndrs-logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://remyndrs.com/faq.html">
+    <meta property="twitter:title" content="Frequently Asked Questions - Remyndrs">
+    <meta property="twitter:description" content="Find answers to common questions about Remyndrs. Learn about pricing, privacy, carriers, cancellation, and more.">
+    <meta property="twitter:image" content="https://remyndrs.com/remyndrs-logo.png">
+
+    <style>
+        :root {
+            --primary-blue: #4A90A4;
+            --success-green: #50B688;
+            --text-dark: #3D4F5C;
+            --bg-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #F0F7FB 0%, #F0FAF7 100%);
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, #D6EAF8 0%, #D5F4E6 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .page-hero p a {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        footer a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            opacity: 1;
+        }
+
+        .footer-contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .footer-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-contact-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 164, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 0;
+                font-size: 14px;
+            }
+
+            .page-hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="remyndrs-logo.png" alt="Remyndrs">
+                </a>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#how-it-works">How It Works</a>
+                    <a href="commands.html">Commands</a>
+                    <a href="index.html#pricing">Pricing</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="index.html#contact">Contact</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>
+                Everything you need to know about Remyndrs. Can't find your answer? <a href="sms:+18555521950&body=QUESTION">Text us your question</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <!-- FAQ 1 -->
+                <div class="faq-item" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: box-shadow 0.3s;">
+                    <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 20px; color: var(--text-dark); margin: 0;">How much do SMS messages cost?</h3>
+                        <span class="faq-toggle" style="font-size: 24px; color: var(--primary-blue); font-weight: bold;">+</span>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--bg-light); color: #666; line-height: 1.8;">
+                            <strong>Remyndrs is free or $6.99/month for Premium</strong> (no per-message charges from us). However, <strong>standard SMS rates from your mobile carrier may apply</strong>. If you have an unlimited texting plan, Remyndrs messages are covered. If you pay per text, check your carrier's SMS pricing. Most modern plans include unlimited texting.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: box-shadow 0.3s;">
+                    <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 20px; color: var(--text-dark); margin: 0;">What happens after my free trial?</h3>
+                        <span class="faq-toggle" style="font-size: 24px; color: var(--primary-blue); font-weight: bold;">+</span>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--bg-light); color: #666; line-height: 1.8;">
+                            After 14 days, <strong>your account automatically moves to the free tier</strong>—you won't be charged. The free tier includes 2 reminders/day, 5 lists, and 5 memories. <strong>All your data is preserved.</strong> You can upgrade to Premium anytime by texting UPGRADE. We'll send you reminders on days 7, 13, and 14 so there are no surprises.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: box-shadow 0.3s;">
+                    <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 20px; color: var(--text-dark); margin: 0;">How do I cancel?</h3>
+                        <span class="faq-toggle" style="font-size: 24px; color: var(--primary-blue); font-weight: bold;">+</span>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--bg-light); color: #666; line-height: 1.8;">
+                            Super easy! Text <strong>CANCEL</strong> or <strong>STOP</strong> to opt out completely. To cancel Premium but keep using the free tier, text <strong>ACCOUNT</strong> and follow the link to the Stripe Customer Portal. Cancellation takes effect at the end of your billing period, and <strong>you keep all your data</strong>. No hidden fees, no hassle.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: box-shadow 0.3s;">
+                    <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 20px; color: var(--text-dark); margin: 0;">Is my data private and secure?</h3>
+                        <span class="faq-toggle" style="font-size: 24px; color: var(--primary-blue); font-weight: bold;">+</span>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--bg-light); color: #666; line-height: 1.8;">
+                            Yes! <strong>All data is encrypted</strong> (in transit with TLS, at rest with AES-256). We <strong>never sell your data</strong>, never show ads, and never share with third parties except trusted service providers (Twilio for SMS, OpenAI for AI processing, Stripe for payments). You can delete everything anytime by texting "DELETE ACCOUNT". See our <a href="privacy.html" style="color: var(--primary-blue); text-decoration: underline;">Privacy Policy</a> for full details.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: box-shadow 0.3s;">
+                    <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 20px; color: var(--text-dark); margin: 0;">What carriers do you support?</h3>
+                        <span class="faq-toggle" style="font-size: 24px; color: var(--primary-blue); font-weight: bold;">+</span>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--bg-light); color: #666; line-height: 1.8;">
+                            Remyndrs works with <strong>all major U.S. carriers</strong>: AT&T, Verizon, T-Mobile, Sprint, U.S. Cellular, Cricket, Metro by T-Mobile, and most prepaid/MVNO carriers. If you can send and receive regular text messages, Remyndrs will work. Even flip phones!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: box-shadow 0.3s;">
+                    <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 20px; color: var(--text-dark); margin: 0;">Can I use this internationally?</h3>
+                        <span class="faq-toggle" style="font-size: 24px; color: var(--primary-blue); font-weight: bold;">+</span>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--bg-light); color: #666; line-height: 1.8;">
+                            Currently, Remyndrs is <strong>optimized for U.S. phone numbers</strong>. International support is limited but may work depending on your carrier. <strong>International SMS rates from your carrier will apply.</strong> Contact us at <a href="mailto:support@remyndrs.com" style="color: var(--primary-blue); text-decoration: underline;">support@remyndrs.com</a> to check availability in your country.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: box-shadow 0.3s;">
+                    <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 20px; color: var(--text-dark); margin: 0;">How does the AI understand my messages?</h3>
+                        <span class="faq-toggle" style="font-size: 24px; color: var(--primary-blue); font-weight: bold;">+</span>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--bg-light); color: #666; line-height: 1.8;">
+                            Remyndrs uses <strong>OpenAI's GPT-4o-mini</strong> for natural language processing. Just text like you're talking to a friend: "Remind me to call mom tomorrow at 2pm" or "What's my WiFi password?" The AI extracts dates, times, and intent. If it's unsure, it'll ask for clarification. <strong>No commands to memorize!</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="faq-item" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: box-shadow 0.3s;">
+                    <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 20px; color: var(--text-dark); margin: 0;">Can I share lists with family or friends?</h3>
+                        <span class="faq-toggle" style="font-size: 24px; color: var(--primary-blue); font-weight: bold;">+</span>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--bg-light); color: #666; line-height: 1.8;">
+                            Not yet, but it's coming! A <strong>Family Plan</strong> is in development that will let you share lists and reminders with up to 5 family members. Each person will have their own privacy controls. Text START to join the waitlist and be notified when it launches!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div class="faq-item" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: box-shadow 0.3s;">
+                    <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 20px; color: var(--text-dark); margin: 0;">What if I lose my phone?</h3>
+                        <span class="faq-toggle" style="font-size: 24px; color: var(--primary-blue); font-weight: bold;">+</span>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--bg-light); color: #666; line-height: 1.8;">
+                            <strong>Your data is tied to your phone number</strong>, not your device. If you get a new phone with the same number, just text START and you'll have access to all your reminders, lists, and memories. If you get a new number, email <a href="mailto:support@remyndrs.com" style="color: var(--primary-blue); text-decoration: underline;">support@remyndrs.com</a> and we'll help transfer your account.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 10 -->
+                <div class="faq-item" style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; transition: box-shadow 0.3s;">
+                    <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 20px; color: var(--text-dark); margin: 0;">How do I export my data?</h3>
+                        <span class="faq-toggle" style="font-size: 24px; color: var(--primary-blue); font-weight: bold;">+</span>
+                    </div>
+                    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+                        <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--bg-light); color: #666; line-height: 1.8;">
+                            Email <a href="mailto:support@remyndrs.com" style="color: var(--primary-blue); text-decoration: underline;">support@remyndrs.com</a> with "Data Export Request" in the subject line. We'll send you a <strong>JSON file with all your data</strong> (reminders, lists, memories) within 7 business days. You own your data—take it with you anytime!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA at bottom of FAQ -->
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="font-size: 18px; color: #666; margin-bottom: 20px;">Still have questions?</p>
+                <a href="sms:+18555521950&body=QUESTION" class="cta-button">
+                    Ask Us Anything
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <img src="remyndrs-logo.png" alt="Remyndrs" style="width: 100px; height: auto; margin: 0 auto 20px; display: block; opacity: 0.8;">
+
+            <!-- Quick Contact Buttons in Footer -->
+            <div class="footer-contact-buttons">
+                <a href="sms:+18555521950&body=SUPPORT" class="footer-contact-btn">
+                    📞 Support
+                </a>
+                <a href="sms:+18555521950&body=FEEDBACK" class="footer-contact-btn">
+                    💬 Feedback
+                </a>
+                <a href="sms:+18555521950&body=QUESTION" class="footer-contact-btn">
+                    ❓ Question
+                </a>
+                <a href="mailto:support@remyndrs.com" class="footer-contact-btn">
+                    ✉️ Email
+                </a>
+                <a href="sms:?&body=I'm loving Remyndrs! 📱 Never forget anything again. Text START to +1 (855) 552-1950 for a free trial" class="footer-contact-btn" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);">
+                    📤 Share
+                </a>
+            </div>
+
+            <p>&copy; 2026 Remyndrs. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="index.html" style="color: white; opacity: 0.8; text-decoration: none;">Home</a> •
+                <a href="privacy.html" style="color: white; opacity: 0.8; text-decoration: none;">Privacy Policy</a> •
+                <a href="terms.html" style="color: white; opacity: 0.8; text-decoration: none;">Terms of Service</a> •
+                <a href="mailto:support@remyndrs.com" style="color: white; opacity: 0.8; text-decoration: none;">Contact</a>
+            </p>
+            <p style="margin-top: 10px;">Built with ❤️ to help you remember what matters</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const toggle = item.querySelector('.faq-toggle');
+
+                question.addEventListener('click', function() {
+                    const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+                    // Close all other FAQs
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.querySelector('.faq-answer').style.maxHeight = '0';
+                            otherItem.querySelector('.faq-toggle').textContent = '+';
+                            otherItem.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+                        }
+                    });
+
+                    // Toggle current FAQ
+                    if (isOpen) {
+                        answer.style.maxHeight = '0';
+                        toggle.textContent = '+';
+                        item.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        toggle.textContent = '−';
+                        item.style.boxShadow = '0 4px 16px rgba(74, 144, 164, 0.2)';
+                    }
+                });
+
+                // Hover effect
+                item.addEventListener('mouseenter', function() {
+                    if (!answer.style.maxHeight || answer.style.maxHeight === '0px') {
+                        item.style.boxShadow = '0 4px 12px rgba(0,0,0,0.12)';
+                    }
+                });
+
+                item.addEventListener('mouseleave', function() {
+                    if (!answer.style.maxHeight || answer.style.maxHeight === '0px') {
+                        item.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
