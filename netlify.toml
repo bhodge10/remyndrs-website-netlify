@@ -1,3 +1,4 @@
+# Remyndrs static site configuration
 [build]
   publish = "."
   command = "echo 'No build command needed - static site'"
