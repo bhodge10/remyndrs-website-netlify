@@ -1070,6 +1070,38 @@
             font-size: 24px;
         }
 
+        .share-message-preview {
+            max-width: 520px;
+            margin: 24px auto 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px 24px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #555;
+            text-align: left;
+            font-style: italic;
+            position: relative;
+        }
+
+        .share-message-preview::before {
+            content: '\201C';
+            position: absolute;
+            top: 8px;
+            left: 12px;
+            font-size: 32px;
+            color: var(--success-green);
+            font-style: normal;
+            line-height: 1;
+        }
+
+        .share-message-preview p {
+            font-size: 15px;
+            margin-bottom: 0;
+            padding-left: 16px;
+        }
+
         /* Desktop Signup Form */
         #phoneInput:focus {
             outline: none;
@@ -1089,60 +1121,105 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 60px;
-            height: 60px;
+            height: 50px;
+            padding: 0 20px;
             background: linear-gradient(135deg, var(--success-green) 0%, #6BCFA0 100%);
-            border-radius: 50%;
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 8px;
             box-shadow: 0 4px 20px rgba(80, 182, 136, 0.4);
             cursor: pointer;
             z-index: 999;
             transition: all 0.3s ease;
             text-decoration: none;
             color: white;
-            font-size: 28px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .floating-share-btn .share-icon {
+            font-size: 20px;
+            line-height: 1;
         }
 
         .floating-share-btn:hover {
-            transform: translateY(-5px) scale(1.1);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 6px 24px rgba(80, 182, 136, 0.6);
         }
 
         .floating-share-btn:active {
-            transform: translateY(-2px) scale(1.05);
+            transform: translateY(-2px) scale(1.02);
         }
 
-        /* Tooltip for floating button */
-        .floating-share-btn::before {
-            content: 'Share Remyndrs';
+        /* Tooltip for floating share button - shows message preview on hover */
+        .floating-share-btn::after {
+            content: 'I\2019ve been using Remyndrs and it\2019s a game-changer \2014 just text your reminders and it handles the rest. No app to download, no notifications to manage. Try it free: remyndrs.com';
             position: absolute;
-            right: 70px;
-            background: var(--text-dark);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 8px;
+            right: 100%;
+            margin-right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            color: #555;
+            padding: 16px 20px;
+            border-radius: 12px;
             font-size: 14px;
-            white-space: nowrap;
+            line-height: 1.6;
+            white-space: normal;
+            width: 280px;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.3s;
-            font-weight: 600;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e0e0e0;
+            font-weight: 400;
+            font-style: italic;
+            text-align: left;
+        }
+
+        .floating-share-btn:hover::after {
+            opacity: 1;
+        }
+
+        /* Arrow for tooltip */
+        .floating-share-btn::before {
+            content: '';
+            position: absolute;
+            right: 100%;
+            margin-right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 7px solid transparent;
+            border-left-color: white;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            filter: drop-shadow(2px 0 2px rgba(0, 0, 0, 0.1));
         }
 
         .floating-share-btn:hover::before {
             opacity: 1;
         }
 
-        /* Hide floating button on mobile to avoid conflict with other buttons */
         @media (max-width: 768px) {
             .floating-share-btn {
                 bottom: 20px;
                 right: 20px;
-                width: 55px;
-                height: 55px;
-                font-size: 24px;
+                height: 46px;
+                padding: 0 16px;
+                font-size: 15px;
+            }
+
+            .floating-share-btn .share-icon {
+                font-size: 18px;
+            }
+
+            /* Hide tooltip on mobile (hover doesn't work on touch) */
+            .floating-share-btn::after,
+            .floating-share-btn::before {
+                display: none;
             }
         }
 
@@ -1392,11 +1469,23 @@
             line-height: inherit;
         }
 
-        /* "Copied!" tooltip for floating share button */
+        /* "Copied!" feedback for floating share button */
+        .floating-share-btn[data-copied] .share-label {
+            display: none;
+        }
+
+        .floating-share-btn .share-copied-text {
+            display: none;
+        }
+
+        .floating-share-btn[data-copied] .share-copied-text {
+            display: inline;
+        }
+
+        /* Hide tooltip when showing "Copied!" feedback */
+        .floating-share-btn[data-copied]::after,
         .floating-share-btn[data-copied]::before {
-            content: 'Copied!' !important;
-            opacity: 1 !important;
-            background: var(--success-green);
+            display: none;
         }
 
     </style>
@@ -1661,7 +1750,7 @@
             <h2>Love What You See? Share It!</h2>
             <p>Know someone who's always forgetting things? Share Remyndrs with friends and family!</p>
 
-            <a href="sms:?&body=I'm loving Remyndrs! 📱 Never forget anything again. Text START to +1 (855) 552-1950 for a free trial" class="share-btn mobile-only">
+            <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com" class="share-btn mobile-only">
                 <span class="share-btn-icon">📤</span>
                 <span>Share via Text</span>
             </a>
@@ -1669,6 +1758,10 @@
                 <span class="share-btn-icon">📤</span>
                 <span>Copy Share Message</span>
             </button>
+
+            <div class="share-message-preview desktop-only-block">
+                <p>I've been using Remyndrs and it's a game-changer — just text your reminders and it handles the rest. No app to download, no notifications to manage. Try it free: remyndrs.com</p>
+            </div>
 
             <p class="mobile-only" style="font-size: 14px; color: #999; margin-top: 20px;">
                 Opens your messaging app • Choose who to send to • Message pre-filled and ready!
@@ -2295,7 +2388,7 @@
                 <a href="mailto:support@remyndrs.com" class="footer-contact-btn">
                     ✉️ Email
                 </a>
-                <a href="sms:?&body=I'm loving Remyndrs! 📱 Never forget anything again. Text START to +1 (855) 552-1950 for a free trial" class="footer-contact-btn mobile-only" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);">
+                <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com" class="footer-contact-btn mobile-only" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);">
                     📤 Share
                 </a>
                 <button class="footer-contact-btn desktop-only-inline-flex share-copy-btn" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green); color: white;">
@@ -2315,13 +2408,16 @@
     </footer>
 
     <!-- Floating Share Button -->
-    <a href="sms:?&body=I'm loving Remyndrs! 📱 Never forget anything again. Text START to +1 (855) 552-1950 for a free trial"
+    <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com"
        class="floating-share-btn mobile-only"
        aria-label="Share Remyndrs with friends">
-        📤
+        <span class="share-icon">📤</span>
+        <span class="share-label">Share</span>
     </a>
     <button class="floating-share-btn desktop-only-flex share-copy-btn" aria-label="Copy share message">
-        📤
+        <span class="share-icon">📤</span>
+        <span class="share-label">Share</span>
+        <span class="share-copied-text">Copied!</span>
     </button>
 
     <script>
@@ -2628,7 +2724,7 @@
             document.querySelectorAll('.share-copy-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    var shareMessage = "I'm loving Remyndrs! Never forget anything again. Text START to +1 (855) 552-1950 for a free trial";
+                    var shareMessage = "I've been using Remyndrs and it's a game-changer \u2014 just text your reminders and it handles the rest. No app to download, no notifications to manage. Try it free: remyndrs.com";
                     var button = this;
 
                     if (navigator.clipboard && navigator.clipboard.writeText) {
