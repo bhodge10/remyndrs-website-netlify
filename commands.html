@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T8ZBVMT9JE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-T8ZBVMT9JE');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Command Guide - Remyndrs | SMS Reminder Service</title>
@@ -580,8 +589,8 @@
         <div class="container">
             <h2>Ready to Try It?</h2>
             <p>Text us and see how easy it is</p>
-            <a href="sms:+18555521950&body=START" class="cta-button cta-sms-button mobile-only" aria-label="Start free trial" data-mobile-text="Click to Start Free Trial" data-desktop-text="Text START to +1 (855) 552-1950">Text START to +1 (855) 552-1950</a>
-            <a href="index.html#hero" class="cta-button desktop-only-inline-block" style="background: white; color: var(--primary-blue);">Get Started Now</a>
+            <a href="sms:+18555521950&body=START" class="cta-button cta-sms-button mobile-only" aria-label="Start free trial" data-mobile-text="Click to Start Free Trial" data-desktop-text="Text START to +1 (855) 552-1950" onclick="gtag('event','mobile_sms_click',{action:'start',location:'cta',page:'commands'})">Text START to +1 (855) 552-1950</a>
+            <a href="index.html#hero" class="cta-button desktop-only-inline-block" style="background: white; color: var(--primary-blue);" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'cta'})">Get Started Now</a>
             <p class="mobile-only" style="font-size: 12px; color: rgba(255,255,255,0.9); margin-top: 15px; line-height: 1.6;">By texting START, you agree to receive automated SMS messages from Remyndrs. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe or HELP for help. <a href="privacy.html" style="color: white; text-decoration: underline;">Privacy Policy</a> | <a href="terms.html" style="color: white; text-decoration: underline;">Terms</a></p>
             <p class="desktop-only-block" style="font-size: 12px; color: rgba(255,255,255,0.9); margin-top: 15px; line-height: 1.6;">Sign up on our home page to start your free 14-day trial. No credit card required. <a href="privacy.html" style="color: white; text-decoration: underline;">Privacy Policy</a> | <a href="terms.html" style="color: white; text-decoration: underline;">Terms</a></p>
         </div>
@@ -592,19 +601,19 @@
         <div class="container">
             <!-- Quick Contact Buttons in Footer -->
             <div class="footer-contact-buttons">
-                <a href="sms:+18555521950&body=SUPPORT" class="footer-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=SUPPORT" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'support',location:'footer',page:'commands'})">
                     📞 Support
                 </a>
                 <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
                     📞 Support
                 </a>
-                <a href="sms:+18555521950&body=FEEDBACK" class="footer-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=FEEDBACK" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'feedback',location:'footer',page:'commands'})">
                     💬 Feedback
                 </a>
                 <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
                     💬 Feedback
                 </a>
-                <a href="sms:+18555521950&body=QUESTION" class="footer-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=QUESTION" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'question',location:'footer',page:'commands'})">
                     ❓ Question
                 </a>
                 <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
@@ -613,7 +622,7 @@
                 <a href="mailto:support@remyndrs.com" class="footer-contact-btn">
                     ✉️ Email
                 </a>
-                <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com" class="footer-contact-btn mobile-only" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);">
+                <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com" class="footer-contact-btn mobile-only" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);" onclick="gtag('event','mobile_sms_click',{action:'share',location:'footer',page:'commands'})">
                     📤 Share
                 </a>
                 <button class="footer-contact-btn desktop-only-inline-flex share-copy-btn" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green); color: white;">
@@ -638,6 +647,7 @@
                     if (navigator.clipboard && navigator.clipboard.writeText) {
                         navigator.clipboard.writeText(shareMessage).then(function() {
                             showCopiedFeedback(button);
+                            gtag('event', 'share_click', {method: 'copy_clipboard', location: 'footer', page: 'commands'});
                         });
                     } else {
                         var textarea = document.createElement('textarea');
@@ -649,6 +659,7 @@
                         document.execCommand('copy');
                         document.body.removeChild(textarea);
                         showCopiedFeedback(button);
+                        gtag('event', 'share_click', {method: 'copy_clipboard', location: 'footer', page: 'commands'});
                     }
                 });
             });

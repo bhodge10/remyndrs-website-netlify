@@ -1596,7 +1596,7 @@
 
             <!-- Mobile SMS CTA Button (hidden on desktop, shown on mobile) -->
             <div class="mobile-cta-container" style="display: none; margin-top: 30px;">
-                <a href="sms:+18555521950&body=START" class="cta-button cta-sms-button" aria-label="Start free trial">Click to Start Free Trial</a>
+                <a href="sms:+18555521950&body=START" class="cta-button cta-sms-button" aria-label="Start free trial" onclick="gtag('event','mobile_sms_click',{action:'start',location:'hero',page:'index'})">Click to Start Free Trial</a>
                 <p class="sms-disclaimer">By texting START, you agree to receive automated SMS messages from Remyndrs. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe or HELP for help. <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
             </div>
         </div>
@@ -1796,7 +1796,7 @@
             <h2>Love What You See? Share It!</h2>
             <p>Know someone who's always forgetting things? Share Remyndrs with friends and family!</p>
 
-            <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com" class="share-btn mobile-only">
+            <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com" class="share-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'share',location:'share_section',page:'index'})">
                 <span class="share-btn-icon">📤</span>
                 <span>Share via Text</span>
             </a>
@@ -1984,10 +1984,10 @@
                     <strong>Everyone begins the same way:</strong> Text START to try all Premium features free for 14 days. 
                     After your trial, you'll choose which plan works best for you.
                 </p>
-                <a href="sms:+18555521950&body=START" class="pricing-cta mobile-only" style="font-size: 18px; padding: 18px 45px; display: inline-block; background: var(--primary-blue); margin-bottom: 15px;">
+                <a href="sms:+18555521950&body=START" class="pricing-cta mobile-only" style="font-size: 18px; padding: 18px 45px; display: inline-block; background: var(--primary-blue); margin-bottom: 15px;" onclick="gtag('event','mobile_sms_click',{action:'start',location:'pricing',page:'index'})">
                     <span class="cta-sms-text" data-mobile-text="📱 Click to Start Free Trial" data-desktop-text="📱 Text START to +1 (855) 552-1950">📱 Text START to +1 (855) 552-1950</span>
                 </a>
-                <a href="#hero" class="pricing-cta desktop-only-inline-block" style="font-size: 18px; padding: 18px 45px; background: var(--primary-blue); margin-bottom: 15px;">
+                <a href="#hero" class="pricing-cta desktop-only-inline-block" style="font-size: 18px; padding: 18px 45px; background: var(--primary-blue); margin-bottom: 15px;" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'pricing'})">
                     Get Started Now
                 </a>
                 <p class="mobile-only" style="font-size: 14px; color: #999; margin-top: 15px;">
@@ -2006,7 +2006,7 @@
         <div class="container">
             <h2 style="text-align: center; font-size: 42px; margin-bottom: 20px; color: var(--text-dark);">Frequently Asked Questions</h2>
             <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto;">
-                Everything you need to know about Remyndrs. Can't find your answer? <span class="mobile-only"><a href="sms:+18555521950&body=QUESTION" style="color: var(--primary-blue); text-decoration: underline;">Text us your question</a>.</span><span class="desktop-only-inline"><a href="#contact" class="desktop-scroll-to-contact" data-contact-type="question" style="color: var(--primary-blue); text-decoration: underline;">Ask us your question</a>.</span>
+                Everything you need to know about Remyndrs. Can't find your answer? <span class="mobile-only"><a href="sms:+18555521950&body=QUESTION" style="color: var(--primary-blue); text-decoration: underline;" onclick="gtag('event','mobile_sms_click',{action:'question',location:'faq_section',page:'index'})">Text us your question</a>.</span><span class="desktop-only-inline"><a href="#contact" class="desktop-scroll-to-contact" data-contact-type="question" style="color: var(--primary-blue); text-decoration: underline;">Ask us your question</a>.</span>
             </p>
 
             <div style="max-width: 800px; margin: 0 auto;">
@@ -2144,7 +2144,7 @@
             <!-- CTA at bottom of FAQ -->
             <div style="text-align: center; margin-top: 60px;">
                 <p style="font-size: 18px; color: #666; margin-bottom: 20px;">Still have questions?</p>
-                <a href="sms:+18555521950&body=QUESTION" class="cta-button mobile-only" style="display: inline-block; background: var(--primary-blue); color: white; padding: 14px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px;">
+                <a href="sms:+18555521950&body=QUESTION" class="cta-button mobile-only" style="display: inline-block; background: var(--primary-blue); color: white; padding: 14px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px;" onclick="gtag('event','mobile_sms_click',{action:'question',location:'faq_bottom',page:'index'})">
                     Ask Us Anything
                 </a>
                 <a href="#contact" class="cta-button desktop-only-inline-block desktop-scroll-to-contact" data-contact-type="question" style="background: var(--primary-blue); color: white; padding: 14px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px;">
@@ -2197,19 +2197,19 @@
 
             <!-- Quick Contact Buttons -->
             <div class="inline-contact-buttons">
-                <a href="sms:+18555521950&body=SUPPORT" class="inline-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=SUPPORT" class="inline-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'support',location:'privacy',page:'index'})">
                     <span>📞</span> Get Support
                 </a>
                 <a href="#contact" class="inline-contact-btn desktop-only-inline-flex desktop-scroll-to-contact" data-contact-type="support">
                     <span>📞</span> Get Support
                 </a>
-                <a href="sms:+18555521950&body=FEEDBACK" class="inline-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=FEEDBACK" class="inline-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'feedback',location:'privacy',page:'index'})">
                     <span>💬</span> Share Feedback
                 </a>
                 <a href="#contact" class="inline-contact-btn desktop-only-inline-flex desktop-scroll-to-contact" data-contact-type="feedback">
                     <span>💬</span> Share Feedback
                 </a>
-                <a href="sms:+18555521950&body=QUESTION" class="inline-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=QUESTION" class="inline-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'question',location:'privacy',page:'index'})">
                     <span>❓</span> Ask Question
                 </a>
                 <a href="#contact" class="inline-contact-btn desktop-only-inline-flex desktop-scroll-to-contact" data-contact-type="question">
@@ -2282,19 +2282,19 @@
 
             <!-- Mobile: SMS link buttons -->
             <div class="contact-buttons-grid mobile-contact-grid">
-                <a href="sms:+18555521950&body=SUPPORT" class="contact-btn">
+                <a href="sms:+18555521950&body=SUPPORT" class="contact-btn" onclick="gtag('event','mobile_sms_click',{action:'support',location:'contact',page:'index'})">
                     <span class="contact-btn-icon">📞</span>
                     <span>Get Support</span>
                 </a>
-                <a href="sms:+18555521950&body=FEEDBACK" class="contact-btn">
+                <a href="sms:+18555521950&body=FEEDBACK" class="contact-btn" onclick="gtag('event','mobile_sms_click',{action:'feedback',location:'contact',page:'index'})">
                     <span class="contact-btn-icon">💬</span>
                     <span>Share Feedback</span>
                 </a>
-                <a href="sms:+18555521950&body=QUESTION" class="contact-btn">
+                <a href="sms:+18555521950&body=QUESTION" class="contact-btn" onclick="gtag('event','mobile_sms_click',{action:'question',location:'contact',page:'index'})">
                     <span class="contact-btn-icon">❓</span>
                     <span>Ask a Question</span>
                 </a>
-                <a href="sms:+18555521950&body=BUG" class="contact-btn">
+                <a href="sms:+18555521950&body=BUG" class="contact-btn" onclick="gtag('event','mobile_sms_click',{action:'bug',location:'contact',page:'index'})">
                     <span class="contact-btn-icon">🐛</span>
                     <span>Report a Bug</span>
                 </a>
@@ -2399,8 +2399,8 @@
         <div class="container">
             <h2>Ready to Remember Everything?</h2>
             <p>Start your free 14-day trial. No credit card required.</p>
-            <a href="sms:+18555521950&body=START" class="cta-button cta-white cta-sms-button mobile-only" aria-label="Start free trial" data-mobile-text="Click to Start Free Trial" data-desktop-text="Text START to +1 (855) 552-1950">Text START to +1 (855) 552-1950</a>
-            <a href="#hero" class="cta-button cta-white desktop-only-inline-block">Get Started Now</a>
+            <a href="sms:+18555521950&body=START" class="cta-button cta-white cta-sms-button mobile-only" aria-label="Start free trial" data-mobile-text="Click to Start Free Trial" data-desktop-text="Text START to +1 (855) 552-1950" onclick="gtag('event','mobile_sms_click',{action:'start',location:'final_cta',page:'index'})">Text START to +1 (855) 552-1950</a>
+            <a href="#hero" class="cta-button cta-white desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'final_cta'})">Get Started Now</a>
             <p class="sms-disclaimer mobile-only" style="color: rgba(255,255,255,0.9);">By texting START, you agree to receive automated SMS messages from Remyndrs. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe or HELP for help. <a href="privacy.html" style="color: white; text-decoration: underline;">Privacy Policy</a> | <a href="terms.html" style="color: white; text-decoration: underline;">Terms</a></p>
             <p class="sms-disclaimer desktop-only-block" style="color: rgba(255,255,255,0.9);">Enter your phone number at the top to start your free 14-day trial. No credit card required. <a href="privacy.html" style="color: white; text-decoration: underline;">Privacy Policy</a> | <a href="terms.html" style="color: white; text-decoration: underline;">Terms</a></p>
         </div>
@@ -2413,19 +2413,19 @@
 
             <!-- Quick Contact Buttons in Footer -->
             <div class="footer-contact-buttons">
-                <a href="sms:+18555521950&body=SUPPORT" class="footer-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=SUPPORT" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'support',location:'footer',page:'index'})">
                     📞 Support
                 </a>
                 <a href="#contact" class="footer-contact-btn desktop-only-inline-flex desktop-scroll-to-contact" data-contact-type="support">
                     📞 Support
                 </a>
-                <a href="sms:+18555521950&body=FEEDBACK" class="footer-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=FEEDBACK" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'feedback',location:'footer',page:'index'})">
                     💬 Feedback
                 </a>
                 <a href="#contact" class="footer-contact-btn desktop-only-inline-flex desktop-scroll-to-contact" data-contact-type="feedback">
                     💬 Feedback
                 </a>
-                <a href="sms:+18555521950&body=QUESTION" class="footer-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=QUESTION" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'question',location:'footer',page:'index'})">
                     ❓ Question
                 </a>
                 <a href="#contact" class="footer-contact-btn desktop-only-inline-flex desktop-scroll-to-contact" data-contact-type="question">
@@ -2434,7 +2434,7 @@
                 <a href="mailto:support@remyndrs.com" class="footer-contact-btn">
                     ✉️ Email
                 </a>
-                <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com" class="footer-contact-btn mobile-only" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);">
+                <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com" class="footer-contact-btn mobile-only" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);" onclick="gtag('event','mobile_sms_click',{action:'share',location:'footer',page:'index'})">
                     📤 Share
                 </a>
                 <button class="footer-contact-btn desktop-only-inline-flex share-copy-btn" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green); color: white;">
@@ -2456,7 +2456,8 @@
     <!-- Floating Share Button -->
     <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com"
        class="floating-share-btn mobile-only"
-       aria-label="Share Remyndrs with friends">
+       aria-label="Share Remyndrs with friends"
+       onclick="gtag('event','mobile_sms_click',{action:'share',location:'floating',page:'index'})">
         <span class="share-icon">📤</span>
         <span class="share-label">Share</span>
     </a>
@@ -2583,6 +2584,7 @@
                         const data = await response.json();
 
                         if (response.ok && data.success) {
+                            gtag('event', 'signup_form_submit', {status: 'success'});
                             // Show success message
                             successDiv.style.display = 'block';
                             errorDiv.style.display = 'none';
@@ -2593,12 +2595,14 @@
                                 successDiv.style.display = 'none';
                             }, 5000);
                         } else {
+                            gtag('event', 'signup_form_submit', {status: 'error'});
                             // Show error from server
                             errorDiv.style.display = 'block';
                             successDiv.style.display = 'none';
                             errorMessage.textContent = data.error || 'Something went wrong. Please try again.';
                         }
                     } catch (error) {
+                        gtag('event', 'signup_form_submit', {status: 'error'});
                         errorDiv.style.display = 'block';
                         successDiv.style.display = 'none';
                         errorMessage.textContent = 'Something went wrong. Please try texting START to (855) 552-1950 instead.';
@@ -2772,10 +2776,12 @@
                     e.preventDefault();
                     var shareMessage = "I've been using Remyndrs and it's a game-changer \u2014 just text your reminders and it handles the rest. No app to download, no notifications to manage. Try it free: remyndrs.com";
                     var button = this;
+                    var shareLocation = button.classList.contains('floating-share-btn') ? 'floating' : button.closest('.share-section') ? 'share_section' : 'footer';
 
                     if (navigator.clipboard && navigator.clipboard.writeText) {
                         navigator.clipboard.writeText(shareMessage).then(function() {
                             showCopiedFeedback(button);
+                            gtag('event', 'share_click', {method: 'copy_clipboard', location: shareLocation, page: 'index'});
                         });
                     } else {
                         // Fallback for older browsers
@@ -2788,6 +2794,7 @@
                         document.execCommand('copy');
                         document.body.removeChild(textarea);
                         showCopiedFeedback(button);
+                        gtag('event', 'share_click', {method: 'copy_clipboard', location: shareLocation, page: 'index'});
                     }
                 });
             });
@@ -2863,6 +2870,7 @@
                         const data = await response.json();
 
                         if (response.ok && data.success) {
+                            gtag('event', 'contact_form_submit', {contact_type: type, status: 'success'});
                             successDiv.textContent = data.message;
                             successDiv.style.display = 'block';
                             errorDiv.style.display = 'none';
@@ -2875,11 +2883,13 @@
                                 form.closest('.contact-form-card').classList.remove('active');
                             }, 5000);
                         } else {
+                            gtag('event', 'contact_form_submit', {contact_type: type, status: 'error'});
                             errorDiv.textContent = data.error || 'Something went wrong. Please try again.';
                             errorDiv.style.display = 'block';
                             successDiv.style.display = 'none';
                         }
                     } catch (error) {
+                        gtag('event', 'contact_form_submit', {contact_type: type, status: 'error'});
                         errorDiv.textContent = 'Something went wrong. Please try emailing us at support@remyndrs.com instead.';
                         errorDiv.style.display = 'block';
                         successDiv.style.display = 'none';

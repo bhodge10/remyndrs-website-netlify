@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T8ZBVMT9JE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-T8ZBVMT9JE');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frequently Asked Questions - Remyndrs | SMS Reminder Service</title>
@@ -283,7 +292,7 @@
         <div class="container">
             <h1>Frequently Asked Questions</h1>
             <p>
-                Everything you need to know about Remyndrs. Can't find your answer? <span class="mobile-only"><a href="sms:+18555521950&body=QUESTION">Text us your question</a>.</span><span class="desktop-only-inline"><a href="mailto:support@remyndrs.com">Email us your question</a>.</span>
+                Everything you need to know about Remyndrs. Can't find your answer? <span class="mobile-only"><a href="sms:+18555521950&body=QUESTION" onclick="gtag('event','mobile_sms_click',{action:'question',location:'hero',page:'faq'})">Text us your question</a>.</span><span class="desktop-only-inline"><a href="mailto:support@remyndrs.com">Email us your question</a>.</span>
             </p>
         </div>
     </section>
@@ -426,7 +435,7 @@
             <!-- CTA at bottom of FAQ -->
             <div style="text-align: center; margin-top: 60px;">
                 <p style="font-size: 18px; color: #666; margin-bottom: 20px;">Still have questions?</p>
-                <a href="sms:+18555521950&body=QUESTION" class="cta-button mobile-only">
+                <a href="sms:+18555521950&body=QUESTION" class="cta-button mobile-only" onclick="gtag('event','mobile_sms_click',{action:'question',location:'faq_bottom',page:'faq'})">
                     Ask Us Anything
                 </a>
                 <a href="mailto:support@remyndrs.com" class="cta-button desktop-only-inline-block">
@@ -443,19 +452,19 @@
 
             <!-- Quick Contact Buttons in Footer -->
             <div class="footer-contact-buttons">
-                <a href="sms:+18555521950&body=SUPPORT" class="footer-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=SUPPORT" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'support',location:'footer',page:'faq'})">
                     📞 Support
                 </a>
                 <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
                     📞 Support
                 </a>
-                <a href="sms:+18555521950&body=FEEDBACK" class="footer-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=FEEDBACK" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'feedback',location:'footer',page:'faq'})">
                     💬 Feedback
                 </a>
                 <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
                     💬 Feedback
                 </a>
-                <a href="sms:+18555521950&body=QUESTION" class="footer-contact-btn mobile-only">
+                <a href="sms:+18555521950&body=QUESTION" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'question',location:'footer',page:'faq'})">
                     ❓ Question
                 </a>
                 <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
@@ -464,7 +473,7 @@
                 <a href="mailto:support@remyndrs.com" class="footer-contact-btn">
                     ✉️ Email
                 </a>
-                <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com" class="footer-contact-btn mobile-only" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);">
+                <a href="sms:?&body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com" class="footer-contact-btn mobile-only" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);" onclick="gtag('event','mobile_sms_click',{action:'share',location:'footer',page:'faq'})">
                     📤 Share
                 </a>
                 <button class="footer-contact-btn desktop-only-inline-flex share-copy-btn" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green); color: white;">
@@ -495,6 +504,7 @@
                     if (navigator.clipboard && navigator.clipboard.writeText) {
                         navigator.clipboard.writeText(shareMessage).then(function() {
                             showCopiedFeedback(button);
+                            gtag('event', 'share_click', {method: 'copy_clipboard', location: 'footer', page: 'faq'});
                         });
                     } else {
                         var textarea = document.createElement('textarea');
@@ -506,6 +516,7 @@
                         document.execCommand('copy');
                         document.body.removeChild(textarea);
                         showCopiedFeedback(button);
+                        gtag('event', 'share_click', {method: 'copy_clipboard', location: 'footer', page: 'faq'});
                     }
                 });
             });
