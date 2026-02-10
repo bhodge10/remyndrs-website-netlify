@@ -1,3 +1,6 @@
+# Redirects
+/account     /  302
+
 # Proxy API requests to Render backend
 /api/signup  https://sms-reminders-api-1gmm.onrender.com/api/signup  200
 /updates     https://sms-reminders-api-1gmm.onrender.com/updates     200
