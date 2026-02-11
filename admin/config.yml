@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+
+collections:
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - name: "testimonials"
+        label: "All Testimonials"
+        file: "data/testimonials.json"
+        format: "json"
+        fields:
+          - name: "testimonials"
+            label: "Testimonials"
+            widget: "list"
+            fields:
+              - { name: "name", label: "Name", widget: "string", hint: "e.g. Brad S." }
+              - { name: "location", label: "Location", widget: "string", hint: "e.g. Detroit, MI" }
+              - { name: "headline", label: "Headline", widget: "string", hint: "Short quote for the bold heading" }
+              - { name: "quote", label: "Full Quote", widget: "text", hint: "The full testimonial text" }

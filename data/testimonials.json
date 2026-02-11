@@ -1,0 +1,28 @@
+{
+  "testimonials": [
+    {
+      "name": "Brad S.",
+      "location": "Detroit, MI",
+      "headline": "Finally leaving work on time",
+      "quote": "I run a busy IT company and used to work way too late every night. Remyndrs actually gets me out the door on time now. I also use it for reading goals and even shopping lists. Simple, reliable, and it just works."
+    },
+    {
+      "name": "Heather",
+      "location": "Chicago, IL",
+      "headline": "I never miss a text",
+      "quote": "I used to juggle reminders across Outlook, Notes, and my Calendar app. I'd constantly miss things because I wouldn't check them. Remyndrs changed everything\u2014I never miss a text. Now I just text my reminders and it's done. Grocery lists, appointments, even remembering my favorite nail polish color\u2014it's all in one place. So simple, and I actually use it."
+    },
+    {
+      "name": "Jessica",
+      "location": "Boston, MA",
+      "headline": "Like having a personal assistant in your pocket",
+      "quote": "I've been using Remyndrs and honestly\u2026 it's one of those services you don't realize you need until you have it. Being able to simply text things I want to remember and know they'll come back to me at the right time is a game changer. It feels effortless and smart, like having a personal assistant in your pocket. For a brand-new service, Remyndrs is already incredibly useful, and I've started relying on it daily. If you're someone who juggles a lot (or just hates forgetting things), this is absolutely worth trying!"
+    },
+    {
+      "name": "Joey",
+      "location": "Shepherdsville, KY",
+      "headline": "I absolutely love this texting service",
+      "quote": "When I first heard about this app I thought I won't use it. I figured that I can set an alarm to remind me or I could have Alexa set an alarm. Only to have the alarm go off and forget what I set it for. I absolutely love this texting service. I can send a text to Remyndrs and a week later Remyndrs sends me a text reminding me of what the alarm is for."
+    }
+  ]
+}
