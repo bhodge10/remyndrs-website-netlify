@@ -804,6 +804,11 @@
             font-size: 18px;
         }
         
+        .pricing-card li.excluded-feature:before {
+            content: "✗";
+            color: red;
+        }
+
         .pricing-cta {
             display: inline-block;
             background: var(--primary-blue);
@@ -1991,8 +1996,8 @@
                         <li>5 saved memories</li>
                         <li>Natural language processing</li>
                         <li><strong>No credit card required</strong></li>
-                        <li style="list-style: none;"><span style="color: red; font-weight: bold;">✗</span> <strong style="color: red;">No recurring reminders</strong></li>
-                        <li style="list-style: none;"><span style="color: red; font-weight: bold;">✗</span> <strong style="color: red;">No priority support</strong></li>
+                        <li class="excluded-feature"><strong style="color: red;">No recurring reminders</strong></li>
+                        <li class="excluded-feature"><strong style="color: red;">No priority support</strong></li>
                     </ul>
                     <p style="font-size: 13px; color: #666; margin-top: 20px;">Automatically available after trial</p>
                 </div>
