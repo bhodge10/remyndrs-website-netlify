@@ -3,6 +3,13 @@
   publish = "."
   command = "echo 'No build command needed - static site'"
 
+# Redirect www to non-www
+[[redirects]]
+  from = "https://www.remyndrs.com/*"
+  to = "https://remyndrs.com/:splat"
+  status = 301
+  force = true
+
 # Redirect rules (proxy API requests to backend)
 [[redirects]]
   from = "/api/signup"
@@ -20,7 +27,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
+    X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
@@ -54,6 +61,11 @@
 
 [[headers]]
   for = "/*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 

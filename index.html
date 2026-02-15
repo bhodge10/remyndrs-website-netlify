@@ -12,25 +12,30 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remyndrs - Never Forget Anything Again</title>
+    <title>Remyndrs — Your Personal Memory Assistant via SMS | Never Forget Anything</title>
+    <meta name="description" content="Remyndrs is your AI-powered personal memory assistant via text message. Set reminders, save info, create lists — all by SMS. No app needed. Works on any phone. Try free for 14 days.">
     <link rel="icon" type="image/png" href="remyndrs-logo.png">
     <link rel="alternate icon" type="image/svg+xml" href="remyndrs-logo.svg">
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <meta name="description" content="Your personal memory assistant via SMS. Just text it, and we'll remember it for you.">
+    <link rel="canonical" href="https://remyndrs.com/">
+    <meta name="theme-color" content="#4A90A4">
+    <meta name="author" content="Remyndrs">
+    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://remyndrs.com/">
-    <meta property="og:title" content="Remyndrs - Never Forget Anything Again">
-    <meta property="og:description" content="Your personal memory assistant via SMS. Just text it, and we'll remember it for you.">
+    <meta property="og:title" content="Remyndrs — Never Forget Anything Again">
+    <meta property="og:description" content="Your personal memory assistant via SMS. Set reminders, save info, and create lists — all by text message. No app required.">
     <meta property="og:image" content="https://remyndrs.com/remyndrs-logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://remyndrs.com/">
-    <meta property="twitter:title" content="Remyndrs - Never Forget Anything Again">
-    <meta property="twitter:description" content="Your personal memory assistant via SMS. Just text it, and we'll remember it for you.">
-    <meta property="twitter:image" content="https://remyndrs.com/remyndrs-logo.png">
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://remyndrs.com/">
+    <meta name="twitter:title" content="Remyndrs — Never Forget Anything Again">
+    <meta name="twitter:description" content="Your personal memory assistant via SMS. Set reminders, save info, and create lists — all by text message. No app required.">
+    <meta name="twitter:image" content="https://remyndrs.com/remyndrs-logo.png">
     
     <style>
         :root {
@@ -1518,7 +1523,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="remyndrs-logo.png" alt="Remyndrs">
+                    <img src="remyndrs-logo.png" alt="Remyndrs - SMS memory assistant logo" width="180" height="60">
                 </div>
                 <nav>
                     <a href="#how-it-works">How It Works</a>
@@ -1536,7 +1541,7 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="container">
-            <img src="remyndrs-logo.png" alt="Remyndrs" class="hero-logo">
+            <img src="remyndrs-logo.png" alt="Remyndrs - SMS memory assistant logo" class="hero-logo">
 
             <h1>Never Forget Anything Again</h1>
             <p>Your personal memory assistant via SMS. Just text it, and we'll remember it for you.</p>
@@ -2437,7 +2442,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <img src="remyndrs-logo.png" alt="Remyndrs" style="width: 100px; height: auto; margin: 0 auto 20px; display: block; opacity: 0.8;">
+            <img src="remyndrs-logo.png" alt="Remyndrs - SMS memory assistant logo" style="width: 100px; height: auto; margin: 0 auto 20px; display: block; opacity: 0.8;">
 
             <!-- Quick Contact Buttons in Footer -->
             <div class="footer-contact-buttons">
@@ -2935,6 +2940,142 @@
                 if (!user) { window.netlifyIdentity.on("login", function() { document.location.href = "/admin/"; }); }
             });
         }
+    </script>
+
+    <!-- Organization structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Remyndrs",
+      "url": "https://remyndrs.com",
+      "logo": "https://remyndrs.com/remyndrs-logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@remyndrs.com",
+        "contactType": "customer support"
+      },
+      "sameAs": []
+    }
+    </script>
+
+    <!-- SoftwareApplication structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Remyndrs",
+      "description": "AI-powered personal memory assistant via SMS. Set reminders, save information, and create lists by text message.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any (SMS-based)",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Always-Free Tier",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "2 reminders/day, 5 lists, 5 saved memories"
+        },
+        {
+          "@type": "Offer",
+          "name": "Premium",
+          "price": "6.99",
+          "priceCurrency": "USD",
+          "billingIncrement": "month",
+          "description": "Unlimited reminders, 20 lists, unlimited memories, recurring reminders"
+        }
+      ]
+    }
+    </script>
+
+    <!-- FAQPage structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much do SMS messages cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Remyndrs is free or $6.99/month for Premium with no per-message charges. Standard SMS rates from your mobile carrier may apply. Most modern plans include unlimited texting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after my free trial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After 14 days, your account automatically moves to the free tier — you won't be charged. The free tier includes 2 reminders per day, 5 lists, and 5 memories. All your data is preserved. You can upgrade to Premium anytime by texting UPGRADE."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I cancel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Text STOP to unsubscribe from all messages. To cancel Premium but keep using the free tier, text ACCOUNT to manage your subscription through the Stripe Customer Portal. Cancellation takes effect at the end of your billing period and you keep all your data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data private and secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All data is encrypted in transit with TLS and at rest with AES-256. Remyndrs never sells your data, never shows ads, and never shares with third parties except trusted service providers. You can delete everything anytime by texting DELETE ACCOUNT."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What carriers do you support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Remyndrs works with all major U.S. carriers including AT&T, Verizon, T-Mobile, U.S. Cellular, Cricket, Metro by T-Mobile, and most prepaid/MVNO carriers. If you can send and receive regular text messages, Remyndrs will work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this internationally?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Currently, Remyndrs is optimized for U.S. phone numbers. International support is limited but may work depending on your carrier. International SMS rates from your carrier will apply. Contact support@remyndrs.com to check availability in your country."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the AI understand my messages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Remyndrs uses OpenAI's GPT-4o-mini for natural language processing. Just text like you're talking to a friend. The AI extracts dates, times, and intent. If it's unsure, it'll ask for clarification. No commands to memorize."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I share my reminders, lists, memories with family and friends?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not currently, but we're exploring it! For now, each account is tied to a single phone number. Stay tuned for updates on shared features."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I lose my phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your data is tied to your phone number, not your device. If you get a new phone with the same number, just text START and you'll have access to all your reminders, lists, and memories. If you get a new number, email support@remyndrs.com and we'll help transfer your account."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I export my data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Email support@remyndrs.com with 'Data Export Request' in the subject line. We'll send you a JSON file with all your data (reminders, lists, memories) within 7 business days. You own your data — take it with you anytime."
+          }
+        }
+      ]
+    }
     </script>
 </body>
 </html>
