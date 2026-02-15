@@ -19,14 +19,20 @@
     <link rel="canonical" href="https://remyndrs.com/">
     <meta name="theme-color" content="#4A90A4">
     <meta name="author" content="Remyndrs">
-    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.location.pathname.startsWith('/admin')) {
+        var s = document.createElement('script');
+        s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+        document.head.appendChild(s);
+      }
+    </script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://remyndrs.com/">
     <meta property="og:title" content="Remyndrs — Never Forget Anything Again">
     <meta property="og:description" content="Your personal memory assistant via SMS. Set reminders, save info, and create lists — all by text message. No app required.">
-    <meta property="og:image" content="https://remyndrs.com/remyndrs-logo.png">
+    <meta property="og:image" content="https://remyndrs.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
@@ -35,7 +41,7 @@
     <meta name="twitter:url" content="https://remyndrs.com/">
     <meta name="twitter:title" content="Remyndrs — Never Forget Anything Again">
     <meta name="twitter:description" content="Your personal memory assistant via SMS. Set reminders, save info, and create lists — all by text message. No app required.">
-    <meta name="twitter:image" content="https://remyndrs.com/remyndrs-logo.png">
+    <meta name="twitter:image" content="https://remyndrs.com/og-image.png">
     
     <style>
         :root {
@@ -1538,10 +1544,11 @@
         </div>
     </header>
 
+    <main>
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="container">
-            <img src="remyndrs-logo.png" alt="Remyndrs - SMS memory assistant logo" class="hero-logo">
+            <img src="remyndrs-logo.png" alt="Remyndrs - SMS memory assistant logo" class="hero-logo" width="120" height="120">
 
             <h1>Never Forget Anything Again</h1>
             <p>Your personal memory assistant via SMS. Just text it, and we'll remember it for you.</p>
@@ -2438,6 +2445,7 @@
             <p class="sms-disclaimer desktop-only-block" style="color: rgba(255,255,255,0.9);">Enter your phone number at the top to start your free 14-day trial. No credit card required. <a href="privacy.html" style="color: white; text-decoration: underline;">Privacy Policy</a> | <a href="terms.html" style="color: white; text-decoration: underline;">Terms</a></p>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -2935,7 +2943,7 @@
         });
     </script>
     <script>
-        if (window.netlifyIdentity) {
+        if (window.location.pathname.startsWith('/admin') && window.netlifyIdentity) {
             window.netlifyIdentity.on("init", function(user) {
                 if (!user) { window.netlifyIdentity.on("login", function() { document.location.href = "/admin/"; }); }
             });
