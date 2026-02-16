@@ -252,6 +252,136 @@
             }
         }
         
+        /* Persona Selector Section */
+        .persona-selector {
+            padding: 60px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .persona-selector h2 {
+            font-size: 36px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .persona-selector > .container > p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .persona-card {
+            background: var(--bg-light);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 25px 20px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.2s;
+            text-align: center;
+            font-family: inherit;
+            color: var(--text-dark);
+            font-size: inherit;
+            line-height: 1.5;
+        }
+
+        .persona-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(74, 144, 164, 0.2);
+            border-color: var(--primary-blue);
+        }
+
+        .persona-card[aria-checked="true"] {
+            border-color: var(--primary-blue);
+            background: #EBF5F9;
+            box-shadow: 0 4px 16px rgba(74, 144, 164, 0.25);
+        }
+
+        .persona-card:focus-visible {
+            outline: 3px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+
+        .persona-card .persona-emoji {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .persona-card .persona-title {
+            font-size: 18px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .persona-card .persona-subtitle {
+            font-size: 14px;
+            color: #666;
+            display: block;
+        }
+
+        .persona-fade {
+            transition: opacity 0.25s ease;
+            opacity: 1;
+        }
+
+        .persona-fade.fading {
+            opacity: 0;
+        }
+
+        .persona-confirmation {
+            margin-top: 18px;
+            font-size: 14px;
+            color: #666;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .persona-confirmation.visible {
+            opacity: 1;
+        }
+
+        .persona-confirmation .confirm-check {
+            color: var(--success-green);
+            font-weight: 600;
+            margin-right: 4px;
+        }
+
+        .persona-clear-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .persona-clear-link:hover {
+            text-decoration: underline;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         /* Why Remyndrs Section */
         .why-remyndrs {
             padding: 80px 0;
@@ -1283,8 +1413,42 @@
                 max-width: 300px;
                 padding: 30px;
             }
+
+            .persona-selector {
+                padding: 40px 0;
+            }
+
+            .persona-selector h2 {
+                font-size: 28px;
+            }
+
+            .persona-selector > .container > p {
+                font-size: 16px;
+            }
+
+            .persona-grid {
+                max-width: 100%;
+                gap: 12px;
+            }
+
+            .persona-card {
+                padding: 18px 14px;
+            }
+
+            .persona-card .persona-emoji {
+                font-size: 28px;
+                margin-bottom: 6px;
+            }
+
+            .persona-card .persona-title {
+                font-size: 15px;
+            }
+
+            .persona-card .persona-subtitle {
+                font-size: 12px;
+            }
         }
-        
+
         /* Tablet adjustments for 2-card pricing */
         @media (min-width: 769px) and (max-width: 1024px) {
             .pricing-grid {
@@ -1620,6 +1784,40 @@
         </div>
     </section>
 
+    <!-- Persona Selector Section -->
+    <section class="persona-selector">
+        <div class="container">
+            <h2>Who is Remyndrs for?</h2>
+            <p>Pick the one that sounds like you — we'll show you why Remyndrs is perfect for your life.</p>
+
+            <div class="persona-grid" role="radiogroup" aria-label="Choose your persona">
+                <button class="persona-card" data-persona="adhd" role="radio" aria-checked="false" tabindex="0">
+                    <span class="persona-emoji">🧠</span>
+                    <span class="persona-title">"My brain has 100 tabs open"</span>
+                    <span class="persona-subtitle">For the forgetful, the scattered, and the "wait, what was I doing?"</span>
+                </button>
+                <button class="persona-card" data-persona="parent" role="radio" aria-checked="false" tabindex="-1">
+                    <span class="persona-emoji">🤹</span>
+                    <span class="persona-title">"I'm juggling everything"</span>
+                    <span class="persona-subtitle">For parents managing kids, schedules, groceries, and everything in between</span>
+                </button>
+                <button class="persona-card" data-persona="professional" role="radio" aria-checked="false" tabindex="-1">
+                    <span class="persona-emoji">💼</span>
+                    <span class="persona-title">"I can't drop the ball at work"</span>
+                    <span class="persona-subtitle">For professionals tracking follow-ups, deadlines, and client details</span>
+                </button>
+                <button class="persona-card" data-persona="simple" role="radio" aria-checked="false" tabindex="-1">
+                    <span class="persona-emoji">💬</span>
+                    <span class="persona-title">"Just make it simple"</span>
+                    <span class="persona-subtitle">For anyone who wants something that just works — no apps, no learning curve</span>
+                </button>
+            </div>
+
+            <div class="persona-confirmation" id="persona-confirmation"><span class="confirm-check">✓</span> Showing content personalized for you</div>
+            <a href="#" class="persona-clear-link" id="persona-clear" style="display:none">Or skip ahead and see everything →</a>
+            <div class="sr-only" aria-live="polite" id="persona-announce"></div>
+        </div>
+    </section>
 
     <!-- Why Remyndrs Section -->
     <section class="why-remyndrs">
@@ -1670,6 +1868,7 @@
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <h2>How It Works</h2>
+            <p id="how-it-works-subtitle" class="persona-fade" style="text-align:center;font-size:18px;color:#666;margin-bottom:30px;">Three simple steps to never forget anything again.</p>
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
@@ -1827,6 +2026,12 @@
                         '<p style="font-style:italic;color:#666;line-height:1.7;margin-bottom:0">\u201c' + t.quote + '\u201d</p>';
                     grid.appendChild(card);
                 });
+                window._remyndrsTestimonials = {
+                    data: data.testimonials,
+                    gradients: gradients,
+                    fullHTML: grid.innerHTML
+                };
+                document.dispatchEvent(new CustomEvent('testimonials-loaded'));
             });
     })();
     </script>
@@ -1864,7 +2069,7 @@
         <div class="container">
             <h2>Perfect For...</h2>
             <div class="cases-grid">
-                <div class="case">
+                <div class="case" data-case-id="lists">
                     <div class="case-icon">📝</div>
                     <h3>Lists</h3>
                     <p>Grocery lists, shopping lists, packing lists, to-do lists</p>
@@ -1885,7 +2090,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="case">
+                <div class="case" data-case-id="special-dates">
                     <div class="case-icon">🎂</div>
                     <h3>Special Dates</h3>
                     <p>Birthdays, anniversaries, important milestones</p>
@@ -1902,7 +2107,7 @@
 • Feb 6th - Mom's birthday (2 day reminder)
 • Feb 8th - Mom's birthday</div>
                         </div></div></div>
-                <div class="case">
+                <div class="case" data-case-id="health">
                     <div class="case-icon">💊</div>
                     <h3>Health Tracking</h3>
                     <p>Medication refills, doctor appointments, prescriptions</p>
@@ -1917,7 +2122,7 @@
                         <div class="conversation-message user">What's my pharmacy number?</div>
                         <div class="conversation-message bot">Your pharmacy number is 555-0123</div>
                         </div></div></div>
-                <div class="case">
+                <div class="case" data-case-id="pet-care">
                     <div class="case-icon">🐕</div>
                     <h3>Pet Care</h3>
                     <p>Vet appointments, medication schedules, pet sitter info</p>
@@ -1932,7 +2137,7 @@
                             <div class="conversation-message user">What's my vet's number?</div>
                             <div class="conversation-message bot">Your vet's number is 555-0199</div>
                         </div></div></div>
-                <div class="case">
+                <div class="case" data-case-id="work">
                     <div class="case-icon">💼</div>
                     <h3>Work Tasks</h3>
                     <p>Follow-ups, deadlines, recurring meetings</p>
@@ -1949,7 +2154,7 @@
 • Tomorrow 2:00 PM - Follow up with John
 • Friday - Send proposal to Sarah</div>
                         </div></div></div>
-                <div class="case">
+                <div class="case" data-case-id="memory-recall">
                     <div class="case-icon">🔍</div>
                     <h3>Memory Recall</h3>
                     <p>Never lose information again. Ask anything, anytime.</p>
@@ -2942,6 +3147,415 @@
             });
         });
     </script>
+
+    <!-- Persona Navigation Script -->
+    <script>
+    (function() {
+        'use strict';
+
+        // ── Persona Content Data ──
+        var PERSONA_DATA = {
+            adhd: {
+                features: [
+                    { icon: '📱', title: 'No App to Forget to Open', desc: 'No app buried on page 3 of your phone. Just text, like you already do 100 times a day.' },
+                    { icon: '🧠', title: 'It Gets You', desc: 'Text like you think — messy, mid-thought, whatever. Remyndrs figures out what you mean.' },
+                    { icon: '⏰', title: 'Your External Brain', desc: "Set it and forget it. Literally. That's the whole point. We'll remember so you don't have to." },
+                    { icon: '🔒', title: 'Private & Secure', desc: 'Your data is encrypted and never shared. You can delete everything anytime.' },
+                    { icon: '💡', title: 'Always There', desc: '3 AM thought spiral? Random parking lot moment? Remyndrs is ready when your brain fires.' },
+                    { icon: '✨', title: 'Built for Real Life', desc: "We're constantly improving based on how real people actually use it — chaos and all." }
+                ],
+                commands: [
+                    { icon: '⏰', title: 'Never Forget Again', items: ['"Remind me to move laundry in 30 minutes"', '"Remind me to eat lunch at noon every day"', '"Remind me about that thing I said I\'d do for Jake"'] },
+                    { icon: '📝', title: 'Tame the Chaos', items: ['"Add that book someone mentioned to my reading list"', '"Start a list of stuff I need to return"', '"What was on that list I made last week?"'] },
+                    { icon: '💾', title: 'Save Random Thoughts', items: ['"Remember: I parked on level 3, section B"', '"Save this idea: podcast about ADHD productivity hacks"', '"My dentist is Dr. Chen on Oak Street"'] },
+                    { icon: '🔍', title: 'Find It Later', items: ['"Where did I park?"', '"What was that idea I had last Tuesday?"', '"What\'s my dentist\'s name again?"'] }
+                ],
+                testimonials: ['Joey', 'Brad S.'],
+                caseOrder: ['memory-recall', 'lists', 'work', 'special-dates', 'health', 'pet-care']
+            },
+            parent: {
+                features: [
+                    { icon: '📱', title: 'One Less App to Manage', desc: 'No downloads, no logins, no notifications to ignore. Just text like you normally do.' },
+                    { icon: '🧠', title: 'Speak Naturally', desc: "Text it the way you'd say it: 'remind me to grab diapers after school pickup.' Done." },
+                    { icon: '⏰', title: 'Never Miss the Important Stuff', desc: 'Picture day, prescription refills, soccer snacks — get reminded exactly when you need to.' },
+                    { icon: '🔒', title: 'Private & Secure', desc: "Your family's info is encrypted and never shared with anyone. Delete anytime." },
+                    { icon: '💡', title: 'Works 24/7', desc: "Late-night school email? Early morning thought? Text it whenever — we're always here." },
+                    { icon: '✨', title: 'Grows With Your Family', desc: "We're always adding features based on what real families need. Your feedback shapes what's next." }
+                ],
+                commands: [
+                    { icon: '⏰', title: 'Family Reminders', items: ['"Remind me about picture day this Friday"', '"Remind me to give the dog his medicine every morning at 8"', '"Remind me to RSVP for Emma\'s party by Wednesday"'] },
+                    { icon: '📝', title: 'All the Lists', items: ['"Add pull-ups and goldfish to my grocery list"', '"Start a packing list for the beach trip"', '"What\'s left on my Target list?"'] },
+                    { icon: '💾', title: 'Save Important Info', items: ['"Remember: pediatrician Dr. Walsh, 555-0147"', '"Save: Emma\'s shoe size is 11, Jake\'s is 3"', '"Garage door code at Grandma\'s is 5522"'] },
+                    { icon: '🔍', title: 'Recall Anytime', items: ['"What\'s the pediatrician\'s number?"', '"What sizes do the kids wear?"', '"When is Jake\'s next dentist appointment?"'] }
+                ],
+                testimonials: ['Heather', 'Jessica'],
+                caseOrder: ['lists', 'special-dates', 'pet-care', 'health', 'work', 'memory-recall']
+            },
+            professional: {
+                features: [
+                    { icon: '📱', title: 'No New Software', desc: 'Works through SMS — no dashboard to check, no app to learn, nothing for IT to approve.' },
+                    { icon: '🧠', title: 'Natural Language', desc: "Text like you'd talk to an assistant: 'Follow up with Lisa about the Q3 deck Friday.' Done." },
+                    { icon: '⏰', title: 'Never Drop the Ball', desc: 'Deadlines, follow-ups, recurring check-ins — get reminded at exactly the right time.' },
+                    { icon: '🔒', title: 'Private & Secure', desc: 'Enterprise-grade encryption. Your client details and work info are never shared.' },
+                    { icon: '💡', title: 'Always Accessible', desc: 'In a meeting? On a job site? In transit? If you can text, you can capture it.' },
+                    { icon: '✨', title: 'Constantly Improving', desc: "We're building based on how professionals actually work. Your feedback drives the roadmap." }
+                ],
+                commands: [
+                    { icon: '⏰', title: 'Deadlines & Follow-Ups', items: ['"Remind me to follow up with Lisa about the proposal Friday"', '"Remind me about the board meeting every first Monday"', '"Remind me to submit expense reports by the 15th"'] },
+                    { icon: '📝', title: 'Project Tracking', items: ['"Add \'update SOW\' to my client tasks list"', '"Show me my open follow-ups"', '"What\'s on my Monday to-do list?"'] },
+                    { icon: '💾', title: 'Save Key Details', items: ['"Remember: the client\'s budget is $50K"', '"Save conference room WiFi: GuestNet / pass1234"', '"Remember Mark prefers email over calls"'] },
+                    { icon: '🔍', title: 'Instant Recall', items: ['"What\'s the client\'s budget?"', '"What was that vendor\'s name from the trade show?"', '"What did I say I\'d send to accounting?"'] }
+                ],
+                testimonials: ['Brad S.', 'Jessica'],
+                caseOrder: ['work', 'memory-recall', 'lists', 'special-dates', 'health', 'pet-care']
+            },
+            simple: {
+                features: [
+                    { icon: '📱', title: 'No App Needed', desc: "If you can send a text message, you can use Remyndrs. That's it. Really." },
+                    { icon: '🧠', title: 'Just Talk to It', desc: 'No special commands. No confusing menus. Just text what you want to remember.' },
+                    { icon: '⏰', title: 'Reminders Made Easy', desc: 'Tell it when to remind you and it will. Simple as that.' },
+                    { icon: '🔒', title: 'Safe & Private', desc: 'Your information is protected and never shared. Delete anything anytime.' },
+                    { icon: '💡', title: 'Works on Any Phone', desc: "Smartphone, flip phone, whatever you've got. If it texts, it works." },
+                    { icon: '✨', title: 'Friendly Support', desc: "Real help when you need it. We're always happy to answer questions." }
+                ],
+                commands: [
+                    { icon: '⏰', title: 'Simple Reminders', items: ['"Remind me to take my medicine at 9am every day"', '"Remind me to call my sister on Sunday"', '"Remind me about my doctor appointment March 5th"'] },
+                    { icon: '📝', title: 'Easy Lists', items: ['"Add milk and bread to my grocery list"', '"Show me my grocery list"', '"Add batteries to my shopping list"'] },
+                    { icon: '💾', title: 'Remember Things', items: ['"Remember: my WiFi password is Sunshine99"', '"Save my pharmacy number: 555-0123"', '"Remember: I take the blue pill in the morning"'] },
+                    { icon: '🔍', title: 'Ask Anytime', items: ['"What\'s my WiFi password?"', '"What\'s my pharmacy number?"', '"What medicine do I take in the morning?"'] }
+                ],
+                testimonials: ['Joey', 'Heather'],
+                caseOrder: ['health', 'lists', 'special-dates', 'memory-recall', 'pet-care', 'work']
+            }
+        };
+
+        // ── DOM References ──
+        var cards = document.querySelectorAll('.persona-card');
+        var clearLink = document.getElementById('persona-clear');
+        var confirmEl = document.getElementById('persona-confirmation');
+        var announceEl = document.getElementById('persona-announce');
+        var featuresGrid = document.querySelector('.features-grid');
+        var commandsGrid = document.querySelector('.commands-grid');
+        var testimonialsGrid = document.getElementById('testimonials-grid');
+        var casesGrid = document.querySelector('.cases-grid');
+        var howSubtitle = document.getElementById('how-it-works-subtitle');
+
+        var HOW_SUBTITLES = {
+            adhd: 'Three simple steps to outsource your memory.',
+            parent: 'Three simple steps to lighten your mental load.',
+            professional: 'Three simple steps to stay on top of everything.',
+            simple: "Three simple steps. That's really all there is to it."
+        };
+        var defaultHowSubtitle = 'Three simple steps to never forget anything again.';
+
+        if (!cards.length || !featuresGrid || !commandsGrid || !casesGrid) return;
+
+        // ── Default Content Cache ──
+        var defaultFeaturesHTML = featuresGrid.innerHTML;
+        var defaultCommandsHTML = commandsGrid.innerHTML;
+        var defaultTestimonialsHTML = null;
+        var defaultCaseOrder = [];
+        var caseNodes = casesGrid.querySelectorAll('.case[data-case-id]');
+        caseNodes.forEach(function(node) {
+            defaultCaseOrder.push(node.getAttribute('data-case-id'));
+        });
+
+        // Cache testimonials when loaded
+        function onTestimonialsLoaded() {
+            if (window._remyndrsTestimonials) {
+                defaultTestimonialsHTML = window._remyndrsTestimonials.fullHTML;
+                // If persona was restored before testimonials loaded, apply now
+                if (pendingPersona) {
+                    swapTestimonials(pendingPersona);
+                    pendingPersona = null;
+                }
+            }
+        }
+        var pendingPersona = null;
+
+        if (window._remyndrsTestimonials) {
+            onTestimonialsLoaded();
+        } else {
+            document.addEventListener('testimonials-loaded', onTestimonialsLoaded);
+        }
+
+        // ── Active persona tracking ──
+        var activePersona = null;
+
+        // ── Fade swap helper ──
+        function fadeSwap(el, callback, skipAnimation) {
+            if (!el) return;
+            if (skipAnimation) {
+                callback();
+                return;
+            }
+            el.classList.add('persona-fade');
+            el.classList.add('fading');
+            setTimeout(function() {
+                callback();
+                el.classList.remove('fading');
+            }, 250);
+        }
+
+        // ── Build features HTML ──
+        function buildFeaturesHTML(persona) {
+            var features = PERSONA_DATA[persona].features;
+            var html = '';
+            features.forEach(function(f) {
+                html += '<div class="feature">' +
+                    '<span class="feature-icon">' + f.icon + '</span>' +
+                    '<h3>' + f.title + '</h3>' +
+                    '<p>' + f.desc + '</p>' +
+                    '</div>';
+            });
+            return html;
+        }
+
+        // ── Build commands HTML ──
+        function buildCommandsHTML(persona) {
+            var cmds = PERSONA_DATA[persona].commands;
+            var html = '';
+            cmds.forEach(function(c) {
+                html += '<div class="command-category">' +
+                    '<h3>' + c.icon + ' ' + c.title + '</h3>' +
+                    '<ul>';
+                c.items.forEach(function(item) {
+                    html += '<li>' + item + '</li>';
+                });
+                html += '</ul></div>';
+            });
+            return html;
+        }
+
+        // ── Swap testimonials ──
+        function swapTestimonials(persona) {
+            if (!testimonialsGrid || !window._remyndrsTestimonials) {
+                pendingPersona = persona;
+                return;
+            }
+            var tData = window._remyndrsTestimonials.data;
+            var gradients = window._remyndrsTestimonials.gradients;
+            var names = PERSONA_DATA[persona].testimonials;
+            var html = '';
+            names.forEach(function(name) {
+                for (var i = 0; i < tData.length; i++) {
+                    if (tData[i].name === name) {
+                        var t = tData[i];
+                        var initial = t.name.charAt(0).toUpperCase();
+                        var gradient = gradients[i % gradients.length];
+                        html += '<div style="background:white;padding:35px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08)">' +
+                            '<div style="display:flex;align-items:center;margin-bottom:15px">' +
+                                '<div style="width:50px;height:50px;border-radius:50%;background:' + gradient + ';display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;margin-right:15px">' + initial + '</div>' +
+                                '<div>' +
+                                    '<div style="font-weight:700;color:var(--text-dark)">' + t.name + '</div>' +
+                                    '<div style="font-size:14px;color:#666">' + t.location + '</div>' +
+                                '</div>' +
+                            '</div>' +
+                            '<p style="font-size:20px;font-weight:600;color:var(--text-dark);margin-bottom:10px">\u201c' + t.headline + '\u201d</p>' +
+                            '<p style="font-style:italic;color:#666;line-height:1.7;margin-bottom:0">\u201c' + t.quote + '\u201d</p>' +
+                        '</div>';
+                        break;
+                    }
+                }
+            });
+            testimonialsGrid.innerHTML = html;
+            testimonialsGrid.style.maxWidth = '700px';
+            testimonialsGrid.style.margin = '0 auto';
+        }
+
+        // ── Reorder cases (DOM move, preserves listeners) ──
+        function reorderCases(persona) {
+            // Close any open conversations first
+            casesGrid.querySelectorAll('.case.active').forEach(function(c) {
+                c.classList.remove('active');
+            });
+            var order = PERSONA_DATA[persona].caseOrder;
+            order.forEach(function(id) {
+                var node = casesGrid.querySelector('[data-case-id="' + id + '"]');
+                if (node) casesGrid.appendChild(node);
+            });
+        }
+
+        function restoreCaseOrder() {
+            casesGrid.querySelectorAll('.case.active').forEach(function(c) {
+                c.classList.remove('active');
+            });
+            defaultCaseOrder.forEach(function(id) {
+                var node = casesGrid.querySelector('[data-case-id="' + id + '"]');
+                if (node) casesGrid.appendChild(node);
+            });
+        }
+
+        // ── Swap all content for a persona ──
+        function swapAllContent(persona, skipAnimation) {
+            fadeSwap(featuresGrid, function() {
+                featuresGrid.innerHTML = buildFeaturesHTML(persona);
+            }, skipAnimation);
+
+            fadeSwap(commandsGrid, function() {
+                commandsGrid.innerHTML = buildCommandsHTML(persona);
+            }, skipAnimation);
+
+            fadeSwap(testimonialsGrid, function() {
+                swapTestimonials(persona);
+            }, skipAnimation);
+
+            fadeSwap(casesGrid, function() {
+                reorderCases(persona);
+            }, skipAnimation);
+
+            if (howSubtitle) {
+                fadeSwap(howSubtitle, function() {
+                    howSubtitle.textContent = HOW_SUBTITLES[persona] || defaultHowSubtitle;
+                }, skipAnimation);
+            }
+        }
+
+        // ── Restore all content to defaults ──
+        function restoreAllContent(skipAnimation) {
+            fadeSwap(featuresGrid, function() {
+                featuresGrid.innerHTML = defaultFeaturesHTML;
+            }, skipAnimation);
+
+            fadeSwap(commandsGrid, function() {
+                commandsGrid.innerHTML = defaultCommandsHTML;
+            }, skipAnimation);
+
+            fadeSwap(testimonialsGrid, function() {
+                if (testimonialsGrid && defaultTestimonialsHTML) {
+                    testimonialsGrid.innerHTML = defaultTestimonialsHTML;
+                    testimonialsGrid.style.maxWidth = '';
+                    testimonialsGrid.style.margin = '';
+                }
+            }, skipAnimation);
+
+            fadeSwap(casesGrid, function() {
+                restoreCaseOrder();
+            }, skipAnimation);
+
+            if (howSubtitle) {
+                fadeSwap(howSubtitle, function() {
+                    howSubtitle.textContent = defaultHowSubtitle;
+                }, skipAnimation);
+            }
+        }
+
+        // ── Update card states ──
+        function updateCardStates(persona) {
+            cards.forEach(function(card) {
+                var isSelected = card.getAttribute('data-persona') === persona;
+                card.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+                card.setAttribute('tabindex', isSelected ? '0' : '-1');
+            });
+            // If no persona, set first card as focusable
+            if (!persona) {
+                cards[0].setAttribute('tabindex', '0');
+            }
+        }
+
+        // ── Select a persona ──
+        function selectPersona(persona, skipAnimation) {
+            if (activePersona === persona && !skipAnimation) {
+                return;
+            }
+            activePersona = persona;
+            updateCardStates(persona);
+            clearLink.style.display = 'inline-block';
+            if (confirmEl) confirmEl.classList.add('visible');
+            swapAllContent(persona, skipAnimation);
+
+            // Persistence
+            try { sessionStorage.setItem('remyndrs-persona', persona); } catch(e) {}
+
+            // URL param
+            var url = new URL(window.location);
+            url.searchParams.set('persona', persona);
+            history.replaceState(null, '', url);
+
+            // Analytics
+            if (typeof gtag === 'function') {
+                gtag('event', 'persona_select', { persona: persona });
+            }
+
+            // Announce to screen readers
+            var labels = { adhd: 'ADHD / Forgetful Brain', parent: 'Busy Parent', professional: 'Working Professional', simple: 'Simplicity Seeker' };
+            if (announceEl) {
+                announceEl.textContent = 'Showing content for: ' + (labels[persona] || persona);
+            }
+        }
+
+        // ── Clear selection ──
+        function clearSelection(skipAnimation) {
+            activePersona = null;
+            updateCardStates(null);
+            clearLink.style.display = 'none';
+            if (confirmEl) confirmEl.classList.remove('visible');
+            restoreAllContent(skipAnimation);
+
+            try { sessionStorage.removeItem('remyndrs-persona'); } catch(e) {}
+
+            var url = new URL(window.location);
+            url.searchParams.delete('persona');
+            history.replaceState(null, '', url);
+
+            if (announceEl) {
+                announceEl.textContent = 'Showing all content';
+            }
+        }
+
+        // ── Card click handlers ──
+        cards.forEach(function(card) {
+            card.addEventListener('click', function() {
+                selectPersona(card.getAttribute('data-persona'));
+            });
+        });
+
+        // ── Clear link handler ──
+        clearLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            clearSelection();
+        });
+
+        // ── Keyboard navigation (roving tabindex) ──
+        var cardArray = Array.prototype.slice.call(cards);
+        document.querySelector('.persona-grid').addEventListener('keydown', function(e) {
+            var idx = cardArray.indexOf(document.activeElement);
+            if (idx === -1) return;
+
+            var newIdx = -1;
+            // Arrow keys: 2-column grid, so left/right = +/-1, up/down = +/-2
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                newIdx = e.key === 'ArrowRight' ? idx + 1 : idx + 2;
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                newIdx = e.key === 'ArrowLeft' ? idx - 1 : idx - 2;
+            } else if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                document.activeElement.click();
+                return;
+            } else {
+                return;
+            }
+
+            if (newIdx >= 0 && newIdx < cardArray.length) {
+                e.preventDefault();
+                cardArray[idx].setAttribute('tabindex', '-1');
+                cardArray[newIdx].setAttribute('tabindex', '0');
+                cardArray[newIdx].focus();
+            }
+        });
+
+        // ── Restore on page load ──
+        var urlParams = new URLSearchParams(window.location.search);
+        var initialPersona = urlParams.get('persona') || null;
+        if (!initialPersona) {
+            try { initialPersona = sessionStorage.getItem('remyndrs-persona'); } catch(e) {}
+        }
+        if (initialPersona && PERSONA_DATA[initialPersona]) {
+            selectPersona(initialPersona, true);
+        }
+    })();
+    </script>
+
     <script>
         if (window.location.pathname.startsWith('/admin') && window.netlifyIdentity) {
             window.netlifyIdentity.on("init", function(user) {
