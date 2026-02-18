@@ -108,7 +108,19 @@
         nav a:hover {
             color: var(--primary-blue);
         }
-        
+
+        /* Hamburger Menu */
+        .hamburger-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: #4A90A4;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 4px 8px;
+            line-height: 1;
+        }
+
         /* Hero Section */
         .hero-logo {
             width: 120px;
@@ -301,8 +313,9 @@
 
         .persona-card[aria-checked="true"] {
             border-color: var(--primary-blue);
-            background: #EBF5F9;
-            box-shadow: 0 4px 16px rgba(74, 144, 164, 0.25);
+            background: #D6EAF8;
+            box-shadow: 0 6px 20px rgba(74, 144, 164, 0.35);
+            transform: translateY(-2px);
         }
 
         .persona-card:focus-visible {
@@ -348,10 +361,13 @@
 
         .persona-confirmation.visible {
             opacity: 1;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary-blue);
         }
 
         .persona-confirmation .confirm-check {
-            color: var(--success-green);
+            color: var(--primary-blue);
             font-weight: 600;
             margin-right: 4px;
         }
@@ -945,11 +961,6 @@
             font-size: 18px;
         }
         
-        .pricing-card li.excluded-feature:before {
-            content: "✗";
-            color: red;
-        }
-
         .pricing-cta {
             display: inline-block;
             background: var(--primary-blue);
@@ -1381,20 +1392,32 @@
             }
 
             .header-content {
-                flex-direction: column;
-                gap: 15px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .hamburger-btn {
+                display: block;
             }
 
             nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 0;
+                padding-top: 10px;
+            }
+
+            nav.open {
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
             }
 
             nav a {
                 margin-left: 0;
-                font-size: 14px;
+                font-size: 16px;
+                padding: 10px 0;
+                border-top: 1px solid rgba(0,0,0,0.06);
             }
             
             .steps, .cases-grid, .features-grid, .pricing-grid {
@@ -1597,14 +1620,30 @@
             text-align: center;
         }
 
+        /* Desktop signup form disabled state */
+        #desktopSignupForm button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Mobile/Desktop CTA visibility */
+        .mobile-cta-container { display: block; }
+        .desktop-signup-form { display: none; }
+
+        @media (min-width: 769px) {
+            .mobile-cta-container { display: none; }
+            .desktop-signup-form { display: block; }
+        }
+
         /* Smooth scrolling for anchor links */
         html {
             scroll-behavior: smooth;
         }
 
         /* Scroll margin to prevent sticky header from covering targets */
-        #hero, #contact {
-            scroll-margin-top: 80px;
+        #hero, #contact, #pricing, #faq, #how-it-works {
+            scroll-margin-top: 90px;
         }
 
         /* Mobile/Desktop visibility utilities */
@@ -1695,14 +1734,13 @@
                 <div class="logo">
                     <img src="remyndrs-logo.png" alt="Remyndrs - SMS memory assistant logo" width="180" height="60">
                 </div>
+                <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
                 <nav>
                     <a href="#how-it-works">How It Works</a>
                     <a href="commands.html">Commands</a>
                     <a href="#pricing">Pricing</a>
                     <a href="faq.html">FAQ</a>
                     <a href="#contact">Contact</a>
-                    <a href="privacy.html">Privacy</a>
-                    <a href="terms.html">Terms</a>
                 </nav>
             </div>
         </div>
@@ -1750,7 +1788,7 @@
             </div>
 
             <!-- Desktop Signup Form (shown on desktop, hidden on mobile) -->
-            <div class="desktop-signup-form" style="display: none; margin-top: 12px; padding: 18px; background: white; border-radius: 16px; max-width: 500px; margin-left: auto; margin-right: auto; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+            <div class="desktop-signup-form" style="margin-top: 12px; padding: 18px; background: white; border-radius: 16px; max-width: 500px; margin-left: auto; margin-right: auto; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
                 <h3 style="font-size: 22px; margin-bottom: 8px; color: var(--text-dark); text-align: center;">Get Started Now</h3>
                 <p style="font-size: 15px; color: #666; margin-bottom: 16px; text-align: center;">Enter your phone number and we'll text you to get started.</p>
 
@@ -1777,7 +1815,7 @@
             </div>
 
             <!-- Mobile SMS CTA Button (hidden on desktop, shown on mobile) -->
-            <div class="mobile-cta-container" style="display: none; margin-top: 30px;">
+            <div class="mobile-cta-container" style="margin-top: 30px;">
                 <a href="sms:+18555521950&body=Hello%20Remyndrs%2C%20sign%20me%20up%20for%20a%20free%20trial!" class="cta-button cta-sms-button" aria-label="Start free trial" onclick="gtag('event','mobile_sms_click',{action:'start',location:'hero',page:'index'})">Click to Start Free Trial</a>
                 <p class="sms-disclaimer">By texting, you agree to receive automated SMS messages from Remyndrs. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe or HELP for help. <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
             </div>
@@ -2213,8 +2251,7 @@
                         <li>5 saved memories</li>
                         <li>Natural language processing</li>
                         <li><strong>No credit card required</strong></li>
-                        <li class="excluded-feature"><strong style="color: red;">No recurring reminders</strong></li>
-                        <li class="excluded-feature"><strong style="color: red;">No priority support</strong></li>
+                        <li>Upgrade anytime to unlock more</li>
                     </ul>
                     <p style="font-size: 13px; color: #666; margin-top: 20px;">Automatically available after trial</p>
                 </div>
@@ -2715,6 +2752,22 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger menu toggle
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const navMenu = document.querySelector('header nav');
+            if (hamburgerBtn && navMenu) {
+                hamburgerBtn.addEventListener('click', function() {
+                    const isOpen = navMenu.classList.toggle('open');
+                    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+                });
+                navMenu.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('open');
+                        hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
             // FAQ Accordion
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
@@ -2776,17 +2829,6 @@
                 }
             });
 
-            // Show desktop signup form on desktop, mobile CTA on mobile
-            const desktopSignupForm = document.querySelector('.desktop-signup-form');
-            const mobileCTAContainer = document.querySelector('.mobile-cta-container');
-
-            if (!isMobile && desktopSignupForm) {
-                desktopSignupForm.style.display = 'block';
-            }
-            if (isMobile && mobileCTAContainer) {
-                mobileCTAContainer.style.display = 'block';
-            }
-
             // Handle desktop signup form submission
             const signupForm = document.getElementById('desktopSignupForm');
             if (signupForm) {
@@ -2797,6 +2839,11 @@
                     const successDiv = document.getElementById('signupSuccess');
                     const errorDiv = document.getElementById('signupError');
                     const errorMessage = document.getElementById('errorMessage');
+                    const submitBtn = signupForm.querySelector('button[type="submit"]');
+
+                    // Show loading state
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
 
                     // Clean and format phone number
                     let phoneNumber = phoneInput.value.replace(/\D/g, '');
@@ -2811,6 +2858,8 @@
                         errorDiv.style.display = 'block';
                         successDiv.style.display = 'none';
                         errorMessage.textContent = 'Please enter a valid phone number.';
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Get Started \u2192';
                         return;
                     }
 
@@ -2828,6 +2877,9 @@
                         });
 
                         const data = await response.json();
+
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Get Started \u2192';
 
                         if (response.ok && data.success) {
                             gtag('event', 'signup_form_submit', {status: 'success'});
@@ -2848,6 +2900,8 @@
                             errorMessage.textContent = data.error || 'Something went wrong. Please try again.';
                         }
                     } catch (error) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Get Started \u2192';
                         gtag('event', 'signup_form_submit', {status: 'error'});
                         errorDiv.style.display = 'block';
                         successDiv.style.display = 'none';
@@ -3564,6 +3618,7 @@
         }
     </script>
 
+    <!-- TODO: Add social profile URLs to sameAs array when available (LinkedIn, etc.) -->
     <!-- Organization structured data -->
     <script type="application/ld+json">
     {
@@ -3577,7 +3632,9 @@
         "email": "support@remyndrs.com",
         "contactType": "customer support"
       },
-      "sameAs": []
+      "sameAs": [
+        "https://remyndrs.com"
+      ]
     }
     </script>
 
