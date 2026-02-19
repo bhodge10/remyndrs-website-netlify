@@ -2253,7 +2253,7 @@
                         <li><strong>No credit card required</strong></li>
                         <li>Upgrade anytime to unlock more</li>
                     </ul>
-                    <p style="font-size: 13px; color: #666; margin-top: 20px;">Automatically available after trial</p>
+                    <p style="font-size: 13px; color: #666; margin-top: 20px;">Your account stays active on this plan after your trial ends</p>
                 </div>
             </div>
             
@@ -2770,10 +2770,11 @@
 
             // FAQ Accordion
             const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
+            faqItems.forEach((item, index) => {
                 const question = item.querySelector('.faq-question');
                 const answer = item.querySelector('.faq-answer');
                 const toggle = item.querySelector('.faq-toggle');
+                const questionText = item.querySelector('h3') ? item.querySelector('h3').textContent.trim() : '';
 
                 question.addEventListener('click', function() {
                     const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
@@ -2796,6 +2797,12 @@
                         answer.style.maxHeight = answer.scrollHeight + 'px';
                         toggle.textContent = '−';
                         item.style.boxShadow = '0 4px 16px rgba(74, 144, 164, 0.2)';
+                        // Track FAQ click in Google Analytics
+                        gtag('event', 'faq_click', {
+                            faq_number: index + 1,
+                            faq_question: questionText,
+                            page: 'index'
+                        });
                     }
                 });
 
@@ -3631,10 +3638,7 @@
         "@type": "ContactPoint",
         "email": "support@remyndrs.com",
         "contactType": "customer support"
-      },
-      "sameAs": [
-        "https://remyndrs.com"
-      ]
+      }
     }
     </script>
 
