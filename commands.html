@@ -102,7 +102,19 @@
         nav a:hover {
             color: var(--primary-blue);
         }
-        
+
+        /* Hamburger Menu */
+        .hamburger-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: #4A90A4;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 4px 8px;
+            line-height: 1;
+        }
+
         /* Hero */
         .page-hero {
             background: linear-gradient(135deg, var(--primary-blue) 0%, #6BA8BC 100%);
@@ -360,21 +372,28 @@
                 font-size: 36px;
             }
 
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
+            .hamburger-btn {
+                display: block;
             }
 
             nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 0;
+                padding-top: 10px;
+            }
+
+            nav.open {
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
             }
 
             nav a {
                 margin-left: 0;
-                font-size: 14px;
+                font-size: 16px;
+                padding: 10px 0;
+                border-top: 1px solid rgba(0,0,0,0.06);
             }
             
             .command-category {
@@ -391,6 +410,7 @@
                 <a href="index.html" class="logo">
                     <img src="remyndrs-logo.png" alt="Remyndrs">
                 </a>
+                <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
                 <nav>
                     <a href="index.html">Home</a>
                     <a href="index.html#how-it-works">How It Works</a>
@@ -645,6 +665,22 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger menu toggle
+            var hamburgerBtn = document.querySelector('.hamburger-btn');
+            var navMenu = document.querySelector('header nav');
+            if (hamburgerBtn && navMenu) {
+                hamburgerBtn.addEventListener('click', function() {
+                    var isOpen = navMenu.classList.toggle('open');
+                    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+                });
+                navMenu.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('open');
+                        hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
             // Desktop: Clipboard copy handler for share buttons
             document.querySelectorAll('.share-copy-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {

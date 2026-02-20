@@ -75,22 +75,63 @@
             align-items: center;
         }
 
+        .logo {
+            text-decoration: none;
+        }
+
         .logo img {
             height: 50px;
             width: auto;
         }
 
-        .back-link {
+        nav a {
+            margin-left: 30px;
             text-decoration: none;
-            color: var(--primary-blue);
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: background 0.2s;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .back-link:hover {
-            background: rgba(74, 144, 164, 0.1);
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hamburger Menu */
+        .hamburger-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: #4A90A4;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 4px 8px;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 0;
+                padding-top: 10px;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            nav a {
+                margin-left: 0;
+                font-size: 16px;
+                padding: 10px 0;
+                border-top: 1px solid rgba(0,0,0,0.06);
+            }
         }
 
         .content {
@@ -182,10 +223,18 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
+                <a href="index.html" class="logo">
                     <img src="remyndrs-logo.png" alt="Remyndrs">
-                </div>
-                <a href="index.html" class="back-link">← Back to Home</a>
+                </a>
+                <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="index.html#how-it-works">How It Works</a>
+                    <a href="commands.html">Commands</a>
+                    <a href="index.html#pricing">Pricing</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="index.html#contact">Contact</a>
+                </nav>
             </div>
         </div>
     </header>
@@ -436,5 +485,24 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var hamburgerBtn = document.querySelector('.hamburger-btn');
+            var navMenu = document.querySelector('header nav');
+            if (hamburgerBtn && navMenu) {
+                hamburgerBtn.addEventListener('click', function() {
+                    var isOpen = navMenu.classList.toggle('open');
+                    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+                });
+                navMenu.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('open');
+                        hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
