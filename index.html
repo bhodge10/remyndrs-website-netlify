@@ -2229,6 +2229,10 @@
                     <div class="price">
                         $8.99<span style="font-size: 20px;">/mo</span>
                     </div>
+                    <div class="price-note">Billed monthly • Cancel anytime</div>
+                    <div class="price-note" style="margin-top: 8px; color: var(--success-green); font-weight: 600;">
+                        Or save with annual: $89.99/yr ($7.50/mo)
+                    </div>
                     <ul>
                         <li><strong>Unlimited</strong> reminders per day</li>
                         <li>20 lists with 30 items each</li>
@@ -2237,7 +2241,6 @@
                         <li>Daily summary of upcoming reminders</li>
                         <li>Natural language — just text naturally</li>
                         <li>Priority support via text</li>
-                        <li>Cancel anytime</li>
                     </ul>
                 </div>
                 
@@ -3662,11 +3665,19 @@
         },
         {
           "@type": "Offer",
-          "name": "Premium",
+          "name": "Premium Monthly",
           "price": "8.99",
           "priceCurrency": "USD",
           "billingIncrement": "month",
           "description": "Unlimited reminders, 20 lists, unlimited memories, recurring reminders"
+        },
+        {
+          "@type": "Offer",
+          "name": "Premium Annual",
+          "price": "89.99",
+          "priceCurrency": "USD",
+          "billingIncrement": "year",
+          "description": "Unlimited reminders, 20 lists, unlimited memories, recurring reminders — save with annual billing ($7.50/mo)"
         }
       ]
     }
