@@ -117,7 +117,9 @@
             color: #4A90A4;
             font-size: 28px;
             cursor: pointer;
-            padding: 4px 8px;
+            padding: 10px 12px;
+            min-width: 44px;
+            min-height: 44px;
             line-height: 1;
         }
 
@@ -696,7 +698,8 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            width: 320px;
+            max-width: 320px;
+            width: calc(100% - 20px);
             background: #f5f5f5;
             border-radius: 35px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
@@ -798,6 +801,7 @@
             word-wrap: break-word;
             clear: both;
             position: relative;
+            will-change: transform, opacity;
         }
         
         /* Trigger animations when conversation is visible */
@@ -946,6 +950,7 @@
             transform: scale(1.05);
             background: white;
             box-shadow: 0 8px 24px rgba(80, 182, 136, 0.2);
+            will-change: transform;
         }
         
         .pricing-badge {
@@ -1184,7 +1189,7 @@
             gap: 8px;
             background: var(--primary-blue);
             color: white;
-            padding: 12px 20px;
+            padding: 14px 22px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
@@ -1212,11 +1217,11 @@
             gap: 6px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            padding: 10px 18px;
+            padding: 12px 20px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 13px;
+            font-size: 14px;
             transition: all 0.2s;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -1461,10 +1466,10 @@
             nav a {
                 margin-left: 0;
                 font-size: 16px;
-                padding: 10px 0;
+                padding: 12px 20px;
                 border-top: 1px solid rgba(0,0,0,0.06);
             }
-            
+
             .steps, .cases-grid, .features-grid, .pricing-grid {
                 grid-template-columns: 1fr;
             }
@@ -1514,6 +1519,10 @@
 
             .persona-card .persona-subtitle {
                 font-size: 12px;
+            }
+
+            .sms-disclaimer {
+                font-size: 13px;
             }
         }
 
@@ -1779,8 +1788,8 @@
                 <div class="logo">
                     <img src="remyndrs-logo.png" alt="Remyndrs - SMS memory assistant logo" width="180" height="60">
                 </div>
-                <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
-                <nav>
+                <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+                <nav id="main-nav">
                     <a href="#how-it-works">How It Works</a>
                     <a href="commands.html">Commands</a>
                     <a href="#pricing">Pricing</a>
