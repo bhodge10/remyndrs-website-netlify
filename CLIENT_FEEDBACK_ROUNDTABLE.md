@@ -296,4 +296,70 @@
 
 ---
 
+## Session 8: Follow-Up — Should "SMS" Be Changed to "Text Message" Sitewide?
+
+**Context presented to participants:** A code audit revealed that the term "SMS" appears approximately 30 times across the site. Only 4-5 of those are in legally required carrier disclaimers ("Standard SMS rates apply," "you agree to receive automated SMS messages"). The remaining ~25 instances are in actual user-facing copy: the hero subheading ("Your personal memory assistant via SMS"), every page title, all meta descriptions and social sharing tags, logo alt text, FAQ questions and answers, feature descriptions, structured data for search engines, and the SMS Service Terms heading. This is not a cosmetic tweak — it's a core part of how the brand describes itself.
+
+**The question:** Should Remyndrs replace "SMS" with "text message" (or "text") throughout the site's user-facing copy?
+
+---
+
+**Robert (Senior / Flip Phone) — Original raiser, reaffirms YES:**
+> I'm glad you looked into this. Thirty times! That proves my point. I know what a text message is. I send them every day. But "SMS" sounds like a technical spec sheet. My friends at the community center would see "personal memory assistant via SMS" and think it's some kind of IT product. "Via text message" or even just "via text" is warmer and more human. You're selling simplicity — the language should be simple too.
+
+**Maria (Busy Parent) — YES, with a nuance:**
+> Honestly? I know what SMS means, but I never use that word in real life. I say "text me" or "send me a text." Nobody says "send me an SMS." So yes, the copy should match how people actually talk. Especially the hero line — "Your personal memory assistant via text" flows better and feels less clinical. That said, in the legal disclaimers you're probably required to say "SMS" for compliance. Keep it there, lose it everywhere else.
+
+**Derek (ADHD) — YES, enthusiastically:**
+> This is a branding consistency issue. The whole selling point of Remyndrs is "just text naturally." But then the site itself doesn't talk naturally — it uses a technical acronym. There's a disconnect. You're telling me to text like I'm talking to a friend, but the website talks like a telecom whitepaper. Change the hero to "Your personal memory assistant — just text us." Change the page titles to "Text Message Memory Assistant" or even just drop the qualifier entirely. Everyone knows what texting is. You don't need to label the delivery mechanism in every headline.
+
+**Aisha (Student) — YES, but for a different reason:**
+> I actually know what SMS means, and most people my age do too. But here's the thing — "SMS" feels dated. It feels like 2010. My generation says "text" or "iMessage" or "message." Even Google calls it "Messages" now, not "SMS." Using "SMS" 30 times makes the brand feel older and more technical than it needs to. For SEO, "text message reminders" is probably a better search term than "SMS reminders" too — more people search with natural language now. Swap it.
+
+**James (Business Owner) — MOSTLY YES, with a caveat:**
+> In a business context, "SMS" is actually understood and even preferred — it sounds more professional. "SMS marketing," "SMS notifications," "SMS service" — these are standard industry terms. If you're building out a business tier, keeping "SMS" in business-facing copy isn't a problem. But for the main consumer-facing landing page? Yeah, "text message" is friendlier. My suggestion: change the consumer copy to "text message," but if you ever create a business-oriented page or enterprise pitch deck, keep "SMS" there. It signals you understand the B2B space.
+
+**Karen (Caregiver) — YES, firmly:**
+> When I was researching care tools for my mother, I specifically searched for "text message reminders for seniors," not "SMS reminders." If your site says "SMS" everywhere, it might not even show up for people searching the way I do. More importantly, when I explain this to my mom, I'd say "it's a text message service that reminds you of things." If the site says "SMS," she'd ask me what that stands for, and then I'd have to explain it, and now there's friction before she even tries it. The whole point is zero friction. The language should reflect that.
+
+---
+
+### Roundtable Verdict
+
+| Participant | Change "SMS"? | Key Reasoning |
+|---|---|---|
+| Robert | **Yes** | Target audience doesn't use the term; "text message" is universally understood |
+| Maria | **Yes** (keep in legal disclaimers) | Nobody says "SMS" in real life; copy should match natural speech |
+| Derek | **Yes** | Brand inconsistency — "text naturally" messaging undermined by technical jargon |
+| Aisha | **Yes** | "SMS" feels dated; "text message" is better for SEO and modern branding |
+| James | **Mostly yes** | Change consumer copy; retain "SMS" for any future B2B/enterprise materials |
+| Karen | **Yes** | Search behavior uses "text message"; explaining "SMS" to her mom adds friction |
+
+**Result: Unanimous YES** — Replace "SMS" with "text message" or "text" in all user-facing copy. Keep "SMS" only in:
+1. Legal/compliance disclaimers (carrier-required language)
+2. Any future B2B or enterprise-facing materials
+3. Technical documentation or API references
+
+### Suggested Replacements for Key Locations
+
+| Current Copy | Suggested Replacement | File(s) |
+|---|---|---|
+| "Your Personal Memory Assistant via SMS" | "Your Personal Memory Assistant via Text" | `index.html` (title, hero, OG tags) |
+| "all by SMS" | "all by text message" | `index.html`, `commands.html` (meta descriptions) |
+| "SMS Reminder Service" | "Text Message Reminder Service" | `faq.html` (title, OG tags) |
+| "SMS Memory Assistant" | "Text Message Memory Assistant" | `commands.html` (title, OG tags) |
+| "SMS memory assistant logo" | "text message memory assistant logo" | `index.html` (logo alt text, 3 instances) |
+| "How much do SMS messages cost?" | "How much do text messages cost?" | `index.html`, `faq.html` (FAQ heading + JSON-LD) |
+| "Works through SMS" | "Works through text message" | `index.html` (work persona feature) |
+| "AI-powered personal memory assistant via SMS" | "AI-powered personal memory assistant via text message" | `index.html` (JSON-LD structured data) |
+| "Any (SMS-based)" | "Any (text message-based)" | `index.html` (JSON-LD operatingSystem) |
+| "SMS Service Terms" | "Text Message Service Terms" | `index.html` (terms section heading) |
+
+**No change needed (legal/compliance):**
+- "Standard SMS rates apply" — keep as-is
+- "you agree to receive automated SMS messages" — keep as-is
+- "Msg & data rates may apply" — keep as-is (already uses "Msg" not "SMS")
+
+---
+
 *This roundtable feedback is based on a detailed review of the full Remyndrs website codebase including: `index.html` (3,890 lines), `faq.html`, `commands.html`, `privacy.html`, `terms.html`, `payment-success.html`, `payment-cancelled.html`, `data/testimonials.json`, `netlify.toml`, `claude.md`, and all CSS/JS embedded in the site.*
