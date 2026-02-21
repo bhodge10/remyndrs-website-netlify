@@ -363,3 +363,95 @@
 ---
 
 *This roundtable feedback is based on a detailed review of the full Remyndrs website codebase including: `index.html` (3,890 lines), `faq.html`, `commands.html`, `privacy.html`, `terms.html`, `payment-success.html`, `payment-cancelled.html`, `data/testimonials.json`, `netlify.toml`, `claude.md`, and all CSS/JS embedded in the site.*
+
+---
+
+## Session 9: Follow-Up — Reviewing the "SMS" → "Text Message" Changes
+
+**Date:** February 21, 2026
+**Context:** Based on the unanimous feedback from Session 8, the development team implemented the following changes across 5 files (`index.html`, `faq.html`, `commands.html`, `privacy.html`, `terms.html`) — 52 line changes total. Participants were shown the specific before/after changes and asked for their reactions.
+
+### Changes Presented to Participants
+
+**Key before → after examples shown:**
+
+| Location | Before | After |
+|----------|--------|-------|
+| Homepage hero subheading | "Your personal memory assistant via SMS" | "Your personal memory assistant via text" |
+| Browser tab title | "Remyndrs — Your Personal Memory Assistant via SMS" | "Remyndrs — Your Personal Memory Assistant via Text" |
+| FAQ heading | "How much do SMS messages cost?" | "How much do text messages cost?" |
+| FAQ answer | "standard SMS rates from your mobile carrier" | "standard text message rates from your mobile carrier" |
+| FAQ (privacy) | "Twilio for SMS" | "Twilio for text message delivery" |
+| Terms section heading | "SMS Service Terms" | "Text Message Service Terms" |
+| Terms description | "Remyndrs is an SMS-based reminder..." | "Remyndrs is a text message-based reminder..." |
+| Professional persona feature | "Works through SMS — no dashboard..." | "Works through text message — no dashboard..." |
+| Commands page title | "How to Use Your SMS Memory Assistant" | "How to Use Your Text Message Memory Assistant" |
+| Privacy policy intro | "our SMS-based reminder service" | "our text message-based reminder service" |
+| Contact labels (privacy + terms) | "**SMS:** Text SUPPORT..." | "**Text:** Text SUPPORT..." |
+| Logo alt text (3 instances) | "SMS memory assistant logo" | "text message memory assistant logo" |
+| Structured data (JSON-LD) | "via SMS", "Any (SMS-based)" | "via text message", "Any (text message-based)" |
+| Social sharing tags (OG/Twitter) | "via SMS" | "via text" |
+
+**Intentionally preserved (shown as unchanged):**
+- "Standard SMS rates apply" — carrier-required legal disclaimer
+- "you agree to receive automated SMS messages" — consent/compliance language
+- "Msg & data rates may apply" — already used "Msg" not "SMS"
+- CSS class names (`cta-sms-button`, `sms-disclaimer`) — internal code only
+- Analytics event names (`mobile_sms_click`) — internal tracking only
+- HTML/CSS comments — not user-facing
+
+---
+
+### Participant Reactions
+
+**Robert (Senior / Flip Phone) — Very satisfied:**
+> This is exactly what I asked for. "Your personal memory assistant via text" — that's how a normal person would say it. And I noticed you kept "Standard SMS rates apply" in the small print at the bottom. Good. That's the phone company stuff — they probably require that wording. But everything I'd actually read as a customer now says "text message" and I understand every word of it. The FAQ change is especially good. "How much do text messages cost?" — that's the question I'd actually ask. "How much do SMS messages cost?" sounded like I was calling my carrier's technical support line.
+
+**Maria (Busy Parent) — Impressed by thoroughness:**
+> I'm honestly surprised by how many places "SMS" was hiding. The page titles, the social sharing tags, the structured data for Google — I wouldn't have thought to check those. The hero line reads so much better now: "Your personal memory assistant via text." It feels conversational, like something I'd say to a friend: "Hey, I use this thing — it's a memory assistant, you just text it." Before, "via SMS" had this clinical distance to it. One thing I want to call out: changing "Twilio for SMS" to "Twilio for text message delivery" in the FAQ — that's a small detail, but when I'm reading about where my data goes, "text message delivery" actually tells me what Twilio does. "SMS" was just an acronym sitting there.
+
+**Derek (ADHD) — Approves, sees a branding opportunity:**
+> The consistency is what matters here. Before, the site was saying "just text naturally" while simultaneously using a technical acronym everywhere. Now there's no disconnect. The whole experience matches. "Text Message Memory Assistant" in the commands page title is a bit long, though. Have you considered just "Text Memory Assistant" or even dropping the qualifier? Nobody needs to be told it's text-based if the whole product is built around texting. But that's a branding conversation, not a bug. The actual changes are solid. And I appreciate that the analytics events still say `mobile_sms_click` — nobody sees those except the dev team, so there's no reason to touch them.
+
+**Aisha (Student) — Focused on SEO impact:**
+> From an SEO perspective, this is a smart move. I actually searched both terms before this session. "Text message reminders" gets significantly more search volume than "SMS reminders." The title tag change from "via SMS" to "via Text" should help with click-through rates too — when people see the search result, "via Text" reads more naturally and feels more modern. The structured data changes are important for rich snippets. Google reads that JSON-LD to understand what the product is, and "text message-based" is a more natural way to describe a software application's operating system than "SMS-based." I do have one concern: the Commands page title is now "How to Use Your Text Message Memory Assistant" — that's 54 characters. Google typically truncates titles around 50-60 characters, so it should be fine, but it's worth monitoring in Search Console to see if it gets cut off.
+
+**James (Business Owner) — Satisfied, reiterates B2B caveat:**
+> This looks clean and professional. The Terms of Service changes are particularly well done — "Text Message Service Terms" is actually clearer than "SMS Service Terms" even in a legal context, because you don't want people skipping over a section heading they don't understand. I'll reiterate what I said before: if you ever build a business tier or enterprise sales page, you can bring "SMS" back in that context. Phrases like "SMS API," "SMS notifications," and "A2P SMS" are standard in the B2B space. But for this consumer-facing site? "Text message" is the right call across the board. The professional persona feature card changing from "Works through SMS" to "Works through text message" is a good example — even as a business user, I read that and immediately understand it. No translation needed.
+
+**Karen (Caregiver) — Emotional response, practical observation:**
+> When I read "Your personal memory assistant via text" I actually felt relieved. I know that sounds dramatic, but I've been thinking about setting my mom up with this, and "via SMS" was one of those small barriers I'd have to explain away. Now I can just show her the site and everything makes sense. The privacy policy changes are important too — "Required to send and receive text messages" is immediately clear. My mom knows what text messages are. She sends me ten a day. She does NOT know what "SMS messages" are, and if she saw that in a privacy policy, she might think it's something different and get confused or worried. One more thing — changing "**SMS:** Text SUPPORT..." to "**Text:** Text SUPPORT..." in the contact section is a small but meaningful improvement. "SMS" as a contact method label next to "Email" and "Mail" looked like a technical category. "Text" looks like a verb — "text us." That's more inviting.
+
+---
+
+### Consolidated Assessment
+
+| Participant | Satisfied? | Rating (1-10) | Key Observation |
+|---|---|---|---|
+| Robert | Yes | **9/10** | "Everything I'd actually read now says 'text message'" |
+| Maria | Yes | **9/10** | "The hero line reads so much better — feels conversational" |
+| Derek | Yes | **8/10** | "The consistency is what matters — no more disconnect" |
+| Aisha | Yes | **9/10** | "Smart SEO move — 'text message reminders' gets more search volume" |
+| James | Yes | **9/10** | "Clean and professional — even legal sections are clearer" |
+| Karen | Yes | **10/10** | "I can show my mom the site now and everything makes sense" |
+
+**Average satisfaction: 9.0/10**
+
+---
+
+### Remaining Observations & New Suggestions
+
+| Priority | Observation | Raised By | Recommendation |
+|----------|-------------|-----------|----------------|
+| **LOW** | Commands page title may be slightly long (54 chars) | Aisha | Monitor in Google Search Console for truncation; consider shortening to "Remyndrs — Text Message Commands & Examples" |
+| **LOW** | Could drop "Message" in some spots — "via text" vs "via text message" | Derek | "Via text" is used in the hero and social tags — this is good. "Text message" in legal/formal contexts is also appropriate. Current mix is well-calibrated. |
+| **NOTE** | Future B2B materials can reintroduce "SMS" | James | Keep "SMS" in vocabulary for enterprise pitch decks, API docs, and B2B sales pages if/when created |
+| **NOTE** | Legal disclaimers correctly preserved | All | Carrier-required language ("Standard SMS rates apply", consent text) was left untouched — this is correct |
+
+---
+
+### Verdict
+
+**Unanimous approval.** All 6 participants confirmed the changes meet or exceed their expectations from Session 8. The implementation was thorough (covering titles, meta tags, structured data, alt text, legal pages, and persona-specific JS content), appropriately scoped (legal disclaimers preserved, internal code untouched), and the resulting copy reads more naturally, more accessibly, and more consistently with the brand's "just text us" identity.
+
+No further changes requested on this item. The "SMS → text message" initiative is considered complete.
