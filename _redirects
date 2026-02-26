@@ -1,6 +1,10 @@
 # Redirects
 /account     /  302
 
+# Influencer tracking - Kristen
+/kristen-ig  /?utm_source=instagram&utm_medium=social&utm_campaign=kristen  302
+/kristen-tt  /?utm_source=tiktok&utm_medium=social&utm_campaign=kristen    302
+
 # Payment pages (200 rewrite serves HTML and preserves query params like session_id)
 /payment/success    /payment-success.html   200
 /payment/cancelled  /payment-cancelled.html 200
