@@ -611,6 +611,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Fix SMS links for cross-platform compatibility (iOS uses &, Android uses ?)
+            (function() {
+                var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+                var links = document.querySelectorAll('a[href^="sms:"]');
+                links.forEach(function(link) {
+                    var href = link.getAttribute('href');
+                    if (isIOS) {
+                        link.setAttribute('href', href.replace('?body=', '&body='));
+                    }
+                });
+            })();
+
             // Hamburger menu toggle
             var hamburgerBtn = document.querySelector('.hamburger-btn');
             var navMenu = document.querySelector('header nav');
