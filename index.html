@@ -1733,6 +1733,24 @@
             }
         }
 
+        /* Android mobile: hide SMS-based elements and show form-based alternatives */
+        html.platform-android .mobile-cta-container { display: none !important; }
+        html.platform-android .desktop-signup-form { display: block !important; }
+        html.platform-android .mobile-contact-grid { display: none !important; }
+        html.platform-android .desktop-contact-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            max-width: 500px !important;
+            margin: 0 auto !important;
+        }
+        html.platform-android .mobile-only { display: none !important; }
+        html.platform-android .desktop-only-block { display: block !important; }
+        html.platform-android .desktop-only-inline { display: inline !important; }
+        html.platform-android .desktop-only-inline-block { display: inline-block !important; }
+        html.platform-android .desktop-only-inline-flex { display: inline-flex !important; }
+        html.platform-android .desktop-only-flex { display: flex !important; }
+
         /* Reset button styles for share copy buttons */
         .share-copy-btn {
             border: none;
@@ -2828,21 +2846,9 @@
         <span class="share-copied-text">Copied!</span>
     </button>
 
+    <script src="platform-detect.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Fix SMS links for cross-platform compatibility (iOS uses &, Android uses ?)
-            (function() {
-                var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                var links = document.querySelectorAll('a[href^="sms:"]');
-                links.forEach(function(link) {
-                    var href = link.getAttribute('href');
-                    if (isIOS) {
-                        // iOS needs & separator: sms:NUMBER&body=TEXT or sms:&body=TEXT
-                        link.setAttribute('href', href.replace('?body=', '&body='));
-                    }
-                });
-            })();
-
             // Hamburger menu toggle
             const hamburgerBtn = document.querySelector('.hamburger-btn');
             const navMenu = document.querySelector('header nav');
@@ -2909,22 +2915,6 @@
                         item.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
                     }
                 });
-            });
-
-            // Detect if user is on mobile device
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-            // Update CTA button text based on device
-            const ctaButtons = document.querySelectorAll('.cta-sms-button, .cta-sms-text');
-            ctaButtons.forEach(button => {
-                const mobileText = button.getAttribute('data-mobile-text');
-                const desktopText = button.getAttribute('data-desktop-text');
-
-                if (isMobile && mobileText) {
-                    button.textContent = mobileText;
-                } else if (!isMobile && desktopText) {
-                    button.textContent = desktopText;
-                }
             });
 
             // Handle desktop signup form submission

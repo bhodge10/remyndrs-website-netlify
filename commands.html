@@ -358,6 +358,14 @@
             }
         }
 
+        /* Android mobile: hide SMS-based elements and show form-based alternatives */
+        html.platform-android .mobile-only { display: none !important; }
+        html.platform-android .desktop-only-block { display: block !important; }
+        html.platform-android .desktop-only-inline { display: inline !important; }
+        html.platform-android .desktop-only-inline-block { display: inline-block !important; }
+        html.platform-android .desktop-only-inline-flex { display: inline-flex !important; }
+        html.platform-android .desktop-only-flex { display: flex !important; }
+
         /* Reset button styles for share copy buttons */
         .share-copy-btn {
             border: none;
@@ -665,20 +673,9 @@
         </div>
     </footer>
 
+    <script src="platform-detect.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Fix SMS links for cross-platform compatibility (iOS uses &, Android uses ?)
-            (function() {
-                var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                var links = document.querySelectorAll('a[href^="sms:"]');
-                links.forEach(function(link) {
-                    var href = link.getAttribute('href');
-                    if (isIOS) {
-                        link.setAttribute('href', href.replace('?body=', '&body='));
-                    }
-                });
-            })();
-
             // Hamburger menu toggle
             var hamburgerBtn = document.querySelector('.hamburger-btn');
             var navMenu = document.querySelector('header nav');
@@ -730,21 +727,6 @@
                 }, 2000);
             }
 
-            // Detect if user is on mobile device
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-            // Update CTA button text based on device
-            const ctaButtons = document.querySelectorAll('.cta-sms-button');
-            ctaButtons.forEach(button => {
-                const mobileText = button.getAttribute('data-mobile-text');
-                const desktopText = button.getAttribute('data-desktop-text');
-
-                if (isMobile && mobileText) {
-                    button.textContent = mobileText;
-                } else if (!isMobile && desktopText) {
-                    button.textContent = desktopText;
-                }
-            });
         });
     </script>
 </body>
