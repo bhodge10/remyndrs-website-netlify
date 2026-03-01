@@ -78,25 +78,37 @@
             top: 0;
             z-index: 100;
         }
-        
+
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 28px;
             font-weight: 700;
             color: var(--primary-blue);
         }
-        
+
         .logo img {
             height: 60px;
             width: auto;
             display: block;
         }
-        
+
+        .header-phone {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .header-phone:hover {
+            text-decoration: underline;
+        }
+
         nav a {
             margin-left: 30px;
             text-decoration: none;
@@ -104,7 +116,7 @@
             font-weight: 500;
             transition: color 0.3s;
         }
-        
+
         nav a:hover {
             color: var(--primary-blue);
         }
@@ -493,6 +505,33 @@
             color: #666;
         }
         
+        /* Mid-page Phone CTA */
+        .mid-page-cta {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #6BA8BC 100%);
+            padding: 35px 0;
+            text-align: center;
+        }
+
+        .mid-page-cta p {
+            color: white;
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .mid-page-cta .phone-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .mid-page-cta .phone-number:hover {
+            text-decoration: underline;
+        }
+
         /* Commands Quick Reference */
         .commands-quick {
             background: white;
@@ -1101,7 +1140,24 @@
         footer p {
             opacity: 0.8;
         }
-        
+
+        .footer-phone {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            opacity: 1;
+            margin-bottom: 20px;
+        }
+
+        .footer-phone a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-phone a:hover {
+            text-decoration: underline;
+        }
+
         /* SMS Disclaimer */
         .sms-disclaimer {
             font-size: 12px;
@@ -1450,6 +1506,15 @@
                 display: block;
             }
 
+            .header-phone {
+                font-size: 13px;
+                order: 3;
+                width: 100%;
+                text-align: center;
+                padding-top: 8px;
+                border-top: 1px solid rgba(0,0,0,0.06);
+            }
+
             nav {
                 display: none;
                 flex-direction: column;
@@ -1468,6 +1533,10 @@
                 font-size: 16px;
                 padding: 12px 20px;
                 border-top: 1px solid rgba(0,0,0,0.06);
+            }
+
+            .mid-page-cta .phone-number {
+                font-size: 24px;
             }
 
             .steps, .cases-grid, .features-grid, .pricing-grid {
@@ -1806,6 +1875,8 @@
                 <div class="logo">
                     <img src="remyndrs-logo.png" alt="Remyndrs - text message memory assistant logo" width="180" height="60">
                 </div>
+                <a href="sms:+18555521950?body=Hello" class="header-phone mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'header',page:'index'})">Text Hello to +1 (855) 552-1950</a>
+                <a href="sms:+18555521950?body=Hello" class="header-phone desktop-only-inline" onclick="gtag('event','cta_click',{cta_type:'phone_header',location:'header'})">Text Hello to +1 (855) 552-1950</a>
                 <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
                 <nav id="main-nav">
                     <a href="#how-it-works">How It Works</a>
@@ -1826,6 +1897,7 @@
 
             <h1>Never Forget Anything Again</h1>
             <p>Your personal memory assistant via text. Just text it, and we'll remember it for you.</p>
+            <p style="font-size: 22px; margin-top: 12px; color: var(--primary-blue); font-weight: 700;">Text <strong>Hello</strong> to <a href="sms:+18555521950?body=Hello" style="color: var(--primary-blue); text-decoration: none;" onclick="gtag('event','cta_click',{cta_type:'phone_hero',location:'hero'})">+1 (855) 552-1950</a> to get started</p>
             <p style="font-size: 17px; margin-top: 10px; color: var(--text-dark); opacity: 0.85;">14-day free Premium Tier trial • No credit card required • No app to install</p>
 
             <!-- Trust Indicators -->
@@ -1996,6 +2068,14 @@
                     <p>Receive a text at the perfect time. Never miss what matters.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Mid-page Phone CTA -->
+    <section class="mid-page-cta">
+        <div class="container">
+            <p>Ready to try it? Text <strong>Hello</strong> to</p>
+            <a href="sms:+18555521950?body=Hello" class="phone-number" onclick="gtag('event','cta_click',{cta_type:'phone_midpage',location:'mid_cta'})">+1 (855) 552-1950</a>
         </div>
     </section>
 
@@ -2789,6 +2869,7 @@
     <footer>
         <div class="container">
             <img src="remyndrs-logo.png" alt="Remyndrs - text message memory assistant logo" style="width: 100px; height: auto; margin: 0 auto 20px; display: block; opacity: 0.8;">
+            <p class="footer-phone">Text <strong>Hello</strong> to <a href="sms:+18555521950?body=Hello" onclick="gtag('event','cta_click',{cta_type:'phone_footer',location:'footer'})">+1 (855) 552-1950</a></p>
 
             <!-- Quick Contact Buttons in Footer -->
             <div class="footer-contact-buttons">

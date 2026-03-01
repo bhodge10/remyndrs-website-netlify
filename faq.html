@@ -91,6 +91,18 @@
             display: block;
         }
 
+        .header-phone {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .header-phone:hover {
+            text-decoration: underline;
+        }
+
         nav a {
             margin-left: 30px;
             text-decoration: none;
@@ -158,6 +170,23 @@
 
         footer p {
             opacity: 0.8;
+        }
+
+        .footer-phone {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            opacity: 1;
+            margin-bottom: 20px;
+        }
+
+        .footer-phone a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-phone a:hover {
+            text-decoration: underline;
         }
 
         footer a {
@@ -269,8 +298,22 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
             .hamburger-btn {
                 display: block;
+            }
+
+            .header-phone {
+                font-size: 13px;
+                order: 3;
+                width: 100%;
+                text-align: center;
+                padding-top: 8px;
+                border-top: 1px solid rgba(0,0,0,0.06);
             }
 
             nav {
@@ -307,6 +350,8 @@
                 <a href="index.html" class="logo">
                     <img src="remyndrs-logo.png" alt="Remyndrs">
                 </a>
+                <a href="sms:+18555521950?body=Hello" class="header-phone mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'header',page:'faq'})">Text Hello to +1 (855) 552-1950</a>
+                <a href="sms:+18555521950?body=Hello" class="header-phone desktop-only-inline" onclick="gtag('event','cta_click',{cta_type:'phone_header',location:'header'})">Text Hello to +1 (855) 552-1950</a>
                 <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
                 <nav>
                     <a href="index.html">Home</a>
@@ -484,6 +529,7 @@
     <footer>
         <div class="container">
             <img src="remyndrs-logo.png" alt="Remyndrs" style="width: 100px; height: auto; margin: 0 auto 20px; display: block; opacity: 0.8;">
+            <p class="footer-phone">Text <strong>Hello</strong> to <a href="sms:+18555521950?body=Hello" onclick="gtag('event','cta_click',{cta_type:'phone_footer',location:'footer'})">+1 (855) 552-1950</a></p>
 
             <!-- Quick Contact Buttons in Footer -->
             <div class="footer-contact-buttons">
