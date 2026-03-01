@@ -74,3 +74,25 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=3600, must-revalidate"
+
+# =============================================================
+# A/B TEST: Simple vs Original homepage
+# =============================================================
+# The simplified landing page lives at /index-simple.html
+# and can be previewed directly at /simple
+#
+# TO RUN A FULL A/B TEST on Netlify:
+# 1. Create a branch where index.html is replaced by the
+#    simplified version (or swap filenames)
+# 2. In Netlify dashboard: Site Settings > Split Testing
+# 3. Set traffic split (e.g. 50/50) between main and the branch
+# 4. Track results in GA4 — the simple page fires a
+#    "page_variant" event with variant="simple"
+# =============================================================
+
+# Preview route: visit /simple to see the simplified page
+[[redirects]]
+  from = "/simple"
+  to = "/index-simple.html"
+  status = 200
+

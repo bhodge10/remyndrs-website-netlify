@@ -1,6 +1,9 @@
 # Redirects
 /account     /  302
 
+# A/B test: simplified landing page preview
+/simple      /index-simple.html  200
+
 # Influencer tracking - Kristen
 /kristen-ig  /?utm_source=instagram&utm_medium=social&utm_campaign=kristen  302
 /kristen-tt  /?utm_source=tiktok&utm_medium=social&utm_campaign=kristen    302

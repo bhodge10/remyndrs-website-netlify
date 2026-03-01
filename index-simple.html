@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T8ZBVMT9JE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-T8ZBVMT9JE');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remyndrs — Your Personal Memory Assistant via Text | Never Forget Anything</title>
+    <meta name="description" content="Remyndrs is your AI-powered personal memory assistant via text message. Set reminders, save info, create lists — all by text. No app needed. Works on any phone. Try free for 14 days.">
+    <link rel="icon" type="image/png" href="remyndrs-logo.png">
+    <link rel="alternate icon" type="image/svg+xml" href="remyndrs-logo.svg">
+    <link rel="canonical" href="https://remyndrs.com/">
+    <meta name="theme-color" content="#4A90A4">
+    <meta name="author" content="Remyndrs">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://remyndrs.com/">
+    <meta property="og:title" content="Remyndrs — Never Forget Anything Again">
+    <meta property="og:description" content="Your personal memory assistant via text. Set reminders, save info, and create lists — all by text message. No app required.">
+    <meta property="og:image" content="https://remyndrs.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://remyndrs.com/">
+    <meta name="twitter:title" content="Remyndrs — Never Forget Anything Again">
+    <meta name="twitter:description" content="Your personal memory assistant via text. Set reminders, save info, and create lists — all by text message. No app required.">
+    <meta name="twitter:image" content="https://remyndrs.com/og-image.png">
+
+    <style>
+        :root {
+            --primary-blue: #4A90A4;
+            --success-green: #50B688;
+            --text-dark: #3D4F5C;
+            --bg-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ======= HERO — The entire above-the-fold experience ======= */
+        .hero {
+            background: linear-gradient(135deg, #D6EAF8 0%, #D5F4E6 100%);
+            padding: 30px 0 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero .container {
+            width: 100%;
+        }
+
+        .hero-logo {
+            width: 80px;
+            height: auto;
+            margin: 0 auto 12px;
+            display: block;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.12));
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 6px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .hero .tagline {
+            font-size: 19px;
+            color: var(--text-dark);
+            opacity: 0.85;
+            margin-bottom: 16px;
+        }
+
+        /* CTA cluster */
+        .cta-cluster {
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--success-green);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(80, 182, 136, 0.4);
+        }
+
+        .cta-phone {
+            display: block;
+            margin-top: 8px;
+            font-size: 15px;
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .cta-phone:hover {
+            text-decoration: underline;
+        }
+
+        .trust-line {
+            font-size: 13px;
+            color: var(--text-dark);
+            opacity: 0.7;
+            margin-top: 6px;
+        }
+
+        /* Desktop Signup Form */
+        .desktop-signup-form {
+            display: none;
+            margin: 0 auto 18px;
+            max-width: 440px;
+        }
+
+        .desktop-signup-form form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .desktop-signup-form input[type="tel"] {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .desktop-signup-form input[type="tel"]:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .signup-feedback {
+            display: none;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .signup-feedback.success {
+            background: #E8F5F1;
+            color: var(--success-green);
+        }
+
+        .signup-feedback.error {
+            background: #FFE5E5;
+            color: #D32F2F;
+        }
+
+        /* Mobile CTA */
+        .mobile-cta-container {
+            display: block;
+        }
+
+        @media (min-width: 769px) {
+            .mobile-cta-container { display: none; }
+            .desktop-signup-form { display: block; }
+        }
+
+        /* Android overrides */
+        html.platform-android .mobile-cta-container { display: none !important; }
+        html.platform-android .desktop-signup-form { display: block !important; }
+
+        /* ======= PERSONA CARDS — Compact 4-up grid ======= */
+        .persona-strip {
+            margin-top: 20px;
+        }
+
+        .persona-strip h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .persona-card {
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 14px 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-align: center;
+            font-family: inherit;
+            color: var(--text-dark);
+            font-size: inherit;
+            line-height: 1.4;
+        }
+
+        .persona-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(74, 144, 164, 0.2);
+            border-color: var(--primary-blue);
+        }
+
+        .persona-card[aria-checked="true"] {
+            border-color: var(--primary-blue);
+            background: white;
+            box-shadow: 0 4px 14px rgba(74, 144, 164, 0.3);
+        }
+
+        .persona-card:focus-visible {
+            outline: 3px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+
+        .persona-emoji {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .persona-title {
+            font-size: 13px;
+            font-weight: 600;
+            display: block;
+        }
+
+        /* ======= EXPLORE BUTTONS — Reveal content on demand ======= */
+        .explore-bar {
+            background: white;
+            padding: 14px 0;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .explore-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .explore-btn {
+            background: var(--bg-light);
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .explore-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .explore-btn.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* ======= EXPANDABLE PANELS ======= */
+        .panel-container {
+            background: white;
+            overflow: hidden;
+        }
+
+        .panel {
+            display: none;
+            padding: 30px 0;
+            animation: panelFadeIn 0.3s ease;
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        @keyframes panelFadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* How It Works panel */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 auto 12px;
+        }
+
+        .step h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Commands panel */
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            text-align: left;
+        }
+
+        .command-category {
+            background: var(--bg-light);
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 3px solid var(--primary-blue);
+        }
+
+        .command-category h3 {
+            font-size: 16px;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .command-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .command-category li {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 6px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .command-category li::before {
+            content: "\2022";
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        .commands-footer {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .commands-footer a {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .commands-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ panel */
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 16px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-blue);
+        }
+
+        .faq-toggle {
+            font-size: 20px;
+            color: var(--primary-blue);
+            transition: transform 0.2s;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-answer-inner {
+            padding: 0 0 16px;
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .faq-answer-inner a {
+            color: var(--primary-blue);
+        }
+
+        .faq-more {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .faq-more a {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .faq-more a:hover {
+            text-decoration: underline;
+        }
+
+        /* Pricing panel */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg-light);
+            border-radius: 14px;
+            padding: 28px 22px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--success-green);
+            background: white;
+            box-shadow: 0 6px 20px rgba(80, 182, 136, 0.18);
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success-green);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-card h3 {
+            font-size: 20px;
+            margin-bottom: 4px;
+            color: var(--text-dark);
+        }
+
+        .pricing-card .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 12px 0;
+        }
+
+        .pricing-card .price-note {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 6px 0;
+            color: var(--text-dark);
+            font-size: 14px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .pricing-card li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        /* ======= FOOTER — Minimal ======= */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin-top: 6px;
+            opacity: 0.7;
+        }
+
+        /* SMS Disclaimer */
+        .sms-disclaimer {
+            font-size: 11px;
+            color: #555;
+            margin-top: 6px;
+            line-height: 1.5;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sms-disclaimer a {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+
+        /* ======= RESPONSIVE ======= */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 20px 0 16px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero .tagline {
+                font-size: 16px;
+            }
+
+            .persona-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .persona-card {
+                padding: 10px 8px;
+            }
+
+            .persona-emoji {
+                font-size: 24px;
+            }
+
+            .persona-title {
+                font-size: 12px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .commands-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .explore-buttons {
+                gap: 8px;
+            }
+
+            .explore-btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+
+        /* Compressed desktop viewports */
+        @media (min-width: 769px) and (max-height: 750px) {
+            .hero {
+                padding: 16px 0 12px;
+            }
+            .hero-logo {
+                width: 60px;
+            }
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HERO — Everything above the fold ===== -->
+    <section class="hero">
+        <div class="container">
+            <img src="remyndrs-logo.png" alt="Remyndrs logo" class="hero-logo" width="80" height="80">
+
+            <h1>Never Forget Anything Again</h1>
+            <p class="tagline">Text it. We'll remember it. No app needed.</p>
+
+            <!-- Desktop: phone number input form -->
+            <div class="desktop-signup-form">
+                <form id="desktopSignupForm">
+                    <input type="tel" id="phoneInput" placeholder="+1 (555) 123-4567" required
+                           pattern="[\+]?[0-9\s\-\(\)]+"
+                           title="Enter a valid phone number">
+                    <button type="submit" class="cta-button">Get Started Free</button>
+                </form>
+                <div id="signupSuccess" class="signup-feedback success">Text message sent! Check your phone.</div>
+                <div id="signupError" class="signup-feedback error" id="errorMessage">Something went wrong. Please try again.</div>
+                <p class="sms-disclaimer">Standard SMS rates apply. Reply STOP to unsubscribe. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+            </div>
+
+            <!-- Mobile: tap-to-text CTA -->
+            <div class="mobile-cta-container">
+                <div class="cta-cluster">
+                    <a href="sms:+18555521950?body=Hello" class="cta-button" onclick="gtag('event','mobile_sms_click',{action:'start',location:'hero',page:'simple'})">Tap to Text Us — It's Free!</a>
+                    <a href="sms:+18555521950?body=Hello" class="cta-phone" onclick="gtag('event','cta_click',{cta_type:'phone_hero',location:'hero'})">+1 (855) 552-1950</a>
+                </div>
+                <p class="sms-disclaimer">By texting, you agree to receive automated SMS messages. Msg & data rates may apply. Reply STOP to unsubscribe. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+            </div>
+
+            <p class="trust-line">14-day free trial &middot; No credit card &middot; Works on any phone</p>
+
+            <!-- Persona strip -->
+            <div class="persona-strip">
+                <h2>Who is this for?</h2>
+                <div class="persona-grid" role="radiogroup" aria-label="Choose your persona">
+                    <button class="persona-card" data-persona="adhd" role="radio" aria-checked="false" tabindex="0">
+                        <span class="persona-emoji">🧠</span>
+                        <span class="persona-title">100 tabs open</span>
+                    </button>
+                    <button class="persona-card" data-persona="parent" role="radio" aria-checked="false" tabindex="-1">
+                        <span class="persona-emoji">🤹</span>
+                        <span class="persona-title">Juggling everything</span>
+                    </button>
+                    <button class="persona-card" data-persona="professional" role="radio" aria-checked="false" tabindex="-1">
+                        <span class="persona-emoji">💼</span>
+                        <span class="persona-title">Can't drop the ball</span>
+                    </button>
+                    <button class="persona-card" data-persona="simple" role="radio" aria-checked="false" tabindex="-1">
+                        <span class="persona-emoji">💬</span>
+                        <span class="persona-title">Just make it simple</span>
+                    </button>
+                </div>
+                <div class="sr-only" aria-live="polite" id="persona-announce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPLORE BAR — Reveal content on demand ===== -->
+    <div class="explore-bar">
+        <div class="container">
+            <div class="explore-buttons">
+                <button class="explore-btn" data-panel="how-it-works" onclick="gtag('event','panel_click',{panel:'how-it-works',page:'simple'})">How It Works</button>
+                <button class="explore-btn" data-panel="commands" onclick="gtag('event','panel_click',{panel:'commands',page:'simple'})">What You Can Do</button>
+                <button class="explore-btn" data-panel="pricing" onclick="gtag('event','panel_click',{panel:'pricing',page:'simple'})">Pricing</button>
+                <button class="explore-btn" data-panel="faq" onclick="gtag('event','panel_click',{panel:'faq',page:'simple'})">Questions?</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== EXPANDABLE PANELS ===== -->
+    <div class="panel-container">
+
+        <!-- How It Works -->
+        <div class="panel" id="panel-how-it-works">
+            <div class="container">
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Text Your Reminder</h3>
+                        <p>Send a message about anything you want to remember — appointments, tasks, or notes.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>We Process It</h3>
+                        <p>Our AI understands your message and schedules reminders automatically.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Get Reminded</h3>
+                        <p>Receive a text at the perfect time. Never miss what matters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Commands -->
+        <div class="panel" id="panel-commands">
+            <div class="container">
+                <div class="commands-grid">
+                    <div class="command-category">
+                        <h3>⏰ Set Reminders</h3>
+                        <ul>
+                            <li>"Remind me to call Mom at 3pm"</li>
+                            <li>"Take meds every day at 8am"</li>
+                            <li>"Dentist next Tuesday at 2pm"</li>
+                        </ul>
+                    </div>
+                    <div class="command-category">
+                        <h3>📝 Create Lists</h3>
+                        <ul>
+                            <li>"Add milk to my grocery list"</li>
+                            <li>"Show me my to-do list"</li>
+                            <li>"Remove eggs from grocery"</li>
+                        </ul>
+                    </div>
+                    <div class="command-category">
+                        <h3>💾 Save Info</h3>
+                        <ul>
+                            <li>"My WiFi password is Sunny42"</li>
+                            <li>"Locker combo is 12-34-56"</li>
+                            <li>"Mom's birthday is March 15"</li>
+                        </ul>
+                    </div>
+                    <div class="command-category">
+                        <h3>🔍 Retrieve Info</h3>
+                        <ul>
+                            <li>"What's my WiFi password?"</li>
+                            <li>"When is Mom's birthday?"</li>
+                            <li>"Show my reminders"</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="commands-footer">
+                    <a href="commands.html">View all commands &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="panel" id="panel-pricing">
+            <div class="container">
+                <div class="pricing-grid">
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Most Popular</div>
+                        <h3>💎 Premium</h3>
+                        <div class="price">$8.99<span style="font-size:16px;font-weight:400">/mo</span></div>
+                        <div class="price-note">or $89.99/year (save 17%)</div>
+                        <ul>
+                            <li>Unlimited reminders per day</li>
+                            <li>Up to 20 lists</li>
+                            <li>Unlimited saved memories</li>
+                            <li>Priority AI processing</li>
+                            <li>Recurring reminders</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>🆓 Always Free</h3>
+                        <div class="price">$0</div>
+                        <div class="price-note">Free forever, no card needed</div>
+                        <ul>
+                            <li>2 reminders per day</li>
+                            <li>Up to 5 lists</li>
+                            <li>5 saved memories</li>
+                            <li>Standard AI processing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="panel" id="panel-faq">
+            <div class="container">
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">How much do text messages cost? <span class="faq-toggle">+</span></button>
+                        <div class="faq-answer"><div class="faq-answer-inner">Standard text messaging rates from your carrier apply. Remyndrs doesn't charge per message — your subscription covers everything on our side.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">What happens after my free trial? <span class="faq-toggle">+</span></button>
+                        <div class="faq-answer"><div class="faq-answer-inner">After 14 days, you'll automatically switch to the free tier. No charges, no surprises. You can upgrade to Premium at any time.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">How do I cancel? <span class="faq-toggle">+</span></button>
+                        <div class="faq-answer"><div class="faq-answer-inner">Just text STOP at any time to unsubscribe from messages. To cancel a Premium subscription, text "cancel my subscription" and we'll handle it instantly.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Is my data private and secure? <span class="faq-toggle">+</span></button>
+                        <div class="faq-answer"><div class="faq-answer-inner">Yes. Your data is encrypted and never shared or sold. Text DELETE MY ACCOUNT anytime and everything is wiped instantly. See our <a href="privacy.html">Privacy Policy</a> for details.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">What phones does this work on? <span class="faq-toggle">+</span></button>
+                        <div class="faq-answer"><div class="faq-answer-inner">Any phone that can send and receive text messages — iPhone, Android, even flip phones. No app download, no WiFi, no storage needed.</div></div>
+                    </div>
+                </div>
+                <div class="faq-more">
+                    <a href="faq.html">More questions &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER — Tiny ===== -->
+    <footer>
+        <div class="container">
+            <span>&copy; 2025 Remyndrs</span>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="faq.html">FAQ</a>
+                <a href="mailto:support@remyndrs.com">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Platform detection -->
+    <script src="platform-detect.js"></script>
+
+    <script>
+        // ===== Explore buttons — toggle panels =====
+        document.querySelectorAll('.explore-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var panelId = 'panel-' + this.getAttribute('data-panel');
+                var panel = document.getElementById(panelId);
+                var isActive = this.classList.contains('active');
+
+                // Close all panels and deactivate all buttons
+                document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
+                document.querySelectorAll('.explore-btn').forEach(function(b) { b.classList.remove('active'); });
+
+                // If wasn't active, open it
+                if (!isActive) {
+                    panel.classList.add('active');
+                    this.classList.add('active');
+                    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        });
+
+        // ===== FAQ accordion =====
+        document.querySelectorAll('.faq-question').forEach(function(q) {
+            q.addEventListener('click', function() {
+                var item = this.parentElement;
+                var answer = item.querySelector('.faq-answer');
+                var isOpen = item.classList.contains('open');
+
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(function(fi) {
+                    fi.classList.remove('open');
+                    fi.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                if (!isOpen) {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    gtag('event', 'faq_view', { question: this.textContent.trim() });
+                }
+            });
+        });
+
+        // ===== Persona cards =====
+        document.querySelectorAll('.persona-card').forEach(function(card) {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.persona-card').forEach(function(c) {
+                    c.setAttribute('aria-checked', 'false');
+                });
+                this.setAttribute('aria-checked', 'true');
+                var persona = this.getAttribute('data-persona');
+                document.getElementById('persona-announce').textContent = 'Selected: ' + this.querySelector('.persona-title').textContent;
+                gtag('event', 'persona_select', { persona: persona, page: 'simple' });
+            });
+        });
+
+        // ===== Desktop signup form =====
+        var form = document.getElementById('desktopSignupForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var phoneInput = document.getElementById('phoneInput');
+                var phone = phoneInput.value.replace(/[^0-9+]/g, '');
+                var btn = form.querySelector('button');
+                var successEl = document.getElementById('signupSuccess');
+                var errorEl = document.getElementById('signupError');
+
+                btn.disabled = true;
+                btn.textContent = 'Sending...';
+                successEl.style.display = 'none';
+                errorEl.style.display = 'none';
+
+                fetch('/api/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phone: phone })
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data.success) {
+                        successEl.style.display = 'block';
+                        phoneInput.value = '';
+                        gtag('event', 'signup_success', { method: 'desktop_form', page: 'simple' });
+                    } else {
+                        errorEl.textContent = data.error || 'Something went wrong. Please try again.';
+                        errorEl.style.display = 'block';
+                    }
+                })
+                .catch(function() {
+                    errorEl.textContent = 'Network error. Please try again.';
+                    errorEl.style.display = 'block';
+                })
+                .finally(function() {
+                    btn.disabled = false;
+                    btn.textContent = 'Get Started Free';
+                });
+            });
+        }
+
+        // ===== A/B test tracking =====
+        gtag('event', 'page_variant', { variant: 'simple', page: 'index' });
+    </script>
+</body>
+</html>
