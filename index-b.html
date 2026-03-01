@@ -121,10 +121,24 @@
 
         /* ─── HERO ─── */
         .hero {
-            background: linear-gradient(160deg, #E8F4F8 0%, #E5F5ED 100%);
+            background: linear-gradient(160deg, #E3F0F7 0%, #DFF2E8 50%, #EEF3E8 100%);
             text-align: center;
             padding: 50px 20px 40px;
+            position: relative;
         }
+
+        /* Subtle noise texture for warmth */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            background-size: 200px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero > * { position: relative; z-index: 1; }
 
         .hero-logo {
             width: 90px;
@@ -360,12 +374,29 @@
             padding: 18px 14px;
             cursor: default;
             text-align: center;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: personaIn 0.5s ease forwards;
+        }
+
+        .persona-card:nth-child(1) { animation-delay: 0.1s; }
+        .persona-card:nth-child(2) { animation-delay: 0.2s; }
+        .persona-card:nth-child(3) { animation-delay: 0.3s; }
+        .persona-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes personaIn {
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .persona-card:hover {
-            border-color: rgba(74, 144, 164, 0.3);
-            transform: translateY(-2px);
+            border-color: rgba(74, 144, 164, 0.35);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(74, 144, 164, 0.12);
+        }
+
+        .persona-card:active {
+            transform: scale(0.97);
         }
 
         .persona-emoji {
@@ -389,21 +420,37 @@
             line-height: 1.4;
         }
 
-        /* ─── QUICK LINKS BAR ─── */
+        /* ─── EXPLORE ZONE (buttons + collapsible content) ─── */
+        .explore-zone {
+            background: linear-gradient(180deg, #f4f7f9 0%, #eef2f5 100%);
+            border-top: 1px solid #e8ecef;
+            padding-bottom: 8px;
+        }
+
         .quick-links {
             display: flex;
             justify-content: center;
             gap: 12px;
-            padding: 20px 20px 0;
-            background: white;
+            padding: 28px 20px 20px;
+        }
+
+        .quick-links-label {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #a0adb8;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding-top: 20px;
+            margin-bottom: -6px;
         }
 
         .quick-link-btn {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 11px 22px;
+            border-radius: 10px;
             font-size: 14px;
             font-weight: 600;
             text-decoration: none;
@@ -413,11 +460,20 @@
             background: white;
             transition: all 0.2s;
             font-family: inherit;
+            box-shadow: 0 2px 8px rgba(74, 144, 164, 0.08);
         }
 
         .quick-link-btn:hover {
             background: var(--primary-blue);
             color: white;
+            box-shadow: 0 4px 14px rgba(74, 144, 164, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .quick-link-btn.active {
+            background: var(--primary-blue);
+            color: white;
+            box-shadow: 0 4px 14px rgba(74, 144, 164, 0.25);
         }
 
         /* ─── HOW IT WORKS (collapsible) ─── */
@@ -425,13 +481,13 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease, padding 0.5s ease;
-            background: var(--bg-light);
+            background: transparent;
             padding: 0 20px;
         }
 
         .how-it-works.open {
             max-height: 600px;
-            padding: 40px 20px;
+            padding: 30px 20px 40px;
         }
 
         .how-it-works-inner {
@@ -492,13 +548,13 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease, padding 0.5s ease;
-            background: white;
+            background: transparent;
             padding: 0 20px;
         }
 
         .see-it-section.open {
             max-height: 2400px;
-            padding: 40px 20px;
+            padding: 30px 20px 40px;
         }
 
         .see-it-inner {
@@ -524,7 +580,7 @@
 
         /* Demo case cards */
         .case {
-            background: var(--bg-light);
+            background: white;
             padding: 24px 20px;
             border-radius: 14px;
             cursor: pointer;
@@ -533,6 +589,7 @@
             transition: transform 0.2s, box-shadow 0.2s, margin-bottom 0.3s;
             margin-bottom: 0;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
 
         .case:hover,
@@ -790,8 +847,8 @@
             .hamburger-btn { display: none; }
 
             .hero { padding: 60px 20px 50px; }
-            .hero h1 { font-size: 44px; }
-            .hero .subtitle { font-size: 22px; }
+            .hero h1 { font-size: 44px; letter-spacing: -0.7px; }
+            .hero .subtitle { font-size: 22px; max-width: 480px; }
             .hero .phone-display { font-size: 22px; }
             .logo img { height: 50px; }
 
@@ -851,8 +908,9 @@
                 font-size: 15px;
             }
 
-            .quick-links { gap: 8px; }
-            .quick-link-btn { padding: 9px 16px; font-size: 13px; }
+            .quick-links { gap: 8px; padding: 22px 16px 16px; }
+            .quick-link-btn { padding: 10px 18px; font-size: 13px; }
+            .quick-links-label { font-size: 11px; letter-spacing: 1px; }
 
             .case-hint { display: block; }
         }
@@ -967,18 +1025,20 @@
         </div>
     </section>
 
-    <!-- ═══ QUICK LINKS ═══ -->
-    <div class="quick-links">
-        <button class="quick-link-btn" id="toggle-how" aria-expanded="false">
-            ⚡ How it works
-        </button>
-        <button class="quick-link-btn" id="toggle-demo" aria-expanded="false">
-            📱 See it in action
-        </button>
-    </div>
+    <!-- ═══ EXPLORE ZONE ═══ -->
+    <div class="explore-zone">
+        <p class="quick-links-label">Want to learn more?</p>
+        <div class="quick-links">
+            <button class="quick-link-btn" id="toggle-how" aria-expanded="false">
+                ⚡ How it works
+            </button>
+            <button class="quick-link-btn" id="toggle-demo" aria-expanded="false">
+                📱 See it in action
+            </button>
+        </div>
 
-    <!-- ═══ HOW IT WORKS (collapsible) ═══ -->
-    <section class="how-it-works" id="how-it-works-section">
+        <!-- ═══ HOW IT WORKS (collapsible) ═══ -->
+        <section class="how-it-works" id="how-it-works-section">
         <div class="how-it-works-inner">
             <h2>How It Works</h2>
             <div class="steps">
@@ -1072,6 +1132,7 @@
             <a href="index.html#use-cases" class="see-more-link" onclick="gtag('event','cta_click',{cta_type:'see_more_demos',location:'demos',page:'index-b'})">See more examples →</a>
         </div>
     </section>
+    </div><!-- /.explore-zone -->
 
     </main>
 
@@ -1118,12 +1179,14 @@
         howBtn.addEventListener('click', function() {
             var isOpen = howSection.classList.toggle('open');
             howBtn.setAttribute('aria-expanded', isOpen);
+            howBtn.classList.toggle('active', isOpen);
             howBtn.innerHTML = isOpen ? '✓ How it works' : '⚡ How it works';
 
             if (isOpen) {
                 // Close the other section
                 seeSection.classList.remove('open');
                 seeBtn.setAttribute('aria-expanded', 'false');
+                seeBtn.classList.remove('active');
                 seeBtn.innerHTML = '📱 See it in action';
 
                 setTimeout(function() {
@@ -1141,12 +1204,14 @@
         seeBtn.addEventListener('click', function() {
             var isOpen = seeSection.classList.toggle('open');
             seeBtn.setAttribute('aria-expanded', isOpen);
+            seeBtn.classList.toggle('active', isOpen);
             seeBtn.innerHTML = isOpen ? '✓ See it in action' : '📱 See it in action';
 
             if (isOpen) {
                 // Close the other section
                 howSection.classList.remove('open');
                 howBtn.setAttribute('aria-expanded', 'false');
+                howBtn.classList.remove('active');
                 howBtn.innerHTML = '⚡ How it works';
 
                 setTimeout(function() {
