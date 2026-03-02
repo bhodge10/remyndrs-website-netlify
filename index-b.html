@@ -447,7 +447,7 @@
         }
 
         .persona-expand.open {
-            max-height: 800px;
+            max-height: 1400px;
             opacity: 1;
         }
 
@@ -1124,6 +1124,10 @@
             <div class="persona-expand-inner">
                 <h3 id="persona-heading">Why Remyndrs?</h3>
                 <div class="persona-features" id="persona-features"></div>
+                <div style="text-align:center;margin-top:20px;">
+                    <a href="sms:+18555521950?body=Hello" class="cta-button mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'persona_expand',page:'index-b'})">📱 Tap to Text Us — It's Free!</a>
+                    <a href="#hero" class="cta-button desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'persona_expand',page:'index-b'})">Get Started Now →</a>
+                </div>
                 <button class="persona-clear" id="persona-clear">Clear selection</button>
             </div>
         </div>
