@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- A/B Test: Redirect variant B users before anything renders -->
-    <script>
-      (function(){
-        var match = document.cookie.match(/ab_variant=([AB])/);
-        var variant = match ? match[1] : (Math.random() < 0.5 ? 'A' : 'B');
-        if (!match) document.cookie = 'ab_variant=' + variant + ';path=/;max-age=2592000';
-        if (variant === 'B') { window.location.replace('/index-b.html'); return; }
-        window.__abVariant = 'A';
-      })();
-    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T8ZBVMT9JE"></script>
     <script>
@@ -18,7 +8,7 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-T8ZBVMT9JE', { 'ab_variant': 'A' });
+      gtag('config', 'G-T8ZBVMT9JE');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
