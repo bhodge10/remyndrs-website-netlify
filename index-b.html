@@ -382,12 +382,20 @@
             border: 2px solid transparent;
             border-radius: 12px;
             padding: 18px 14px;
-            cursor: default;
+            cursor: pointer;
             text-align: center;
             transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
             opacity: 0;
             transform: translateY(16px);
             animation: personaIn 0.5s ease forwards;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            color: inherit;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
         }
 
         .persona-card:nth-child(1) { animation-delay: 0.1s; }
@@ -428,6 +436,95 @@
             color: #888;
             display: block;
             line-height: 1.4;
+        }
+
+        /* ─── PERSONA EXPAND ─── */
+        .persona-card {
+            cursor: pointer;
+        }
+
+        .persona-card[aria-checked="true"] {
+            border-color: var(--primary-blue);
+            background: #e8f4f8;
+            box-shadow: 0 4px 16px rgba(74, 144, 164, 0.18);
+        }
+
+        .persona-expand {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .persona-expand.open {
+            max-height: 800px;
+            opacity: 1;
+        }
+
+        .persona-expand-inner {
+            max-width: 560px;
+            margin: 24px auto 0;
+            text-align: left;
+        }
+
+        .persona-expand-inner h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .persona-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .persona-feature {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .persona-feature .pf-icon {
+            font-size: 22px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .persona-feature .pf-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .persona-feature .pf-desc {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .persona-clear {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            font-size: 13px;
+            color: #999;
+            cursor: pointer;
+            background: none;
+            border: none;
+            text-decoration: underline;
+        }
+
+        .persona-clear:hover { color: var(--primary-blue); }
+
+        @media (max-width: 600px) {
+            .persona-features {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ─── EXPLORE ZONE (buttons + collapsible content) ─── */
@@ -1011,26 +1108,33 @@
     <section class="personas">
         <h2>Who is Remyndrs for?</h2>
         <p class="section-sub">Pick the one that sounds like you.</p>
-        <div class="persona-grid">
-            <div class="persona-card">
+        <div class="persona-grid" role="radiogroup" aria-label="Choose your persona">
+            <button class="persona-card" data-persona="adhd" role="radio" aria-checked="false">
                 <span class="persona-emoji">🧠</span>
                 <span class="persona-title">"My brain has 100 tabs open"</span>
                 <span class="persona-subtitle">For the forgetful, the scattered, and the "wait, what was I doing?"</span>
-            </div>
-            <div class="persona-card">
+            </button>
+            <button class="persona-card" data-persona="parent" role="radio" aria-checked="false">
                 <span class="persona-emoji">🤹</span>
                 <span class="persona-title">"I'm juggling everything"</span>
                 <span class="persona-subtitle">For parents managing kids, schedules, groceries, and everything in between</span>
-            </div>
-            <div class="persona-card">
+            </button>
+            <button class="persona-card" data-persona="professional" role="radio" aria-checked="false">
                 <span class="persona-emoji">💼</span>
                 <span class="persona-title">"I can't drop the ball"</span>
                 <span class="persona-subtitle">For professionals tracking follow-ups, deadlines, and client details</span>
-            </div>
-            <div class="persona-card">
+            </button>
+            <button class="persona-card" data-persona="simple" role="radio" aria-checked="false">
                 <span class="persona-emoji">💬</span>
                 <span class="persona-title">"Just make it simple"</span>
                 <span class="persona-subtitle">For anyone who wants something that just works — no apps, no learning curve</span>
+            </button>
+        </div>
+        <div class="persona-expand" id="persona-expand">
+            <div class="persona-expand-inner">
+                <h3 id="persona-heading">Why Remyndrs?</h3>
+                <div class="persona-features" id="persona-features"></div>
+                <button class="persona-clear" id="persona-clear">Clear selection</button>
             </div>
         </div>
     </section>
@@ -1165,6 +1269,89 @@
     <script src="platform-detect.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+
+        // ── Persona selection & expand ──
+        var PERSONA_DATA = {
+            adhd: {
+                heading: 'Why Remyndrs is perfect for you',
+                features: [
+                    { icon: '📱', title: 'No App to Forget to Open', desc: 'No app buried on page 3 of your phone. Just text, like you already do 100 times a day.' },
+                    { icon: '🧠', title: 'It Gets You', desc: 'Text like you think — messy, mid-thought, whatever. Remyndrs figures out what you mean.' },
+                    { icon: '⏰', title: 'Your External Brain', desc: "Set it and forget it. Literally. That's the whole point. We'll remember so you don't have to." },
+                    { icon: '🔒', title: 'Private & Secure', desc: 'Your data is encrypted and never shared. You can delete everything anytime.' },
+                    { icon: '💡', title: 'Always There', desc: '3 AM thought spiral? Random parking lot moment? Remyndrs is ready when your brain fires.' },
+                    { icon: '✨', title: 'Built for Real Life', desc: "We're constantly improving based on how real people actually use it — chaos and all." }
+                ]
+            },
+            parent: {
+                heading: 'Why busy parents love Remyndrs',
+                features: [
+                    { icon: '📱', title: 'One Less App to Manage', desc: 'No downloads, no logins, no notifications to ignore. Just text like you normally do.' },
+                    { icon: '🧠', title: 'Speak Naturally', desc: "Text it the way you'd say it: 'remind me to grab diapers after school pickup.' Done." },
+                    { icon: '⏰', title: 'Never Miss the Important Stuff', desc: 'Picture day, prescription refills, soccer snacks — get reminded exactly when you need to.' },
+                    { icon: '🔒', title: 'Private & Secure', desc: "Your family's info is encrypted and never shared with anyone. Delete anytime." },
+                    { icon: '💡', title: 'Works 24/7', desc: "Late-night school email? Early morning thought? Text it whenever — we're always here." },
+                    { icon: '✨', title: 'Grows With Your Family', desc: "We're always adding features based on what real families need. Your feedback shapes what's next." }
+                ]
+            },
+            professional: {
+                heading: 'Why professionals rely on Remyndrs',
+                features: [
+                    { icon: '📱', title: 'No New Software', desc: 'Works through text message — no dashboard to check, no app to learn, nothing for IT to approve.' },
+                    { icon: '🧠', title: 'Natural Language', desc: "Text like you'd talk to an assistant: 'Follow up with Lisa about the Q3 deck Friday.' Done." },
+                    { icon: '⏰', title: 'Never Drop the Ball', desc: 'Deadlines, follow-ups, recurring check-ins — get reminded at exactly the right time.' },
+                    { icon: '🔒', title: 'Private & Secure', desc: 'Enterprise-grade encryption. Your client details and work info are never shared.' },
+                    { icon: '💡', title: 'Always Accessible', desc: 'In a meeting? On a job site? In transit? If you can text, you can capture it.' },
+                    { icon: '✨', title: 'Constantly Improving', desc: "We're building based on how professionals actually work. Your feedback drives the roadmap." }
+                ]
+            },
+            simple: {
+                heading: 'Why Remyndrs is so easy',
+                features: [
+                    { icon: '📱', title: 'No App Needed', desc: "If you can send a text message, you can use Remyndrs. That's it. Really." },
+                    { icon: '🧠', title: 'Just Talk to It', desc: 'No special commands. No confusing menus. Just text what you want to remember.' },
+                    { icon: '⏰', title: 'Reminders Made Easy', desc: 'Tell it when to remind you and it will. Simple as that.' },
+                    { icon: '🔒', title: 'Safe & Private', desc: 'Your information is protected and never shared. Delete anything anytime.' },
+                    { icon: '💡', title: 'Works on Any Phone', desc: "Smartphone, flip phone, whatever you've got. If it texts, it works." },
+                    { icon: '✨', title: 'Friendly Support', desc: "Real help when you need it. We're always happy to answer questions." }
+                ]
+            }
+        };
+
+        var personaCards = document.querySelectorAll('.persona-card[data-persona]');
+        var expandPanel = document.getElementById('persona-expand');
+        var featuresEl = document.getElementById('persona-features');
+        var headingEl = document.getElementById('persona-heading');
+        var clearBtn = document.getElementById('persona-clear');
+        var activePersona = null;
+
+        function selectPersona(persona) {
+            if (activePersona === persona) { clearPersona(); return; }
+            activePersona = persona;
+            var data = PERSONA_DATA[persona];
+            headingEl.textContent = data.heading;
+            featuresEl.innerHTML = data.features.map(function(f) {
+                return '<div class="persona-feature"><span class="pf-icon">' + f.icon + '</span><span class="pf-title">' + f.title + '</span><span class="pf-desc">' + f.desc + '</span></div>';
+            }).join('');
+            personaCards.forEach(function(c) {
+                c.setAttribute('aria-checked', c.getAttribute('data-persona') === persona ? 'true' : 'false');
+            });
+            expandPanel.classList.add('open');
+            setTimeout(function() { expandPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 100);
+            if (typeof gtag === 'function') gtag('event', 'persona_select', { persona: persona, page: 'index-b' });
+        }
+
+        function clearPersona() {
+            activePersona = null;
+            expandPanel.classList.remove('open');
+            personaCards.forEach(function(c) { c.setAttribute('aria-checked', 'false'); });
+        }
+
+        personaCards.forEach(function(card) {
+            card.addEventListener('click', function() { selectPersona(this.getAttribute('data-persona')); });
+        });
+
+        clearBtn.addEventListener('click', clearPersona);
 
         // ── Hamburger menu ──
         var hamburger = document.querySelector('.hamburger-btn');
