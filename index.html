@@ -2940,6 +2940,14 @@
     <script src="platform-detect.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Re-scroll to hash anchor after full page load (fixes cross-page navigation)
+            if (window.location.hash) {
+                var target = document.querySelector(window.location.hash);
+                if (target) {
+                    setTimeout(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+                }
+            }
+
             // Hamburger menu toggle
             const hamburgerBtn = document.querySelector('.hamburger-btn');
             const navMenu = document.querySelector('header nav');
