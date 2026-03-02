@@ -1030,6 +1030,16 @@
         html.platform-android .mobile-cta-container { display: none !important; }
         html.platform-android .desktop-signup-form { display: block !important; }
         html.platform-android .mobile-only-sms { display: none !important; }
+
+        /* Android mobile: stack form input and button vertically */
+        @media (max-width: 768px) {
+            html.platform-android .signup-row {
+                flex-direction: column;
+            }
+            html.platform-android .signup-row button {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
