@@ -945,11 +945,11 @@
             </div>
             <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
             <nav class="header-nav" id="main-nav">
-                <a href="index.html#how-it-works">How It Works</a>
+                <a href="#" onclick="document.cookie='ab_variant=A;path=/;max-age=2592000';window.location.href='/index.html#how-it-works';return false">How It Works</a>
                 <a href="commands.html">Commands</a>
-                <a href="index.html#pricing">Pricing</a>
+                <a href="#" onclick="document.cookie='ab_variant=A;path=/;max-age=2592000';window.location.href='/index.html#pricing';return false">Pricing</a>
                 <a href="faq.html">FAQ</a>
-                <a href="index.html#contact">Contact</a>
+                <a href="#" onclick="document.cookie='ab_variant=A;path=/;max-age=2592000';window.location.href='/index.html#contact';return false">Contact</a>
             </nav>
             <a href="sms:+18555521950?body=Hello" class="header-phone mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'header',page:'index-b'})">Text Hello → (855) 552-1950</a>
             <a href="#hero" class="header-phone desktop-only-inline" onclick="gtag('event','cta_click',{cta_type:'phone_header',location:'header',page:'index-b'})">Text Hello → (855) 552-1950</a>
@@ -1004,7 +1004,7 @@
     <!-- ═══ PRICING ONE-LINER ═══ -->
     <div class="pricing-strip">
         <strong>Free to start</strong> · 14-day Premium trial · Then $8.99/mo or free forever
-        <a href="index.html#pricing">See plans →</a>
+        <a href="#" onclick="document.cookie='ab_variant=A;path=/;max-age=2592000';window.location.href='/index.html#pricing';return false">See plans →</a>
     </div>
 
     <!-- ═══ PERSONAS ═══ -->
@@ -1139,7 +1139,7 @@
                 </div>
 
             </div>
-            <a href="index.html#use-cases" class="see-more-link" onclick="gtag('event','cta_click',{cta_type:'see_more_demos',location:'demos',page:'index-b'})">See more examples →</a>
+            <a href="#" class="see-more-link" onclick="gtag('event','cta_click',{cta_type:'see_more_demos',location:'demos',page:'index-b'});document.cookie='ab_variant=A;path=/;max-age=2592000';window.location.href='/index.html#use-cases';return false">See more examples →</a>
         </div>
     </section>
     </div><!-- /.explore-zone -->
@@ -1150,8 +1150,8 @@
     <footer>
         <p class="footer-phone">Text <strong>Hello</strong> to <a href="sms:+18555521950?body=Hello" onclick="gtag('event','cta_click',{cta_type:'phone_footer',location:'footer',page:'index-b'})">+1 (855) 552-1950</a></p>
         <div class="footer-links">
-            <a href="index.html">Full Site</a>
-            <a href="index.html#pricing">Pricing</a>
+            <a href="#" onclick="document.cookie='ab_variant=A;path=/;max-age=2592000';window.location.href='/index.html';return false">Full Site</a>
+            <a href="#" onclick="document.cookie='ab_variant=A;path=/;max-age=2592000';window.location.href='/index.html#pricing';return false">Pricing</a>
             <a href="faq.html">FAQ</a>
             <a href="commands.html">Commands</a>
             <a href="privacy.html">Privacy</a>
@@ -1165,15 +1165,6 @@
     <script src="platform-detect.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-
-        // Force links to index.html to clear A/B cookie and navigate to full site
-        document.querySelectorAll('a[href^="index.html"]').forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.cookie = 'ab_variant=A;path=/;max-age=2592000';
-                window.location.href = '/' + this.getAttribute('href');
-            });
-        });
 
         // ── Hamburger menu ──
         var hamburger = document.querySelector('.hamburger-btn');
