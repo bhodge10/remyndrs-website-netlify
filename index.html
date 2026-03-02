@@ -1830,6 +1830,16 @@
         html.platform-android .desktop-only-inline-flex { display: inline-flex !important; }
         html.platform-android .desktop-only-flex { display: flex !important; }
 
+        /* Android mobile: stack signup form input and button vertically */
+        @media (max-width: 768px) {
+            html.platform-android .desktop-signup-form form > div {
+                flex-direction: column !important;
+            }
+            html.platform-android .desktop-signup-form form > div button {
+                width: 100% !important;
+            }
+        }
+
         /* Reset button styles for share copy buttons */
         .share-copy-btn {
             border: none;
