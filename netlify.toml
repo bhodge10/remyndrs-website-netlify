@@ -1,7 +1,7 @@
 # Remyndrs static site configuration
 [build]
   publish = "."
-  command = "echo 'No build command needed - static site'"
+  command = "bash build.sh"
 
 # Redirect www to non-www
 [[redirects]]
