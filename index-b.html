@@ -1030,20 +1030,9 @@
             .case-hint { display: none; }
         }
 
-        /* Android: hide SMS links, show form */
-        html.platform-android .mobile-cta-container { display: none !important; }
-        html.platform-android .desktop-signup-form { display: block !important; }
-        html.platform-android .mobile-only-sms { display: none !important; }
-
-        /* Android mobile: stack form input and button vertically */
-        @media (max-width: 768px) {
-            html.platform-android .signup-row {
-                flex-direction: column;
-            }
-            html.platform-android .signup-row button {
-                width: 100%;
-            }
-        }
+        /* Android mobile: use tap-to-text SMS links (same experience as iOS).
+           The platform-detect.js script rewrites sms: hrefs to sms:// format
+           for Android compatibility, so no CSS visibility overrides are needed. */
     </style>
 </head>
 <body>

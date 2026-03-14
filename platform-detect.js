@@ -1,18 +1,41 @@
 /**
  * Platform detection and SMS link handling for Remyndrs.
  *
+ * - Detects UTM parameters and sets the SMS keyword accordingly
+ *   (TRY for Reddit, GO for Facebook/Instagram, FRIEND for referral, HI default)
  * - iOS: rewrites sms: links to use & separator (required by iOS)
- * - Android mobile: adds "platform-android" class to <html>, which CSS
- *   uses to hide SMS-based elements and show form-based alternatives
+ * - Android mobile: rewrites sms: links to sms:// format for tap-to-text
  * - Also handles data-mobile-text / data-desktop-text swaps on CTA buttons
  *
- * Loaded by index.html, commands.html, and faq.html.
+ * Loaded by index.html, index-b.html, commands.html, and faq.html.
  */
 document.addEventListener('DOMContentLoaded', function () {
     var ua = navigator.userAgent;
     var isIOS = /iPad|iPhone|iPod/.test(ua);
     var isAndroid = /Android/.test(ua);
     var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+
+    // --- Determine SMS keyword from UTM parameters ---
+    var params = new URLSearchParams(window.location.search);
+    var utmSource = (params.get('utm_source') || '').toLowerCase();
+    var utmMedium = (params.get('utm_medium') || '').toLowerCase();
+    var keyword = 'HI'; // default for organic/direct
+
+    if (utmSource === 'reddit') {
+        keyword = 'TRY';
+    } else if (utmSource === 'facebook' || utmSource === 'instagram' || utmSource === 'fb' || utmSource === 'ig') {
+        keyword = 'GO';
+    } else if (utmSource === 'referral' || utmMedium === 'referral') {
+        keyword = 'FRIEND';
+    }
+
+    // --- Replace "Hello" body with UTM-based keyword in signup SMS links ---
+    document.querySelectorAll('a[href^="sms:"]').forEach(function (link) {
+        var href = link.getAttribute('href');
+        if (href.indexOf('body=Hello') !== -1) {
+            link.setAttribute('href', href.replace('body=Hello', 'body=' + keyword));
+        }
+    });
 
     // --- iOS: fix sms: link separator ---
     if (isIOS) {
@@ -21,35 +44,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- Android mobile: switch to form-based experience ---
+    // --- Android mobile: rewrite sms: links to sms:// format for tap-to-text ---
     if (isAndroid && isMobile) {
         document.documentElement.classList.add('platform-android');
 
-        // For pages that link to index.html#hero (commands, faq), the CSS
-        // handles hiding/showing via .platform-android overrides.  For inline
-        // elements that use mobile-only with sms: hrefs, we also need to swap
-        // their desktop-only siblings.  The CSS classes take care of the major
-        // containers (mobile-cta-container, mobile-contact-grid, floating share,
-        // footer buttons, share section, pricing CTAs, CTA section).
-
-        // Swap inline mobile-only sms: links that don't have a CSS container
-        // class handled by the overrides. These are <span> pairs in running text
-        // (e.g., faq hero "Text us your question" / "Email us your question").
-        document.querySelectorAll('span.mobile-only').forEach(function (el) {
-            var smsLink = el.querySelector('a[href^="sms:"]');
-            if (!smsLink) return;
-            // Find adjacent desktop-only sibling span
-            var sibling = el.nextElementSibling;
-            if (sibling && /desktop-only/.test(sibling.className)) {
-                el.style.display = 'none';
-                sibling.style.display = 'inline';
+        document.querySelectorAll('a[href^="sms:"]').forEach(function (link) {
+            var href = link.getAttribute('href');
+            // Match sms:+number?body=TEXT (with our phone number)
+            var match = href.match(/^sms:\+?(\d+)\?body=(.+)$/);
+            if (match) {
+                link.setAttribute('href', 'sms://+' + match[1] + ';?&body=' + match[2]);
             }
         });
 
-        // Track Android form-mode sessions in analytics
+        // Track Android tap-to-text sessions in analytics
         if (typeof gtag === 'function') {
-            gtag('event', 'android_form_mode', {
-                page: window.location.pathname.replace(/^\//, '').replace('.html', '') || 'index'
+            gtag('event', 'android_tap_to_text', {
+                page: window.location.pathname.replace(/^\//, '').replace('.html', '') || 'index',
+                keyword: keyword
             });
         }
     }

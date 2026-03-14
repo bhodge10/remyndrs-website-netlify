@@ -1816,33 +1816,9 @@
             }
         }
 
-        /* Android mobile: hide SMS-based elements and show form-based alternatives */
-        html.platform-android .mobile-cta-container { display: none !important; }
-        html.platform-android .desktop-signup-form { display: block !important; }
-        html.platform-android .mobile-contact-grid { display: none !important; }
-        html.platform-android .desktop-contact-grid {
-            display: grid !important;
-            grid-template-columns: 1fr !important;
-            gap: 16px !important;
-            max-width: 500px !important;
-            margin: 0 auto !important;
-        }
-        html.platform-android .mobile-only { display: none !important; }
-        html.platform-android .desktop-only-block { display: block !important; }
-        html.platform-android .desktop-only-inline { display: inline !important; }
-        html.platform-android .desktop-only-inline-block { display: inline-block !important; }
-        html.platform-android .desktop-only-inline-flex { display: inline-flex !important; }
-        html.platform-android .desktop-only-flex { display: flex !important; }
-
-        /* Android mobile: stack signup form input and button vertically */
-        @media (max-width: 768px) {
-            html.platform-android .desktop-signup-form form > div {
-                flex-direction: column !important;
-            }
-            html.platform-android .desktop-signup-form form > div button {
-                width: 100% !important;
-            }
-        }
+        /* Android mobile: use tap-to-text SMS links (same experience as iOS).
+           The platform-detect.js script rewrites sms: hrefs to sms:// format
+           for Android compatibility, so no CSS visibility overrides are needed. */
 
         /* Reset button styles for share copy buttons */
         .share-copy-btn {
