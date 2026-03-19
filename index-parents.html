@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T8ZBVMT9JE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-T8ZBVMT9JE');
+      // Track landing page view with variant
+      gtag('event', 'landing_page_view', {
+        variant: 'parents_facebook',
+        page: 'index-parents'
+      });
+    </script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2321949688328139');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2321949688328139&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remyndrs for Parents — Never Forget Picture Day Again</title>
+    <meta name="description" content="The reminder assistant built for busy parents. Grocery lists, school events, medication refills — all by text. No app needed. Free forever.">
+    <link rel="icon" type="image/png" href="remyndrs-logo.png">
+    <link rel="canonical" href="https://remyndrs.com/index-parents.html">
+    <meta name="theme-color" content="#4A90A4">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://remyndrs.com/index-parents.html">
+    <meta property="og:title" content="Remyndrs — The Reminder App for Parents Who Can't Remember Everything">
+    <meta property="og:description" content="Grocery lists, school events, medication refills — all by text message. No app to download. Free forever.">
+    <meta property="og:image" content="https://remyndrs.com/og-image.png">
+
+    <style>
+        :root {
+            --primary-blue: #4A90A4;
+            --success-green: #50B688;
+            --text-dark: #3D4F5C;
+            --bg-light: #f8f9fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* ─── HEADER ─── */
+        header {
+            background: white;
+            padding: 14px 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+
+        .header-phone {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .header-phone:hover { text-decoration: underline; }
+
+        /* ─── HERO ─── */
+        .hero {
+            background: linear-gradient(160deg, #E3F0F7 0%, #DFF2E8 50%, #EEF3E8 100%);
+            text-align: center;
+            padding: 20px 20px 24px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            background-size: 200px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero > * { position: relative; z-index: 1; }
+
+        .hero-logo {
+            width: 90px;
+            height: auto;
+            margin: 0 auto 10px;
+            display: block;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.12));
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 16px;
+            color: #5a6d7a;
+            margin-bottom: 16px;
+        }
+
+        /* ─── PHONE MOCKUP (iPhone 16 Pro ~2:1 visible ratio) ─── */
+        .phone-mockup {
+            width: 230px;
+            aspect-ratio: 9 / 18;
+            margin: 0 auto 12px;
+            background: #f5f5f5;
+            border-radius: 36px;
+            border: 5px solid #1a1a1a;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Status bar (time, signal, 5G, battery) */
+        .phone-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 14px 0;
+            font-size: 11px;
+            font-weight: 600;
+            color: #1a1a1a;
+            background: #f5f5f5;
+            position: relative;
+            z-index: 2;
+            height: 32px;
+        }
+
+        .phone-status-left {
+            min-width: 40px;
+            z-index: 3;
+        }
+
+        .phone-status-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 5px;
+        }
+
+        /* Dynamic Island */
+        .phone-notch {
+            width: 72px;
+            height: 22px;
+            background: #1a1a1a;
+            border-radius: 12px;
+        }
+
+        .phone-status-right {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            z-index: 3;
+            justify-content: flex-end;
+            font-size: 10px;
+        }
+
+        /* Signal bars */
+        .signal-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 1px;
+            height: 10px;
+        }
+
+        .signal-bars span {
+            display: block;
+            width: 3px;
+            background: #1a1a1a;
+            border-radius: 1px;
+        }
+
+        .signal-bars span:nth-child(1) { height: 4px; }
+        .signal-bars span:nth-child(2) { height: 6px; }
+        .signal-bars span:nth-child(3) { height: 8px; }
+        .signal-bars span:nth-child(4) { height: 10px; }
+
+        /* Battery icon */
+        .battery-icon {
+            width: 20px;
+            height: 9px;
+            border: 1.5px solid #1a1a1a;
+            border-radius: 2px;
+            position: relative;
+            margin-left: 2px;
+        }
+
+        .battery-icon::before {
+            content: '';
+            position: absolute;
+            inset: 1.5px;
+            background: #34C759;
+            border-radius: 1px;
+        }
+
+        .battery-icon::after {
+            content: '';
+            position: absolute;
+            right: -3px;
+            top: 2px;
+            width: 2px;
+            height: 4px;
+            background: #1a1a1a;
+            border-radius: 0 1px 1px 0;
+        }
+
+        .phone-header {
+            text-align: center;
+            font-weight: 700;
+            font-size: 13px;
+            color: #333;
+            padding: 8px 8px 8px;
+            border-bottom: 1px solid #ddd;
+            background: #f5f5f5;
+        }
+
+        .phone-messages {
+            padding: 12px 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .phone-messages::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        /* Home indicator bar */
+        .phone-home-bar {
+            width: 100px;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            margin: 8px auto 6px;
+        }
+
+        .msg {
+            margin-bottom: 6px;
+            padding: 8px 12px;
+            border-radius: 16px;
+            max-width: 80%;
+            font-size: 13px;
+            line-height: 1.35;
+            clear: both;
+            animation: msgFade 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .msg.user {
+            background: #34C759;
+            color: white;
+            float: right;
+            margin-right: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .msg.bot {
+            background: #e5e5ea;
+            color: #000;
+            float: left;
+            margin-left: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .msg:nth-child(1) { animation-delay: 0.3s; }
+        .msg:nth-child(2) { animation-delay: 1.2s; }
+        .msg:nth-child(3) { animation-delay: 2.1s; }
+        .msg:nth-child(4) { animation-delay: 3s; }
+
+        @keyframes msgFade {
+            to { opacity: 1; }
+        }
+
+        /* ─── CTA ─── */
+        .cta-button {
+            display: block;
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
+            background: var(--success-green);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            text-align: center;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 4px 14px rgba(80, 182, 136, 0.35);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(80, 182, 136, 0.45);
+        }
+
+        .cta-button:active { transform: translateY(0); }
+
+        .sms-disclaimer {
+            font-size: 11px;
+            color: #999;
+            margin-top: 8px;
+            max-width: 340px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .sms-disclaimer a { color: var(--primary-blue); }
+
+        .phone-fallback {
+            font-size: 14px;
+            color: #5a6d7a;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .phone-fallback a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .phone-fallback a:hover { text-decoration: underline; }
+
+        .free-line {
+            font-size: 13px;
+            color: #5a6d7a;
+            margin-top: 6px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .hero-trust {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: #5a6d7a;
+            font-weight: 500;
+        }
+
+        /* ─── DESKTOP SIGNUP FORM ─── */
+        .desktop-signup-form {
+            display: none;
+            margin: 16px auto 0;
+            padding: 18px;
+            background: white;
+            border-radius: 14px;
+            max-width: 460px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .desktop-signup-form h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .desktop-signup-form .form-sub {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .signup-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .signup-row input {
+            flex: 1;
+            padding: 14px 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .signup-row input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .signup-row button {
+            padding: 14px 28px;
+            background: var(--success-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .signup-row button:hover { background: #45A077; }
+
+        .form-legal {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .form-legal a { color: var(--primary-blue); }
+
+        .form-feedback {
+            display: none;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .form-feedback.success { background: #E8F5F1; color: var(--success-green); }
+        .form-feedback.error { background: #FFE5E5; color: #D32F2F; }
+
+        /* ─── PRICING STRIP ─── */
+        .pricing-strip {
+            text-align: center;
+            padding: 14px 20px;
+            background: white;
+            border-bottom: 1px solid #eee;
+            font-size: 15px;
+            color: #5a6d7a;
+        }
+
+        .pricing-strip strong { color: var(--text-dark); }
+
+        .pricing-strip a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 6px;
+        }
+
+        .pricing-strip a:hover { text-decoration: underline; }
+
+        /* ─── HOW IT WORKS ─── */
+        .how-it-works {
+            padding: 50px 20px;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .steps {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 180px;
+            max-width: 200px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 auto 12px;
+        }
+
+        .step h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        /* ─── USE CASES ─── */
+        .use-cases {
+            padding: 50px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .use-cases h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .case-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .case-icon { font-size: 28px; flex-shrink: 0; }
+
+        .case-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .case-card p {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        /* ─── MID-PAGE CTA ─── */
+        .mid-cta {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #6BA8BC 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .mid-cta p {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .mid-cta .cta-button {
+            background: white;
+            color: var(--primary-blue);
+            max-width: 300px;
+        }
+
+        .mid-cta .cta-button:hover {
+            box-shadow: 0 6px 20px rgba(255,255,255,0.3);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer .footer-phone {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        footer .footer-phone a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        footer .footer-phone a:hover { text-decoration: underline; }
+
+        footer .footer-links { margin-bottom: 12px; }
+
+        footer .footer-links a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 13px;
+        }
+
+        footer .footer-links a:hover { color: white; }
+
+        footer .footer-copy {
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+        }
+
+        /* ─── VISIBILITY HELPERS ─── */
+        .mobile-only { display: block; }
+        .desktop-only-block { display: none; }
+        .desktop-only-inline-block { display: none; }
+
+        /* ─── DESKTOP ─── */
+        @media (min-width: 769px) {
+            .mobile-only { display: none !important; }
+            .desktop-only-block { display: block !important; }
+            .desktop-only-inline-block { display: inline-block !important; }
+            .desktop-signup-form { display: block !important; }
+            .mobile-cta-area { display: none !important; }
+
+            .hero { padding: 40px 20px 36px; }
+            .hero h1 { font-size: 40px; letter-spacing: -0.5px; }
+            .hero .subtitle { font-size: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+            .logo img { height: 50px; }
+
+            .phone-mockup { width: 250px; }
+
+            .cases-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 600px;
+                gap: 20px;
+            }
+
+            .steps { flex-wrap: nowrap; gap: 40px; }
+        }
+
+        /* ─── MOBILE ─── */
+        @media (max-width: 768px) {
+            .header-inner { flex-wrap: wrap; gap: 0; }
+        }
+
+        /* ─── ABOVE THE FOLD SQUEEZE for iPhone 14 (390x844) ─── */
+        @media (max-width: 430px) {
+            .hero { padding: 14px 16px 18px; }
+            .hero-logo { width: 70px; margin-bottom: 6px; }
+            .hero h1 { font-size: 25px; margin-bottom: 2px; }
+            .hero .subtitle { font-size: 15px; margin-bottom: 10px; }
+            .phone-mockup { margin-bottom: 10px; width: 190px; border-width: 4px; border-radius: 30px; }
+            .phone-status-bar { padding: 4px 12px 0; font-size: 10px; height: 28px; }
+            .phone-notch { width: 60px; height: 18px; border-radius: 10px; }
+            .phone-status-center { top: 4px; }
+            .signal-bars span { width: 2.5px; }
+            .signal-bars span:nth-child(1) { height: 3px; }
+            .signal-bars span:nth-child(2) { height: 5px; }
+            .signal-bars span:nth-child(3) { height: 7px; }
+            .signal-bars span:nth-child(4) { height: 9px; }
+            .battery-icon { width: 18px; height: 8px; }
+            .phone-status-right { font-size: 9px; }
+            .phone-header { font-size: 12px; padding: 6px; }
+            .phone-messages { padding: 8px 8px; }
+            .phone-home-bar { width: 80px; height: 3px; margin: 6px auto 4px; }
+            .msg { font-size: 12px; padding: 7px 10px; border-radius: 14px; }
+            .cta-button { font-size: 17px; padding: 14px 16px; }
+            .sms-disclaimer { font-size: 10px; margin-top: 6px; }
+            .phone-fallback { font-size: 13px; margin-top: 6px; }
+            .free-line { font-size: 12px; margin-top: 4px; }
+            .hero-trust { gap: 12px; margin-top: 8px; font-size: 11px; }
+        }
+
+        /* Android: hide SMS links, show form */
+        html.platform-android .mobile-cta-area { display: none !important; }
+        html.platform-android .desktop-signup-form { display: block !important; }
+    </style>
+</head>
+<body>
+
+    <!-- ═══ HEADER ═══ -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="remyndrs-logo.png" alt="Remyndrs" width="180" height="44">
+            </div>
+            <a href="sms:+18555521950?body=GO" class="header-phone" onclick="gtag('event','mobile_sms_click',{action:'start',location:'header',page:'index-parents'})">Text GO → (855) 552-1950</a>
+        </div>
+    </header>
+
+    <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero">
+        <img src="remyndrs-logo.png" alt="Remyndrs" class="hero-logo" width="90" height="90">
+        <h1>Never Forget Picture Day Again</h1>
+        <p class="subtitle">The reminder assistant built for busy parents.</p>
+
+        <!-- Phone Mockup -->
+        <div class="phone-mockup">
+            <div class="phone-status-bar">
+                <div class="phone-status-left">9:41</div>
+                <div class="phone-status-center"><div class="phone-notch"></div></div>
+                <div class="phone-status-right">
+                    <div class="signal-bars"><span></span><span></span><span></span><span></span></div>
+                    <span>5G</span>
+                    <div class="battery-icon"></div>
+                </div>
+            </div>
+            <div class="phone-header">Remyndrs</div>
+            <div class="phone-messages">
+                <div class="msg user">Remind me about picture day next Tuesday</div>
+                <div class="msg bot">✓ I'll remind you Tuesday about picture day!</div>
+                <div class="msg user">Add lunch money to my to-do list</div>
+                <div class="msg bot">✓ Added lunch money to your to-do list</div>
+            </div>
+            <div class="phone-home-bar"></div>
+        </div>
+
+        <!-- Mobile CTA -->
+        <div class="mobile-cta-area mobile-only">
+            <a href="sms:+18555521950?body=GO" class="cta-button" id="mainCta" aria-label="Start free by texting GO" onclick="gtag('event','mobile_sms_click',{action:'start',location:'hero',page:'index-parents'})">
+                📱 Tap to Text Us — It's Free!
+            </a>
+            <p class="sms-disclaimer">By texting, you agree to receive automated SMS messages. Msg & data rates may apply. Reply STOP to unsubscribe. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+        </div>
+
+        <!-- Desktop Signup Form -->
+        <div class="desktop-signup-form">
+            <h3>Get Started Now</h3>
+            <p class="form-sub">Enter your phone number and we'll text you to get started.</p>
+            <form id="desktopSignupForm">
+                <div class="signup-row">
+                    <input type="tel" id="phoneInput" placeholder="(555) 123-4567" required
+                           pattern="[\+]?[0-9\s\-\(\)]+"
+                           title="Enter a valid phone number">
+                    <button type="submit">Get Started →</button>
+                </div>
+                <p class="form-legal">Standard SMS rates apply. Reply STOP to unsubscribe. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+            </form>
+            <div id="signupSuccess" class="form-feedback success">✓ Text message sent! Check your phone.</div>
+            <div id="signupError" class="form-feedback error">Something went wrong. Please try again.</div>
+        </div>
+
+        <p class="phone-fallback">Or text <strong>GO</strong> to <a href="sms:+18555521950?body=GO" onclick="gtag('event','cta_click',{cta_type:'phone_fallback',location:'hero',page:'index-parents'})">+1 (855) 552-1950</a></p>
+        <p class="free-line">Free forever. No credit card needed.</p>
+
+        <div class="hero-trust">
+            <span>🔒 Bank-level encryption</span>
+            <span>⚡ Instant setup</span>
+            <span>📱 Works on any phone</span>
+        </div>
+    </section>
+
+    <!-- ═══ PRICING STRIP ─── -->
+    <div class="pricing-strip">
+        <strong>Free to start</strong> · 14-day Premium trial · Then $8.99/mo or free forever
+        <a href="/index.html#pricing">See plans →</a>
+    </div>
+
+    <!-- ═══ HOW IT WORKS ═══ -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Text What You Need</h3>
+                <p>"Remind me about soccer practice Thursday at 4"</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>We Handle It</h3>
+                <p>Our AI understands your message and sets the reminder automatically.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Get Reminded</h3>
+                <p>You get a text at the right time. Never miss what matters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ USE CASES ═══ -->
+    <section class="use-cases">
+        <h2>Built for Your Kind of Busy</h2>
+        <div class="cases-grid">
+            <div class="case-card">
+                <span class="case-icon">🎒</span>
+                <div>
+                    <h3>School Events</h3>
+                    <p>Picture day, field trips, early dismissals — never miss the note again.</p>
+                </div>
+            </div>
+            <div class="case-card">
+                <span class="case-icon">🛒</span>
+                <div>
+                    <h3>Grocery Lists</h3>
+                    <p>"Add goldfish crackers to my list" — done before you forget.</p>
+                </div>
+            </div>
+            <div class="case-card">
+                <span class="case-icon">💊</span>
+                <div>
+                    <h3>Medication & Appointments</h3>
+                    <p>Refill reminders, pediatrician visits, allergy meds — all tracked.</p>
+                </div>
+            </div>
+            <div class="case-card">
+                <span class="case-icon">🎂</span>
+                <div>
+                    <h3>Birthdays & Dates</h3>
+                    <p>Class party snacks, teacher appreciation, family birthdays — covered.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ MID-PAGE CTA ═══ -->
+    <section class="mid-cta">
+        <p>Ready to stop forgetting things?</p>
+        <a href="sms:+18555521950?body=GO" class="cta-button mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'mid_cta',page:'index-parents'})">📱 Text GO — It's Free!</a>
+        <a href="#hero" class="cta-button desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'mid_cta',page:'index-parents'})">Get Started Now →</a>
+    </section>
+
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <p class="footer-phone">Text <strong>GO</strong> to <a href="sms:+18555521950?body=GO" onclick="gtag('event','cta_click',{cta_type:'phone_footer',location:'footer',page:'index-parents'})">+1 (855) 552-1950</a></p>
+        <div class="footer-links">
+            <a href="/index.html">Full Site</a>
+            <a href="/index.html#pricing">Pricing</a>
+            <a href="faq.html">FAQ</a>
+            <a href="commands.html">Commands</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="/cdn-cgi/l/email-protection#86f5f3f6f6e9f4f2c6f4e3ebffe8e2f4f5a8e5e9eb">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Remyndrs. All rights reserved. Built with ❤️ to help you remember what matters.</p>
+    </footer>
+
+    <!-- ═══ SCRIPTS ═══ -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="platform-detect.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // ── iOS vs Android SMS link fix ──
+        // iOS uses sms:+number&body=  Android uses sms:+number?body=
+        var isAndroid = /android/i.test(navigator.userAgent);
+        if (isAndroid) {
+            document.documentElement.classList.add('platform-android');
+        }
+        // Fix all SMS links for the current platform
+        document.querySelectorAll('a[href^="sms:"]').forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (isAndroid) {
+                link.setAttribute('href', href.replace('?body=', '?body=').replace('&body=', '?body='));
+            } else {
+                // iOS uses & separator
+                link.setAttribute('href', href.replace('?body=', '&body='));
+            }
+        });
+
+        // ── Desktop signup form ──
+        var signupForm = document.getElementById('desktopSignupForm');
+        if (signupForm) {
+            signupForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                var phoneInput = document.getElementById('phoneInput');
+                var successDiv = document.getElementById('signupSuccess');
+                var errorDiv = document.getElementById('signupError');
+                var submitBtn = signupForm.querySelector('button[type="submit"]');
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                var phoneNumber = phoneInput.value.replace(/\D/g, '');
+                if (phoneNumber.length === 10) phoneNumber = '1' + phoneNumber;
+
+                if (phoneNumber.length < 10 || phoneNumber.length > 15) {
+                    errorDiv.textContent = 'Please enter a valid phone number.';
+                    errorDiv.style.display = 'block';
+                    successDiv.style.display = 'none';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Get Started \u2192';
+                    return;
+                }
+
+                var formattedNumber = '+' + phoneNumber;
+
+                try {
+                    var response = await fetch('https://sms-reminders-api-1gmm.onrender.com/api/signup', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ phone: formattedNumber })
+                    });
+
+                    var data = await response.json();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Get Started \u2192';
+
+                    if (response.ok && data.success) {
+                        gtag('event', 'signup_form_submit', { status: 'success', page: 'index-parents' });
+                        fbq('track', 'Lead');
+                        successDiv.style.display = 'block';
+                        errorDiv.style.display = 'none';
+                        phoneInput.value = '';
+                        setTimeout(function() { successDiv.style.display = 'none'; }, 5000);
+                    } else {
+                        gtag('event', 'signup_form_submit', { status: 'error', page: 'index-parents' });
+                        errorDiv.textContent = data.error || 'Something went wrong. Please try again.';
+                        errorDiv.style.display = 'block';
+                        successDiv.style.display = 'none';
+                    }
+                } catch (error) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Get Started \u2192';
+                    gtag('event', 'signup_form_submit', { status: 'error', page: 'index-parents' });
+                    errorDiv.textContent = 'Something went wrong. Please try texting GO to (855) 552-1950 instead.';
+                    errorDiv.style.display = 'block';
+                    successDiv.style.display = 'none';
+                }
+            });
+
+            // Phone formatting
+            document.getElementById('phoneInput').addEventListener('input', function(e) {
+                var value = e.target.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    if (value.length <= 3) {
+                        // keep
+                    } else if (value.length <= 6) {
+                        value = '(' + value.slice(0, 3) + ') ' + value.slice(3);
+                    } else {
+                        value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6, 10);
+                    }
+                }
+                e.target.value = value;
+            });
+        }
+
+        // ── Force links to index.html#section to navigate properly ──
+        document.querySelectorAll('a[href^="/index.html#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = this.getAttribute('href');
+            });
+        });
+    });
+    </script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Remyndrs",
+      "description": "AI-powered personal memory assistant via text message for busy parents.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any (text message-based)",
+      "offers": [
+        { "@type": "Offer", "name": "Always-Free Tier", "price": "0", "priceCurrency": 
