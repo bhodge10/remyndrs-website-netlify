@@ -138,14 +138,16 @@
             margin-bottom: 16px;
         }
 
-        .hero .phone-display {
+        .hero .phone-display,
+        .mobile-demos .phone-display {
             font-size: 20px;
             font-weight: 700;
             color: var(--primary-blue);
             margin-bottom: 20px;
         }
 
-        .hero .phone-display a {
+        .hero .phone-display a,
+        .mobile-demos .phone-display a {
             color: var(--primary-blue);
             text-decoration: none;
         }
@@ -996,6 +998,7 @@
             .hero { padding: 40px 20px 36px; }
             .hero h1 { font-size: 40px; letter-spacing: -0.5px; }
             .hero .subtitle { font-size: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+            .hero .phone-display { font-size: 22px; }
             .logo img { height: 50px; }
 
             .phone-mockup { width: 250px; }
@@ -1012,6 +1015,15 @@
         /* ─── MOBILE ─── */
         @media (max-width: 768px) {
             .header-inner { flex-wrap: wrap; gap: 0; }
+
+            .header-phone {
+                font-size: 12px;
+                order: 3;
+                width: 100%;
+                text-align: center;
+                padding-top: 8px;
+                border-top: 1px solid rgba(0,0,0,0.06);
+            }
         }
 
         /* ─── ABOVE THE FOLD SQUEEZE for iPhone 14 (390x844) ─── */
@@ -1203,7 +1215,11 @@
         </div>
 
         <div style="text-align: center; margin-top: 24px;">
-            <a href="sms:+18555521950?body=GO" class="cta-button" style="display: block; max-width: 320px; margin: 0 auto;" onclick="gtag('event','mobile_sms_click',{action:'start',location:'post_demos',page:'index-parents'})">
+            <p class="phone-display" style="margin-bottom: 12px;">
+                Text <strong>GO</strong> to
+                <a href="sms:+18555521950?body=GO" onclick="gtag('event','cta_click',{cta_type:'phone_post_demos',location:'post_demos',page:'index-parents'})">+1 (855) 552-1950</a>
+            </p>
+            <a href="sms:+18555521950?body=GO" class="cta-button" style="margin: 0 auto;" onclick="gtag('event','mobile_sms_click',{action:'start',location:'post_demos',page:'index-parents'})">
                 📱 Tap to Text Us — It's Free!
             </a>
             <p style="font-size: 13px; color: #999; margin-top: 8px;">No app needed · Free forever · Cancel anytime</p>

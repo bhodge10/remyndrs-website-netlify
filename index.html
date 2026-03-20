@@ -182,14 +182,16 @@
             margin-right: auto;
         }
 
-        .hero .phone-display {
+        .hero .phone-display,
+        .mobile-demos .phone-display {
             font-size: 20px;
             font-weight: 700;
             color: var(--primary-blue);
             margin-bottom: 20px;
         }
 
-        .hero .phone-display a {
+        .hero .phone-display a,
+        .mobile-demos .phone-display a {
             color: var(--primary-blue);
             text-decoration: none;
         }
@@ -1520,7 +1522,11 @@
 
         <!-- CTA after conversations -->
         <div style="text-align: center; margin-top: 24px;">
-            <a href="sms:+18555521950?body=Hello" class="cta-button" style="display: block; max-width: 320px; margin: 0 auto;" onclick="gtag('event','mobile_sms_click',{action:'start',location:'post_demos',page:'index'})">
+            <p class="phone-display" style="margin-bottom: 12px;">
+                Text <strong>Hello</strong> to
+                <a href="sms:+18555521950?body=Hello" onclick="gtag('event','cta_click',{cta_type:'phone_post_demos',location:'post_demos',page:'index'})">+1 (855) 552-1950</a>
+            </p>
+            <a href="sms:+18555521950?body=Hello" class="cta-button" style="margin: 0 auto;" onclick="gtag('event','mobile_sms_click',{action:'start',location:'post_demos',page:'index'})">
                 📱 Tap to Text Us — It's Free!
             </a>
             <p style="font-size: 13px; color: #999; margin-top: 8px;">No app needed · Free forever · Cancel anytime</p>
@@ -1957,6 +1963,7 @@
 
                     if (response.ok && data.success) {
                         gtag('event', 'signup_form_submit', { status: 'success', page: 'index' });
+                        if (typeof fbq === 'function') fbq('track', 'Lead');
                         successDiv.style.display = 'block';
                         errorDiv.style.display = 'none';
                         phoneInput.value = '';
