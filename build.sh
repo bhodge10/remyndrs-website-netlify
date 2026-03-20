@@ -5,7 +5,7 @@ DOMAIN="https://remyndrs.com"
 TODAY=$(date -u +"%Y-%m-%d")
 
 # Pages to exclude from sitemap
-EXCLUDE="index-b.html payment-success.html payment-cancelled.html admin/index.html"
+EXCLUDE="payment-success.html payment-cancelled.html admin/index.html"
 
 # High-priority pages (weekly crawl, priority 1.0)
 HIGH_PRIORITY="index.html"

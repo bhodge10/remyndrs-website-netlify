@@ -7,7 +7,7 @@
  * - Android mobile: rewrites sms: links to sms:// format for tap-to-text
  * - Also handles data-mobile-text / data-desktop-text swaps on CTA buttons
  *
- * Loaded by index.html, index-b.html, commands.html, and faq.html.
+ * Loaded by index.html, commands.html, and faq.html.
  */
 document.addEventListener('DOMContentLoaded', function () {
     var ua = navigator.userAgent;
