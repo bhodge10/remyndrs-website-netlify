@@ -1428,8 +1428,13 @@
                     setTimeout(onDone, delays[delays.length - 1] + holdTime);
                 }
 
+                // Show right phone (grocery) conversation immediately on load
+                groceryMsgs.forEach(function(m) { m.classList.add('visible'); });
+
                 function runCycle() {
+                    // Left (school) animates, right stays visible
                     playPhone(schoolMsgs, schoolDelays, function() {
+                        // Left now visible, right clears & replays
                         playPhone(groceryMsgs, groceryDelays, function() {
                             runCycle();
                         });

@@ -1995,8 +1995,8 @@
         }
 
         // ── Auto-playing demo phone animations (desktop only) ──
-        // Left plays → stays visible → right plays → stays visible → 
-        // left clears & replays → stays visible → right clears & replays → etc.
+        // Right phone starts with full conversation visible on page load.
+        // Left animates first → holds → right clears & replays → holds → loop.
         if (window.innerWidth >= 1024) {
             var listsContainer = document.getElementById('demo-lists');
             var remindersContainer = document.getElementById('demo-reminders');
@@ -2010,25 +2010,23 @@
                 var holdTime = 5000;
 
                 function playPhone(msgs, delays, onDone) {
-                    // Clear only THIS phone, then rebuild its conversation
                     msgs.forEach(function(m) { m.classList.remove('visible'); });
-
                     delays.forEach(function(delay, i) {
                         setTimeout(function() {
                             if (msgs[i]) msgs[i].classList.add('visible');
                         }, delay);
                     });
-
-                    // After last message + hold time, call next step
                     setTimeout(onDone, delays[delays.length - 1] + holdTime);
                 }
 
+                // Show right phone conversation immediately on load
+                remindersMsgs.forEach(function(m) { m.classList.add('visible'); });
+
                 function runCycle() {
-                    // Play left (right stays as-is from previous cycle)
+                    // Left animates (right stays visible from previous cycle or initial load)
                     playPhone(listsMsgs, listsDelays, function() {
-                        // Left now fully visible, play right (left stays visible)
+                        // Left now visible, right clears & replays
                         playPhone(remindersMsgs, remindersDelays, function() {
-                            // Both visible briefly, then loop
                             runCycle();
                         });
                     });
